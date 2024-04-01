@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('permission_role', function (Blueprint $table) {
-            $table->id();
-            $table->integer('role_id');
-            $table->integer('permission_id');
+        Schema::create('banner_image', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('url');
+            $table->unsignedBigInteger('banner_id');
+            $table->foreign('banner_id')->references('id')->on('banners');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission_role');
+        Schema::dropIfExists('banner_image');
     }
 };

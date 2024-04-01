@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('user_detail', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('total_price');
-
-            $table->string('status'); //trang thai don hang  
-
-
-
+            $table->string('fullname')->nullable();
+            $table->string('phone')->unique();
+            $table->string('city')->nullable();
+            $table->string('distrist')->nullable();
+            $table->string('ward')->nullable();
+            $table->string('address')->nullable();
+            $table->string('gender')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('user_detail');
     }
 };

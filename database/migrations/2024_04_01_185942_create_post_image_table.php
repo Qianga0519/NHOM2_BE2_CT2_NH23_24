@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('banner', function (Blueprint $table) {
+        Schema::create('post_image', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
             $table->string('name');
+            $table->string('url');
+            $table->unsignedBigInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banner');
+        Schema::dropIfExists('post_image');
     }
 };
