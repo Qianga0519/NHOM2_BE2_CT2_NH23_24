@@ -21,7 +21,7 @@ class HomeController extends Controller
 
     public function singleBlog()
     {
-        return view('clients.singleBlog');
+        return view('clients.blog_single');
     }
     public function contact()
     {
