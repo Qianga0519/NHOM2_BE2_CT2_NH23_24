@@ -64,8 +64,8 @@
                                 </div>
                                 <div class="top_bar_user">
                                     <div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt=""></div>
-                                    <div><a href="{{route('signup')}}">Sign up</a></div>
-                                    <div><a href="{{route('signin')}}">Sign in</a></div>
+                                    <div><a href="">Sign up</a></div>
+                                    <div><a href="">Sign in</a></div>
                                 </div>
                             </div>
                         </div>
@@ -163,12 +163,13 @@
                                         <div class="cat_menu_text">categories</div>
                                     </div>
                                     <ul class="cat_menu">
-                                        @foreach($categories as $value)
-                                        <li><a href="#">{{$value->name}}<i
-                                                    class="fas fa-chevron-right ml-auto"></i></a></li>
 
+                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
 
-                                        @endforeach
+                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
+                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
+                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
+
                                     </ul> {{-- <ul class="cat_menu">
                                         <li><a href="#">Computers & Laptops <i
                                                     class="fas fa-chevron-right ml-auto"></i></a></li>
