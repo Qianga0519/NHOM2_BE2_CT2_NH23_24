@@ -39,4 +39,8 @@ class HomeController extends Controller
     {
         return view('clients.regular');
     }
+    public function shop1()
+    {
+        return view('clients.shop1');
+    }
 }

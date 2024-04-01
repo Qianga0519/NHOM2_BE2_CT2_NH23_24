@@ -2158,7 +2158,7 @@ select option
     -moz-transform: transform: none;
     -ms-transform: transform: none;
     -o-transform: transform: none;
-    transform: none;
+    {transform: none;}
 }
 .footer .logo a
 {
