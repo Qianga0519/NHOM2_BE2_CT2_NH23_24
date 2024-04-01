@@ -10,6 +10,5 @@ class Manufacture extends Model
     use HasFactory;
     protected $fillable = [
         'name', 'country'
-
     ];
 }

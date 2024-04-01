@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    protected $products;
+    public function __construct()
+    {
+        $this->products = Product::get();
+    }
     public function index()
     {
-        return view('clients.home');
+        // dd($this->products->first()->productImage->first()->url);
+        return view('clients.home', ['products' => $this->products]);
     }
     public function shop()
     {
@@ -39,8 +46,10 @@ class HomeController extends Controller
     {
         return view('clients.regular');
     }
-    public function shop1()
+    public function test()
     {
-        return view('clients.shop1');
+        $product = Product::find(1)->productImage->first();
+        dd($product->url);
+        return view('clients.test');
     }
 }

@@ -19,7 +19,7 @@ class AvatarFactory extends Factory
         return [
             //
             'user_id' => 'user_id',
-            'url' => 'image_url'
+            'url' => 'url'
         ];
     }
 }
