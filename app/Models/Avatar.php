@@ -9,6 +9,6 @@ class Avatar extends Model
 {
     use HasFactory;
     protected  $fillable = [
-        'user_id', 'image_url'
+        'user_id', 'url'
     ];
 }

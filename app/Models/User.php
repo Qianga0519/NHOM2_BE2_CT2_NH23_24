@@ -22,7 +22,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'status'
+        'status',
+        'fullname',
+        'phone',
+        'city',
+        'distrist',
+        'ward',
+        'address',
+        'gender',
     ];
     protected $attributes = [
         'role_id' => 2

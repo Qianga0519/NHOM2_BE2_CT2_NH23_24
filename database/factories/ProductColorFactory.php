@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Avatar>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProductColor>
  */
-class AvatarFactory extends Factory
+class ProductColorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,8 @@ class AvatarFactory extends Factory
     {
         return [
             //
-            'user_id' => 'user_id',
-            'url' => 'url'
+            'color' => 'color',
+            'product_id' => 'product_id',
         ];
     }
 }

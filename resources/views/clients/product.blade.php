@@ -16,7 +16,6 @@
 <div class="single_product">
 	<div class="container">
 		<div class="row">
-
 			<!-- Images -->
 			<div class="col-lg-2 order-lg-1 order-2">
 				<ul class="image_list">
