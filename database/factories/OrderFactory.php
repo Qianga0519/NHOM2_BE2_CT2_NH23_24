@@ -18,8 +18,14 @@ class OrderFactory extends Factory
     {
         return [
             //
-            'total_price' => 'total_price',
+
             'user_id' => 'user_id',
+            'order_date' =>  now(),
+            'total' => 'total',
+            'note' => 'note',
+            'qty' => rand(1, 10),
+            'shipping' => 'shipping',
+            'status' => 0,
 
         ];
     }

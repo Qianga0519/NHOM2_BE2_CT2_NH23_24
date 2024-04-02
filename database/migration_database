@@ -40,6 +40,10 @@ php .\artisan make:model  Avatar
 php .\artisan make:factory  AvatarFactory --model=Avatar
 
 
+php .\artisan make:model ProductColor
+php .\artisan make:factory ProductColorFactory --model=ProductColor
+
+
 php .\artisan db:seed --class=RoleSeeder
 php .\artisan db:seed --class=CategorySeeder
 php .\artisan db:seed --class=ManufactureSeeder
@@ -52,6 +56,13 @@ php .\artisan db:seed --class=ProductSeeder
 php .\artisan db:seed --class=ProductImageSeeder
 
 
-	name	url	manufacture_id
+php .\artisan db:seed --class=ProductSeeder
+php .\artisan db:seed --class=DatabaseSeeder
+
+php .\artisan make:migration create_product_color_table
 
 
+php .\artisan migrate:reset
+php .\artisan migrate
+php .\artisan db:seed --class=ProductSeeder
+php .\artisan db:seed --class=DatabaseSeeder
