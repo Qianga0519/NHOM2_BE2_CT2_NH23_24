@@ -31,6 +31,10 @@ Route::get('/test', [HomeController::class, 'test'])->name('test');
 // });
 // Route::resource('/', HomeController::class)->except(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/dashboard', [AdminController::class, 'dashboard']) -> name('admin.dashboard');
+Route::group(['prefix' => '4admin'], function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::resources([
+        // 'user' => UsersController::class, //CURD USER
+        // 'role' => RoleController::class,
+    ]);
 });

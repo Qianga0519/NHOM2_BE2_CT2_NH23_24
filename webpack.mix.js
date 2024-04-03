@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const publicPath = 'views/admin-assets/';
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
