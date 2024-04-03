@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,7 @@ Route::get('/shop1', [HomeController::class, 'shop1'])->name('shop1');
 //     Route::resource('/', HomeController::class);
 // });
 // Route::resource('/', HomeController::class)->except(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/dashboard', [AdminController::class, 'dashboard']) -> name('admin.dashboard');
+});
