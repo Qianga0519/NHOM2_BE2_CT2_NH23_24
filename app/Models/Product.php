@@ -22,8 +22,8 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class);
     }
-    public function getAllProduct()
+    public function getAllProduct($take)
     {
-        return $this->all();
+        return $this->take($take);
     }
 }

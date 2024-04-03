@@ -1,3 +1,9 @@
+<?php 
+$routes = config('page_route');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -252,17 +258,12 @@
                                         <li class="hassubs">
                                             <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
                                             <ul>
-                                                <li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="product.html">Product<i
-                                                            class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="blog_single.html">Blog Post<i
-                                                            class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="regular.html">Regular Post<i
-                                                            class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="contact.html">Contact<i
-                                                            class="fas fa-chevron-down"></i></a></li>
+                                                @foreach($routes as $value)
+                                                <li>
+                                                    <a href="{{ route($value['route']) }}">
+                                                        {{ $value['name']}}<i class="fas fa-chevron-down"></i></a>
+                                                </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>

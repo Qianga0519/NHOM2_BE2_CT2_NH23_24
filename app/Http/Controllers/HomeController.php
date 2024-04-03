@@ -10,16 +10,19 @@ class HomeController extends Controller
     protected $products;
     public function __construct()
     {
-        $this->products = Product::get();
+        $this->products =  Product::get();
     }
     public function index()
     {
+        $products =  Product::orderBy('created_at', 'DESC')->take(16)->get();
+        // dd($this->products->take(5)->toArray());
         // dd($this->products->first()->productImage->first()->url);
-        return view('clients.home', ['products' => $this->products]);
+        return view('clients.home', ['products' => $products]);
     }
     public function shop()
     {
-        return view('clients.shop');
+        $products =  Product::orderBy('created_at', 'DESC')->paginate(15);
+        return view('clients.shop', compact('products'));
     }
     public function blog()
     {

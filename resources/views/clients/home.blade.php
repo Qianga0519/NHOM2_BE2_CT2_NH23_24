@@ -8,8 +8,6 @@
         <div class="row fill_height">
             <div class="banner_product_image"><img src="{{url('site')}}/images/banner_product.png" alt="abc">
             </div>
-
-
             <div class="col-lg-5 offset-lg-4 fill_height">
                 <div class="banner_content">
                     <h1 class="banner_text">new era of smartphones</h1>
@@ -265,7 +263,12 @@
                                         class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
                                         <div
                                             class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            <img src="{{asset('images/'. $value->productImage->first()->url)}}" alt="">
+                                            {{-- <img src="{{asset('images/'. $value->productImage->first()->url)}}"
+                                                alt=""> --}}
+                                            @if ($value->productImage->first())
+                                            <img src="{{ asset('images/'. $value->productImage->first()->url) }}"
+                                                alt="">
+                                            @endif
                                         </div>
                                         <div class="product_content">
                                             <div class="product_price">{{number_format($value->price)}} VND</div>

@@ -39,9 +39,12 @@ class DataBaseSeeder extends Seeder
                 'country' =>  Str::random(10)
             ]);
         }
+        // ['Meizu', 'meizu.png']
+        // ['Lenovo', 'lenovo.png']
         $manufactures = [
-            ['Samsung', 'samsung.png'], ['Xiaomi', 'xiaomi.png'], ['Google', 'google.png'], ['Meizu', 'meizu.png'],
-            ['Vsmart', 'vsmart.png'], ['Lenovo', 'lenovo.png'], ['Iphone', 'iphone.png'], ['Vivo', 'vivo.png']
+            ['Samsung', 'samsung.png'], ['Xiaomi', 'xiaomi.png'], ['Google', 'google.png'], ['OPPO', 'oppo.png'],
+            ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Iphone', 'iphone.png'], ['Vivo', 'vivo.png'],
+            ['HONOR', 'honor.png']
         ];
         foreach ($manufactures as $key => $value) {
             ManufactureImage::factory()->create([

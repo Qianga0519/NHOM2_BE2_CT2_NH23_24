@@ -1511,13 +1511,14 @@ select option
 }
 .footer .logo
 {
-	top: auto;
-	-webkit-transform: transform: none;
-    -moz-transform: transform: none;
-    -ms-transform: transform: none;
-    -o-transform: transform: none;
-    transform: none;
+top: auto;
+-webkit-transform: none;
+-moz-transform: none;
+-ms-transform: none;
+-o-transform: none;
+transform: none;
 }
+
 .footer .logo a
 {
 	color: #000000;

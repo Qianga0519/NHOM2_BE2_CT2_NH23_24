@@ -1419,13 +1419,21 @@ select option
 	margin-bottom: 18px;
 	margin-top: -10px;
 }
-.footer .logo
+/* .footer .logo
 {
 	top: auto;
 	-webkit-transform: transform: none;
     -moz-transform: transform: none;
     -ms-transform: transform: none;
     -o-transform: transform: none;
+    transform: none;
+} */
+.footer .logo {
+    top: auto;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
     transform: none;
 }
 .footer .logo a
