@@ -38,6 +38,7 @@ php .\artisan make:factory  ContactFactory --model=Contact
 php .\artisan make:seeder AvatarSeeder 
 php .\artisan make:model  Avatar 
 php .\artisan make:factory  AvatarFactory --model=Avatar
+php .\artisan make:factory  ColorFactory --model=Color
 
 
 php .\artisan make:model ProductColor
@@ -60,6 +61,7 @@ php .\artisan db:seed --class=ProductSeeder
 php .\artisan db:seed --class=DatabaseSeeder
 
 php .\artisan make:migration create_product_color_table
+php .\artisan make:migration create_color_table
 
 
 php .\artisan migrate:reset

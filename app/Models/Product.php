@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
@@ -21,6 +22,10 @@ class Product extends Model
     public function productImage(): HasMany
     {
         return $this->hasMany(ProductImage::class);
+    }
+    public function colors(): belongsToMany
+    {
+        return $this->belongsToMany(Color::class, 'product_color');
     }
     public function getAllProduct($take)
     {

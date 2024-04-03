@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
+use App\Models\Color;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -18,7 +19,8 @@ class ProductSeeder extends Seeder
     {
         // xiaomi 3 - samsung 1 - iphone 7
         // name - des - price - feature - qty - sale_amout - cate - manu
-        $Products = [
+        //__PRODUCT_SMARTPHONE__
+        $products = [
             ['Samsung Galaxy S23', 'Hiệu năng vượt trội với con chip hàng đầu Qualcomm - 
             Phục vụ tốt nhu cầu đa nhiệm ngày của người dùng.', 13750000, rand(0, 1), rand(0, 20), 150000, 1, 1],
             ['Samsung Galaxy S23 Ultra', 'Thoả sức chụp ảnh, quay video chuyên nghiệp - Camera đến 200MP, 
@@ -95,9 +97,8 @@ class ProductSeeder extends Seeder
             ['OPPO Reno11 F 5G', 'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G, hứa hẹn mang đến 
             trải nghiệm tốt khi sử dụng.', 8990000, rand(0, 1), rand(0, 20), 0, 1, 4],
         ];
-        // product_item
-        // __SAMSUNG
-        foreach ($Products as $key => $value) {
+
+        foreach ($products as $key => $value) {
             Product::factory()->create([
                 'name' => $value[0],
                 'description' => $value[1],
@@ -105,6 +106,14 @@ class ProductSeeder extends Seeder
                 'qty' => $value[4], 'sale_amount' => $value[5],
                 'category_id' => $value[6],
                 'manufacture_id' => $value[7],
+            ]);
+            ProductColor::factory()->create([
+                'color_id' => rand(1, 9),
+                'product_id' =>  $key + 1,
+            ]);
+            ProductColor::factory()->create([
+                'color_id' => rand(1, 9),
+                'product_id' =>  rand(1, 18),
             ]);
         }
 
@@ -136,11 +145,14 @@ class ProductSeeder extends Seeder
             ]);
         }
 
-        $color = ['Black', 'White', 'Yellow', 'Blue', 'Pink', 'Red', 'Gray', 'Green', 'Purple'];
+        $color = [
+            ['Black', '#000'], ['White', '#fff'], ['Yellow', '#ff0'], ['Blue', '#00f'],
+            ['Pink', '#f0f'], ['Red', '#f00'], ['Gray', '#888'], ['Green', '#0f0'], ['Purple', '#808']
+        ];
         foreach ($color as $value) {
-            ProductColor::factory()->create([
-                'color' => $value,
-                'product_id' => rand(1, 5),
+            Color::factory()->create([
+                'color' => $value[0],
+                'hex' => $value[1]
             ]);
         }
     }

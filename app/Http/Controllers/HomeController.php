@@ -14,10 +14,15 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $products =  Product::orderBy('created_at', 'DESC')->take(16)->get();
+        $products =  Product::orderBy('created_at', 'DESC')->where('feature', '=', 1)->take(16)->get();
+        $products_sale =  Product::orderBy('created_at', 'DESC')->where('sale_amount', '>', 0)->take(16)->get();
+        // $products_color =  Product::take(16)->get(); 
+        // $product =  Product::find(1);
+        // dd($product->color->toArray());
+
         // dd($this->products->take(5)->toArray());
         // dd($this->products->first()->productImage->first()->url);
-        return view('clients.home', ['products' => $products]);
+        return view('clients.home', ['products' => $products, 'products_sale' => $products_sale]);
     }
     public function shop()
     {

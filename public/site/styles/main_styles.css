@@ -1769,6 +1769,7 @@ select option
     outline: none;
     cursor: pointer;
     font-size: 8px;
+	border: .2px solid;
 }
 .product_color input:checked::after
 {
