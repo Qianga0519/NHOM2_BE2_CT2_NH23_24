@@ -15,9 +15,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->decimal('total_price');
+            $table->dateTime('order_date');
+            $table->text('note');
+            $table->integer('qty');
+            $table->decimal('shipping', 10);
+            $table->decimal('total', 10);
             $table->string('status'); //trang thai don hang
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

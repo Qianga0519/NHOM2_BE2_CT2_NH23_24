@@ -22,8 +22,18 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'status',
+        'fullname',
+        'phone',
+        'city',
+        'distrist',
+        'ward',
+        'address',
+        'gender',
     ];
-
+    protected $attributes = [
+        'role_id' => 2
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,27 +52,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = User::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'email_verified_at' => now(),
-            'password' => 'password', // You may use bcrypt or your preferred encryption method
-            'status' => 1, // Default status
-            'remember_token' => Str::random(10),
-        ];
-    }
 }
