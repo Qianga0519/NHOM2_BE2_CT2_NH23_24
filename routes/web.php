@@ -33,7 +33,7 @@ Route::prefix('')->group(function () {
     Route::get('contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('product', [HomeController::class, 'product'])->name('product');
     Route::get('regular', [HomeController::class, 'regular'])->name('regular');
-    Route::get('{slug}', [HomeController::class, 'product_category'])->name('product_category');
+    Route::get('category/{slug}', [HomeController::class, 'product_category'])->name('product_category');
 });
 
 

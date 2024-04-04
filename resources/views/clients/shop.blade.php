@@ -128,7 +128,7 @@
                     </div>
                     {{-- giu lai tham so khi tim kiem phan trang --}}
                     {{-- <div class="shop_page_nav d-flex flex-row"> --}}
-                        {{ $products->appends(request()->all())->links('layout.custom.pagination') }}
+                        {{$products->appends(request()->all())->links('layout.custom.pagination') }}
                     </div>
                 </div>
             </div>
