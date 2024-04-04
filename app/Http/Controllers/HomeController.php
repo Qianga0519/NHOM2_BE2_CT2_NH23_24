@@ -2,38 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
     protected $products;
+    protected $categories;
+    protected $banners;
+    protected $cate;
+    protected $prod;
+    protected $banner;
+    // protected $route_page;
     public function __construct()
     {
         $this->products =  Product::get();
+        $this->categories =  Category::get();
+        $this->banners =  Banner::get();
+        $this->cate = new Category();
+        $this->prod = new Product();
+        $this->banner = new Banner();
     }
     public function index()
     {
-        $products =  Product::orderBy('created_at', 'DESC')->where('feature', '=', 1)->take(16)->get();
-        $products_sale =  Product::orderBy('created_at', 'DESC')->where('sale_amount', '>', 0)->take(16)->get();
+        $products =  $this->prod->productFeature()->take(16)->get();
+        $products_sale =  $this->prod->productSale()->take(16)->get();
+        // $lastProduct =  $this->products->sortBy('created_at')->first();
+        $lastProduct =  $this->products->find(12);
+        // dd($lastProduct->banner->first()->image->url);
+        // $lastBanner = $this->banners->sortBy('created_at')->first();
         // $products_color =  Product::take(16)->get(); 
         // $product =  Product::find(1);
-        // dd($product->color->toArray());
-
+        // dd($product->productImage->toArray());
         // dd($this->products->take(5)->toArray());
         // dd($this->products->first()->productImage->first()->url);
-        return view('clients.home', ['products' => $products, 'products_sale' => $products_sale]);
+        return view('clients.home', [
+            'products' => $products,
+            'products_sale' => $products_sale,
+            'lastProduct' => $lastProduct
+        ]);
     }
-    public function shop()
-    {
-        $products =  Product::orderBy('created_at', 'DESC')->paginate(15);
-        return view('clients.shop', compact('products'));
-    }
+
     public function blog()
     {
         return view('clients.blog');
     }
-
     public function singleBlog()
     {
         return view('clients.blog_single');
@@ -54,10 +70,16 @@ class HomeController extends Controller
     {
         return view('clients.regular');
     }
-    public function test()
+    public function product_category($slug)
     {
-        $product = Product::find(1)->productImage->first();
-        dd($product->url);
-        return view('clients.test');
+        $cates = Category::where('slug', $slug)->first();
+        $products = $cates->products()->paginate(15);
+        // dd($products);
+        return view('clients.shop', compact('cates', 'products'));
+    }
+    public function shop()
+    {
+        $products =  Product::orderBy('created_at', 'DESC')->paginate(15);
+        return view('clients.shop', compact('products'));
     }
 }

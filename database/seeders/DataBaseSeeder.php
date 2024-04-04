@@ -53,10 +53,21 @@ class DataBaseSeeder extends Seeder
                 'manufacture_id' => $key + 1
             ]);
         }
-        $categories = ['Smart Phone', 'Laptop', 'Table', 'Keyboard', 'watch', 'Headphone', 'Mouse', 'Camera', 'Other'];
+        $categories = [
+            ['Smart Phone', 'smartphone'],
+            ['Laptop', 'laptop'],
+            ['Tablet',  'tablet'],
+            ['Keyboard', 'keyboard'],
+            ['Watch',  'watch'],
+            ['Headphone',  'headphone'],
+            ['Mouse',  'mouse'],
+            ['Camera', 'camera'],
+            ['Other', 'other']
+        ];
         foreach ($categories as $value) {
             Category::factory()->create([
-                'name' => $value,
+                'name' => $value[0],
+                'slug' => $value[1],
             ]);
         }
 

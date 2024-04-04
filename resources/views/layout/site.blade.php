@@ -1,8 +1,6 @@
 <?php 
 $routes = config('page_route');
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,22 +48,22 @@ $routes = config('page_route');
                             <div class="top_bar_content ml-auto">
                                 <div class="top_bar_menu">
                                     <ul class="standard_dropdown top_bar_dropdown">
-                                        <li>
+                                        {{-- <li>
                                             <a href="#">English<i class="fas fa-chevron-down"></i></a>
                                             <ul>
                                                 <li><a href="#">Italian</a></li>
                                                 <li><a href="#">Spanish</a></li>
                                                 <li><a href="#">Japanese</a></li>
                                             </ul>
-                                        </li>
-                                        <li>
+                                        </li> --}}
+                                        {{-- <li>
                                             <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
                                             <ul>
                                                 <li><a href="#">EUR Euro</a></li>
                                                 <li><a href="#">GBP British Pound</a></li>
                                                 <li><a href="#">JPY Japanese Yen</a></li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                                 <div class="top_bar_user">
@@ -88,7 +86,7 @@ $routes = config('page_route');
                         <!-- Logo -->
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
-                                <div class="logo"><a href="#">SmartS</a></div>
+                                <div class="logo"><a href="{{route('home')}}">SmartS</a></div>
                             </div>
                         </div>
 
@@ -142,7 +140,7 @@ $routes = config('page_route');
                                             <div class="cart_count"><span>10</span></div>
                                         </div>
                                         <div class="cart_content">
-                                            <div class="cart_text"><a href="#">Cart</a></div>
+                                            <div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
                                             <div class="cart_price">$85</div>
                                         </div>
                                     </div>
@@ -169,14 +167,12 @@ $routes = config('page_route');
                                         <div class="cat_menu_text">categories</div>
                                     </div>
                                     <ul class="cat_menu">
-
-                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
-
-                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
-                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
-                                        <li><a href="#">123<i class="fas fa-chevron-right ml-auto"></i></a></li>
-
-                                    </ul> {{-- <ul class="cat_menu">
+                                        @foreach($categories as $value)
+                                        <li><a href="{{route('product_category' , ['slug'=>$value->slug])}}">{{$value['name']}}<i
+                                                    class="fas fa-chevron-right ml-auto"></i></a></li>
+                                        @endforeach
+                                    </ul>
+                                    {{-- <ul class="cat_menu">
                                         <li><a href="#">Computers & Laptops <i
                                                     class="fas fa-chevron-right ml-auto"></i></a></li>
                                         <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
@@ -216,45 +212,8 @@ $routes = config('page_route');
 
                                 <div class="main_nav_menu ml-auto">
                                     <ul class="standard_dropdown main_nav_dropdown">
-                                        <li><a href="index.html">Home<i class="fas fa-chevron-down"></i></a></li>
-                                        <li class="hassubs">
-                                            <a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                    <ul>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                        </li>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                        </li>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="hassubs">
-                                            <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                    <ul>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                        </li>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                        </li>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{{route('home')}}">Home<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{route('shop')}}">Shop<i class="fas fa-chevron-down"></i></a></li>
                                         <li class="hassubs">
                                             <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
                                             <ul>
@@ -266,8 +225,9 @@ $routes = config('page_route');
                                                 @endforeach
                                             </ul>
                                         </li>
-                                        <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{route('blog')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{route('contact')}}">Contact<i
+                                                    class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -305,7 +265,7 @@ $routes = config('page_route');
                                             placeholder="Search for products...">
                                     </form>
                                 </div>
-                                <ul class="page_menu_nav">
+                                {{-- <ul class="page_menu_nav">
                                     <li class="page_menu_item has-children">
                                         <a href="#">Language<i class="fa fa-angle-down"></i></a>
                                         <ul class="page_menu_selection">
@@ -367,7 +327,7 @@ $routes = config('page_route');
                                                 class="fa fa-angle-down"></i></a></li>
                                     <li class="page_menu_item"><a href="contact.html">contact<i
                                                 class="fa fa-angle-down"></i></a></li>
-                                </ul>
+                                </ul> --}}
 
                                 <div class="menu_contact">
                                     <div class="menu_contact_item">

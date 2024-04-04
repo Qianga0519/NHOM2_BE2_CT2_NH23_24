@@ -36,13 +36,22 @@ php .\artisan make:model  Contact
 php .\artisan make:factory  ContactFactory --model=Contact
 
 php .\artisan make:seeder AvatarSeeder 
-php .\artisan make:model  Avatar 
+php .\artisan make:model  Avatar --resource
 php .\artisan make:factory  AvatarFactory --model=Avatar
 php .\artisan make:factory  ColorFactory --model=Color
 
-
+php .\artisan make:controller  CategoryController --resource
 php .\artisan make:model ProductColor
 php .\artisan make:factory ProductColorFactory --model=ProductColor
+
+
+php .\artisan make:controller  BannerImageController --resource
+php .\artisan make:model BannerImage
+php .\artisan make:factory BannerImageFactory --model=BannerImage
+
+php .\artisan make:controller  BannerController --resource
+php .\artisan make:model Banner
+php .\artisan make:factory BannerFactory --model=Banner
 
 
 php .\artisan db:seed --class=RoleSeeder

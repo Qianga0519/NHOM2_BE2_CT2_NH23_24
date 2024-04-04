@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
 use App\Models\Color;
+use App\Models\Banner;
+use App\Models\BannerImage;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -21,10 +23,10 @@ class ProductSeeder extends Seeder
         // name - des - price - feature - qty - sale_amout - cate - manu
         //__PRODUCT_SMARTPHONE__
         $products = [
-            ['Samsung Galaxy S23', 'Hiệu năng vượt trội với con chip hàng đầu Qualcomm - 
-            Phục vụ tốt nhu cầu đa nhiệm ngày của người dùng.', 13750000, rand(0, 1), rand(0, 20), 150000, 1, 1],
             ['Samsung Galaxy S23 Ultra', 'Thoả sức chụp ảnh, quay video chuyên nghiệp - Camera đến 200MP, 
             chế độ chụp đêm cải tiến, bộ xử lí ảnh thông minh', 22990000, rand(0, 1), rand(0, 20), 100000, 1, 1],
+            ['Samsung Galaxy S23', 'Hiệu năng vượt trội với con chip hàng đầu Qualcomm - 
+            Phục vụ tốt nhu cầu đa nhiệm ngày của người dùng.', 13750000, rand(0, 1), rand(0, 20), 150000, 1, 1],
             ['iPhone 15 128GB', 'iPhone 15 128GB được trang bị màn hình Dynamic Island kích thước 6.1 
             inch với công nghệ hiển thị Super Retina XDR màn lại trải nghiệm hình ảnh vượt trội.', 19790000, rand(0, 1), rand(0, 20), 0, 1, 7],
             ['Xiaomi Redmi Note 13', 'Redmi Note 13 mang đến những tính năng
@@ -76,16 +78,7 @@ class ProductSeeder extends Seeder
               kế sang trọng.
             ', 26490000, rand(0, 1), rand(0, 20), 0, 1, 7
             ],
-            [
-                'Samsung Galaxy S24 5G', 'Trong sự kiện Unpacked 2024 diễn ra vào ngày 18/01, Samsung đã chính thức ra mắt chiếc điện thoại Samsung Galaxy S24. Sản phẩm này mang đến nhiều cải tiến độc đáo, bao gồm việc sử dụng chip mới của Samsung, tích hợp nhiều tính năng thông minh sử dụng 
-            trí tuệ nhân tạo và cải thiện đáng kể hiệu suất chụp ảnh từ hệ thống camera.',
-                20490000, rand(0, 1), rand(0, 20), 300000, 1, 1
-            ],
-            [
-                'Samsung Galaxy S24+ 5G', 'Samsung đã cho ra mắt Samsung Galaxy S24+ 5G 256GB, chiếc điện thoại đẳng cấp của họ tại sự kiện hàng năm diễn ra vào ngày 18/01 tại Mỹ. Điểm độc đáo của sản phẩm nằm ở chip mới của Samsung, đi kèm với sự phát triển trong việc bổ sung nhiều tính năng
-                 thông minh có tích hợp AI và tăng cường khả năng chụp ảnh ở phần camera.',
-                23490000, rand(0, 1), rand(0, 20), 200000, 1, 1
-            ],
+
             ['Xiaomi 14 5G', 'Xiaomi 14 được ra mắt với tâm hướng mang đến những trải nghiệm mới mẻ và chất lượng. Như một lá cờ đầu trong ngành công nghệ, điện thoại không chỉ có thiết kế đẹp mà còn ấn tượng về màn hình, cấu hình mạnh mẽ, máy ảnh chất lượng và pin có thời gian sử dụng 
             lâu dài.', 22490000, rand(0, 1), rand(0, 20), 250000, 1, 3],
             ['  Xiaomi Redmi Note 13 Pro', 'Sự bùng nổ của công nghệ di động trong những năm gần đây đã mang đến cho người dùng vô số lựa chọn smartphone đa dạng. Trong phân khúc tầm trung, Xiaomi Redmi Note 13 Pro 128GB nổi lên như một ứng cử viên sáng giá với những ưu điểm vượt trội về 
@@ -96,6 +89,16 @@ class ProductSeeder extends Seeder
              người dùng.', 5290000, rand(0, 1), rand(0, 20), 0, 1, 6],
             ['OPPO Reno11 F 5G', 'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G, hứa hẹn mang đến 
             trải nghiệm tốt khi sử dụng.', 8990000, rand(0, 1), rand(0, 20), 0, 1, 4],
+            [
+                'Samsung Galaxy S24 5G', 'Trong sự kiện Unpacked 2024 diễn ra vào ngày 18/01, Samsung đã chính thức ra mắt chiếc điện thoại Samsung Galaxy S24. Sản phẩm này mang đến nhiều cải tiến độc đáo, bao gồm việc sử dụng chip mới của Samsung, tích hợp nhiều tính năng thông minh sử dụng 
+            trí tuệ nhân tạo và cải thiện đáng kể hiệu suất chụp ảnh từ hệ thống camera.',
+                20490000, rand(0, 1), rand(0, 20), 300000, 1, 1
+            ],
+            [
+                'Samsung Galaxy S24+ 5G', 'Samsung đã cho ra mắt Samsung Galaxy S24+ 5G 256GB, chiếc điện thoại đẳng cấp của họ tại sự kiện hàng năm diễn ra vào ngày 18/01 tại Mỹ. Điểm độc đáo của sản phẩm nằm ở chip mới của Samsung, đi kèm với sự phát triển trong việc bổ sung nhiều tính năng
+                 thông minh có tích hợp AI và tăng cường khả năng chụp ảnh ở phần camera.',
+                23490000, rand(0, 1), rand(0, 20), 200000, 1, 1
+            ],
         ];
 
         foreach ($products as $key => $value) {
@@ -108,7 +111,7 @@ class ProductSeeder extends Seeder
                 'manufacture_id' => $value[7],
             ]);
             ProductColor::factory()->create([
-                'color_id' => rand(1, 9),
+                'color_id' => rand(1, 3),
                 'product_id' =>  $key + 1,
             ]);
             ProductColor::factory()->create([
@@ -118,8 +121,8 @@ class ProductSeeder extends Seeder
         }
 
         $images = [
-            ['Samsung Galaxy S23', 'samsung-galaxy-s23.jpg'],
             ['Samsung Galaxy S23 Ultra', 'samsung-galaxy-s23-ultra.jpg'],
+            ['Samsung Galaxy S23', 'samsung-galaxy-s23.jpg'],
             ['iPhone 15 128GB', 'iphone-15.jpg'],
             ['Xiaomi Redmi Note 13', 'xiaomi-redmi-note-13.jpg'],
             ['Xiaomi Redmi A2', 'xiaomi-redmi-a2.jpg'],
@@ -129,13 +132,13 @@ class ProductSeeder extends Seeder
             ['Samsung Galaxy A15', 'samsung-galaxy-a15.jpg'],
             ['iphone 15 Pro Max', 'iphone-15-pro-max.jpg'],
             ['iphone 15 Pro', 'iphone-15-pro.jpg'],
-            ['Samsung Galaxy S24 5G', 'samsung-galaxy-s24.jpg'],
-            ['Samsung Galaxy S24+ 5G', 'samsung-galaxy-s24-plus.jpg'],
             ['Xiaomi 14 5G', 'xiaomi-14.jpg'],
             ['Xiaomi Redmi Note 13 Pro', 'xiaomi-redmi-note-13-pro.jpg'],
             ['realme Note 50', 'realme-note-50.jpg'],
             ['realme C67', 'realme-c67.jpg'],
             ['OPPO Reno11 F 5G', 'oppo-reno-11.jpg'],
+            ['Samsung Galaxy S24 5G', 'samsung-galaxy-s24.jpg'],
+            ['Samsung Galaxy S24+ 5G', 'samsung-galaxy-s24-plus.jpg'],
         ];
         foreach ($images as $key => $value) {
             ProductImage::factory()->create([
@@ -145,14 +148,38 @@ class ProductSeeder extends Seeder
             ]);
         }
 
+        // $color = [
+        //     ['Black', '#000'], ['White', '#fff'], ['Yellow', '#ff0'], ['Blue', '#00f'],
+        //     ['Pink', '#f0f'], ['Red', '#f00'], ['Gray', '#888'], ['Green', '#0f0'], ['Purple', '#808']
+        // ];
         $color = [
-            ['Black', '#000'], ['White', '#fff'], ['Yellow', '#ff0'], ['Blue', '#00f'],
-            ['Pink', '#f0f'], ['Red', '#f00'], ['Gray', '#888'], ['Green', '#0f0'], ['Purple', '#808']
+            ['Black', '#000'], ['White', '#fff'], ['Gray', '#888']
         ];
         foreach ($color as $value) {
             Color::factory()->create([
                 'color' => $value[0],
                 'hex' => $value[1]
+            ]);
+        }
+        $banner = [
+            ['NEW ERA OF SMARTPHONES S23 ULTRA', 1],
+            ['NEW ERA OF SMARTPHONES S24+', 18]
+        ];
+        $bannerImg = [
+            ['banner ss s23 ultra', 'banner_ss23u.jpg', 1],
+            ['banner ss s24 plus', 'banner_ss24p.jpg', 2]
+        ];
+        foreach ($banner as $value) {
+            Banner::factory()->create([
+                'name' => $value[0],
+                'product_id' => $value[1]
+            ]);
+        }
+        foreach ($bannerImg as $value) {
+            BannerImage::factory()->create([
+                'name' => $value[0],
+                'url' => $value[1],
+                'banner_id' => $value[2]
             ]);
         }
     }

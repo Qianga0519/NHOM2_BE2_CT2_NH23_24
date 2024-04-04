@@ -1,15 +1,23 @@
 <?php
 return [
     [
-        'name' => 'shop',
+        'name' => 'Shop',
         'route' => 'shop',
     ],
     [
-        'name' => 'blog',
+        'name' => 'Blog',
         'route' => 'blog',
     ],
     [
-        'name' => 'contact',
+        'name' => 'Contact',
         'route' => 'contact',
+    ],
+    [
+        'name' => 'Cart',
+        'route' => 'cart',
+    ],
+    [
+        'name' => 'Regular',
+        'route' => 'regular',
     ],
 ];

@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('banner', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banner');
+        Schema::dropIfExists('banners');
     }
 };
