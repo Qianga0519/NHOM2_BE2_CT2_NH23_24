@@ -115,7 +115,8 @@
                             <div class="product_content">
                                 <div class="product_price">{{number_format($value['price'])}} VND</div>
                                 <div class="product_name">
-                                    <div><a href="#" tabindex="0">{{$value['name']}}</a></div>
+                                    <div><a href="{{route('product', ['id' => $value['id']])}}"
+                                            tabindex="0">{{$value['name']}}</a></div>
                                 </div>
                             </div>
                             <div class="product_fav"><i class="fas fa-heart"></i></div>

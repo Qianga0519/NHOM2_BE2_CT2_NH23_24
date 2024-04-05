@@ -7,7 +7,6 @@
     <div class="container fill_height">
         <div class="row fill_height">
             @if(!isset($lastProduct))
-
             <div class="banner_product_image">
                 <img src="{{asset('images/' . $lastProduct->banner->first()->image->url)}}" alt="abc">
             </div>
@@ -297,7 +296,7 @@
                                         <div class="product_content">
                                             <div class="product_price">{{number_format($value->price)}} VND</div>
                                             <div class="product_name">
-                                                <div><a href="">{{$value->name}}</a></div>
+                                                <div><a href="{{route('product', ['id' => $value['id']])}}">{{$value->name}}</a></div>
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
@@ -345,7 +344,7 @@
                                                 {{number_format($discount)}}<span>{{number_format($value['price'])}}</span>
                                             </div>
                                             <div class="product_name">
-                                                <div><a href="product.html">{{$value['name']}}</a></div>
+                                                <div><a href="{{route('product', ['id' => $value['id']])}}">{{$value['name']}}</a></div>
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">

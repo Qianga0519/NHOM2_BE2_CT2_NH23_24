@@ -168,7 +168,7 @@ $routes = config('page_route');
                                     </div>
                                     <ul class="cat_menu">
                                         @foreach($categories as $value)
-                                        <li><a href="{{route('product_category' , ['slug'=>$value->slug])}}">{{$value['name']}}<i
+                                        <li><a href="{{route('view' , ['slug'=>$value->slug])}}">{{$value['name']}}<i
                                                     class="fas fa-chevron-right ml-auto"></i></a></li>
                                         @endforeach
                                     </ul>

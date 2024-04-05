@@ -62,19 +62,21 @@ class HomeController extends Controller
     {
         return view('clients.cart');
     }
-    public function product()
+    public function product($id)
     {
-        return view('clients.product');
+        $product = Product::find($id);
+        // dd($product->productImage->toArray());
+        return view('clients.product', compact('product'));
     }
     public function regular()
     {
         return view('clients.regular');
     }
-    public function product_category($slug)
+    public function view($slug)
     {
         $cates = Category::where('slug', $slug)->first();
         $products = $cates->products()->paginate(15);
-        // dd($products);
+
         return view('clients.shop', compact('cates', 'products'));
     }
     public function shop()

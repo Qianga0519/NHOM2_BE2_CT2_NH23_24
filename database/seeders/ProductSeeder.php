@@ -140,6 +140,7 @@ class ProductSeeder extends Seeder
             ['Samsung Galaxy S24 5G', 'samsung-galaxy-s24.jpg'],
             ['Samsung Galaxy S24+ 5G', 'samsung-galaxy-s24-plus.jpg'],
         ];
+
         foreach ($images as $key => $value) {
             ProductImage::factory()->create([
                 'name' => $value[0],
@@ -148,6 +149,14 @@ class ProductSeeder extends Seeder
             ]);
         }
 
+
+        for ($i = 0; $i < 3; $i++) {
+            ProductImage::factory()->create([
+                'name' => 'Samsung Galaxy S23 Ultra',
+                'url' => 'samsung-galaxy-s23-ultra-' . ($i + 1) . '.jpg',
+                'product_id' => 1,
+            ]);
+        }
         // $color = [
         //     ['Black', '#000'], ['White', '#fff'], ['Yellow', '#ff0'], ['Blue', '#00f'],
         //     ['Pink', '#f0f'], ['Red', '#f00'], ['Gray', '#888'], ['Green', '#0f0'], ['Purple', '#808']
