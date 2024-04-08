@@ -8,8 +8,8 @@ use App\Models\ProductImage;
 use App\Models\Color;
 use App\Models\Banner;
 use App\Models\BannerImage;
-use App\Models\Review;
 use Illuminate\Database\Seeder;
+use App\Models\Review;
 
 class ProductSeeder extends Seeder
 {
@@ -99,7 +99,8 @@ class ProductSeeder extends Seeder
                 'Samsung Galaxy S24+ 5G', 'Samsung đã cho ra mắt Samsung Galaxy S24+ 5G 256GB, chiếc điện thoại đẳng cấp của họ tại sự kiện hàng năm diễn ra vào ngày 18/01 tại Mỹ. Điểm độc đáo của sản phẩm nằm ở chip mới của Samsung, đi kèm với sự phát triển trong việc bổ sung nhiều tính năng
                  thông minh có tích hợp AI và tăng cường khả năng chụp ảnh ở phần camera.',
                 23490000, rand(0, 1), rand(0, 20), 200000, 1, 1
-            ],
+            ]
+
         ];
 
         foreach ($products as $key => $value) {
