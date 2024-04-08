@@ -5,13 +5,12 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/shop_styles.css">
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/shop_responsive.css">
-<link rel="stylesheet" type="text/css" href="{{url('custom')}}/pagination.css">
+<link rel="stylesheet" type="text/css" href="{{url('site')}}/custom/pagination.css">
 @endsection
 @section('main')
 <!-- Home -->
 <div class="home">
-    <div class="home_background parallax-window" data-parallax="scroll"
-        data-image-src="{{url('site')}}/images/shop_background.jpg"></div>
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{url('site')}}/images/shop_background.jpg"></div>
     <div class="home_overlay"></div>
     <div class="home_content d-flex flex-column align-items-center justify-content-center">
         <h2 class="home_title">
@@ -51,8 +50,7 @@
                         <div class="filter_price">
                             <div id="slider-range" class="slider_range"></div>
                             <p>Range: </p>
-                            <p><input type="text" id="amount" class="amount" readonly
-                                    style="border:0; font-weight:bold;"></p>
+                            <p><input type="text" id="amount" class="amount" readonly style="border:0; font-weight:bold;"></p>
                         </div>
                     </div>
                     <div class="sidebar_section">
@@ -84,15 +82,14 @@
 
                 <div class="shop_content">
                     <div class="shop_bar clearfix">
-                        <div class="shop_product_count"><span>@yield('count_product')</span> products found</div>
+                        <div class="shop_product_count"><span>{{$products->total()}}</span> products found</div>
                         <div class="shop_sorting">
                             <span>Sort by:</span>
                             <ul>
                                 <li>
                                     <span class="sorting_text">highest rated<i class="fas fa-chevron-down"></span></i>
                                     <ul>
-                                        <li class="shop_sorting_button"
-                                            data-isotope-option='{ "sortBy": "original-order" }'>highest rated
+                                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>highest rated
                                         </li>
                                         <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>name
                                         </li>
@@ -105,7 +102,42 @@
                     </div>
                     <div class="product_grid">
                         <div class="product_grid_border"></div>
-                        @foreach($products as $value)
+                        @foreach($products as $index => $value)
+                        @if($value['sale_amount'] > 0)
+                        <?php $markup = ($value['sale_amount'] / $value['price'])*100 ; 
+                                        $discount = $value['price'] - $value['sale_amount'];
+                                ?>
+                        <!-- Slider Item -->
+                        <div class="border_active"></div>
+                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                <img src="{{asset('images/' . $value->productImage->first()->url)}}" alt="">
+                            </div>
+                            <div class="product_content">
+                                <div class="product_price discount">
+                                    {{number_format($discount)}}<span>{{number_format($value['price'])}}</span>
+                                </div>
+                                <div class="product_name">
+                                    <div><a href="{{route('product', ['id' => $value['id']])}}">{{$value['name']}}</a></div>
+                                </div>
+                                <div class="product_extras">
+                                    <div class="product_color">
+                                        @if ($value->colors)
+                                        @foreach($value->colors as $value)
+                                        <input type="radio" name="product_color" style="background:{{$value->hex}}">
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                    <button class="product_cart_button">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product_fav"><i class="fas fa-heart"></i></div>
+                            <ul class="product_marks">
+                                <li class="product_mark product_discount">{{ number_format($markup,1)}}%</li>
+                                <li class="product_mark product_new">new</li>
+                            </ul>
+                        </div>
+                        @else
                         <!-- Product Item -->
                         <div class="product_item is_new">
                             <div class="product_border"></div>
@@ -115,26 +147,28 @@
                             <div class="product_content">
                                 <div class="product_price">{{number_format($value['price'])}} VND</div>
                                 <div class="product_name">
-                                    <div><a href="{{route('product', ['id' => $value['id']])}}"
-                                            tabindex="0">{{$value['name']}}</a></div>
+                                    <div><a href="{{route('product', ['id' => $value['id']])}}" tabindex="0">{{$value['name']}}</a></div>
                                 </div>
                             </div>
                             <div class="product_fav"><i class="fas fa-heart"></i></div>
                             <ul class="product_marks">
-                                <li class="product_mark product_discount">-25%</li>
-                                <li class="product_mark product_new">new</li>
+
+                                @if($index <= 10) <li class="product_mark product_discount">-25%</li>
+                                    <li class="product_mark product_new">new</li>
+                                    @endif
                             </ul>
                         </div>
+                        @endif
                         @endforeach
                     </div>
                     {{-- giu lai tham so khi tim kiem phan trang --}}
                     {{-- <div class="shop_page_nav d-flex flex-row"> --}}
-                        {{$products->appends(request()->all())->links('layout.custom.pagination') }}
-                    </div>
+                    {{$products->appends(request()->all())->links('layout.custom.pagination') }}
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
-    @endsection
+@endsection

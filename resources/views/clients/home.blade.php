@@ -282,15 +282,10 @@
                                 @foreach($products as $key => $value)
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            {{-- <img src="{{asset('images/'. $value->productImage->first()->url)}}"
-                                                alt=""> --}}
+                                    <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             @if ($value->productImage->first())
-                                            <img src="{{ asset('images/'. $value->productImage->first()->url) }}"
-                                                alt="">
+                                            <img src="{{ asset('images/'. $value->productImage->first()->url) }}" alt="">
                                             @endif
                                         </div>
                                         <div class="product_content">
@@ -302,8 +297,7 @@
                                                 <div class="product_color">
                                                     @if ($value->colors)
                                                     @foreach($value->colors as $value)
-                                                    <input type="radio" name="product_color"
-                                                        style="background:{{$value->hex}}">
+                                                    <input type="radio" name="product_color" style="background:{{$value->hex}}">
                                                     @endforeach
                                                     @endif
                                                 </div>
@@ -333,10 +327,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{asset('images/' . $value->productImage->first()->url)}}" alt="">
                                         </div>
                                         <div class="product_content">
@@ -350,8 +342,7 @@
                                                 <div class="product_color">
                                                     @if ($value->colors)
                                                     @foreach($value->colors as $value)
-                                                    <input type="radio" name="product_color"
-                                                        style="background:{{$value->hex}}">
+                                                    <input type="radio" name="product_color" style="background:{{$value->hex}}">
                                                     @endforeach
                                                     @endif
                                                 </div>
@@ -360,7 +351,6 @@
                                         </div>
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="product_marks">
-
                                             <li class="product_mark product_discount">{{ number_format($markup,1)}}%</li>
                                             <li class="product_mark product_new">new</li>
                                         </ul>
@@ -384,10 +374,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_1.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -397,8 +385,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -416,10 +403,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_2.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -429,8 +414,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -448,10 +432,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_3.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -461,8 +443,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -480,10 +461,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_4.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -493,8 +472,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -512,10 +490,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_5.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -525,8 +501,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -544,10 +519,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_6.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -557,8 +530,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -576,10 +548,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_7.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -589,8 +559,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -608,10 +577,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_8.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -621,8 +588,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -640,10 +606,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_1.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -653,8 +617,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -672,10 +635,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_2.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -685,8 +646,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -704,10 +664,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_3.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -717,8 +675,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -736,10 +693,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_4.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -749,8 +704,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -768,10 +722,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_5.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -781,8 +733,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -800,10 +751,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_6.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -813,8 +762,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -832,10 +780,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_7.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -845,8 +791,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -864,10 +809,8 @@
                                 <!-- Slider Item -->
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div
-                                        class="product_item d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div
-                                            class="product_image d-flex flex-column align-items-center justify-content-center">
+                                    <div class="product_item d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{url('site')}}/images/featured_8.png" alt="">
                                         </div>
                                         <div class="product_content">
@@ -877,8 +820,7 @@
                                             </div>
                                             <div class="product_extras">
                                                 <div class="product_color">
-                                                    <input type="radio" checked name="product_color"
-                                                        style="background:#b19c83">
+                                                    <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
@@ -914,10 +856,8 @@
                 <div class="popular_categories_content">
                     <div class="popular_categories_title">Popular Categories</div>
                     <div class="popular_categories_slider_nav">
-                        <div class="popular_categories_prev popular_categories_nav"><i
-                                class="fas fa-angle-left ml-auto"></i></div>
-                        <div class="popular_categories_next popular_categories_nav"><i
-                                class="fas fa-angle-right ml-auto"></i></div>
+                        <div class="popular_categories_prev popular_categories_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                        <div class="popular_categories_next popular_categories_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                     </div>
                     <div class="popular_categories_link"><a href="#">full catalog</a></div>
                 </div>
@@ -932,8 +872,7 @@
                         <!-- Popular Categories Item -->
                         <div class="owl-item">
                             <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_1.png"
-                                        alt="">
+                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_1.png" alt="">
                                 </div>
                                 <div class="popular_category_text">Smartphones & Tablets</div>
                             </div>
@@ -942,8 +881,7 @@
                         <!-- Popular Categories Item -->
                         <div class="owl-item">
                             <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_2.png"
-                                        alt="">
+                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_2.png" alt="">
                                 </div>
                                 <div class="popular_category_text">Computers & Laptops</div>
                             </div>
@@ -952,8 +890,7 @@
                         <!-- Popular Categories Item -->
                         <div class="owl-item">
                             <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_3.png"
-                                        alt="">
+                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_3.png" alt="">
                                 </div>
                                 <div class="popular_category_text">Gadgets</div>
                             </div>
@@ -962,8 +899,7 @@
                         <!-- Popular Categories Item -->
                         <div class="owl-item">
                             <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_4.png"
-                                        alt="">
+                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_4.png" alt="">
                                 </div>
                                 <div class="popular_category_text">Video Games & Consoles</div>
                             </div>
@@ -972,8 +908,7 @@
                         <!-- Popular Categories Item -->
                         <div class="owl-item">
                             <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_5.png"
-                                        alt="">
+                                <div class="popular_category_image"><img src="{{url('site')}}/images/popular_5.png" alt="">
                                 </div>
                                 <div class="popular_category_text">Accessories</div>
                             </div>
@@ -1016,8 +951,7 @@
                             </div>
                             <div class="col-lg-8 col-md-6 fill_height">
                                 <div class="banner_2_image_container">
-                                    <div class="banner_2_image"><img src="{{url('site')}}/images/banner_2_product.png"
-                                            alt="">
+                                    <div class="banner_2_image"><img src="{{url('site')}}/images/banner_2_product.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1046,8 +980,7 @@
                             </div>
                             <div class="col-lg-8 col-md-6 fill_height">
                                 <div class="banner_2_image_container">
-                                    <div class="banner_2_image"><img src="{{url('site')}}/images/banner_2_product.png"
-                                            alt="">
+                                    <div class="banner_2_image"><img src="{{url('site')}}/images/banner_2_product.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1076,8 +1009,7 @@
                             </div>
                             <div class="col-lg-8 col-md-6 fill_height">
                                 <div class="banner_2_image_container">
-                                    <div class="banner_2_image"><img src="{{url('site')}}/images/banner_2_product.png"
-                                            alt="">
+                                    <div class="banner_2_image"><img src="{{url('site')}}/images/banner_2_product.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1119,10 +1051,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_5.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1132,12 +1062,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1153,10 +1080,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_6.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1166,12 +1091,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1187,10 +1109,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_7.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1200,12 +1120,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1221,10 +1138,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_8.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1234,12 +1149,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1255,10 +1167,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_1.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1268,12 +1178,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1289,10 +1196,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_2.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1302,12 +1207,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1323,10 +1225,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_3.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1336,12 +1236,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1357,10 +1254,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_4.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1370,12 +1265,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1391,10 +1283,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_5.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1404,12 +1294,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1425,10 +1312,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_6.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1438,12 +1323,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1459,10 +1341,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_7.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1472,12 +1352,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1493,10 +1370,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_8.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1506,12 +1381,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1534,10 +1406,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_1.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1547,12 +1417,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1568,10 +1435,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_2.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1581,12 +1446,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button active">Add to
                                                         Cart</button>
@@ -1603,10 +1465,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_3.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1616,12 +1476,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1637,10 +1494,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_4.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1650,12 +1505,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1671,10 +1523,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_5.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1684,12 +1534,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1705,10 +1552,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_6.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1718,12 +1563,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1739,10 +1581,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_7.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1752,12 +1592,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1773,10 +1610,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_8.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1786,12 +1621,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1807,10 +1639,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_1.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1820,12 +1650,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1841,10 +1668,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_2.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1854,12 +1679,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1875,10 +1697,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_3.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1888,12 +1708,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1909,10 +1726,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_4.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1922,12 +1737,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1943,10 +1755,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_5.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1956,12 +1766,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -1977,10 +1784,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_6.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -1990,12 +1795,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2011,10 +1813,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_7.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2024,12 +1824,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2045,10 +1842,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_8.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2058,12 +1853,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2086,10 +1878,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_1.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2099,12 +1889,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2120,10 +1907,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_2.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2133,12 +1918,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button active">Add to
                                                         Cart</button>
@@ -2155,10 +1937,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_3.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2168,12 +1948,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2189,10 +1966,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_4.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2202,12 +1977,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2223,10 +1995,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_5.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2236,12 +2006,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2257,10 +2024,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_6.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2270,12 +2035,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2291,10 +2053,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_7.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2304,12 +2064,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2325,10 +2082,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_8.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2338,12 +2093,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2359,10 +2111,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_1.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2372,12 +2122,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2393,10 +2140,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_2.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2406,12 +2151,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2427,10 +2169,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_3.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2440,12 +2180,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2461,10 +2198,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_4.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2474,12 +2209,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2495,10 +2227,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_5.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2508,12 +2238,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2529,10 +2256,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_6.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2542,12 +2267,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2563,10 +2285,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_7.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2576,12 +2296,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2597,10 +2314,8 @@
                                     <!-- Slider Item -->
                                     <div class="arrivals_slider_item">
                                         <div class="border_active"></div>
-                                        <div
-                                            class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div
-                                                class="product_image d-flex flex-column align-items-center justify-content-center">
+                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{url('site')}}/images/new_8.jpg" alt="">
                                             </div>
                                             <div class="product_content">
@@ -2610,12 +2325,9 @@
                                                 </div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
-                                                        <input type="radio" checked name="product_color"
-                                                            style="background:#b19c83">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#000000">
-                                                        <input type="radio" name="product_color"
-                                                            style="background:#999999">
+                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                        <input type="radio" name="product_color" style="background:#000000">
+                                                        <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
@@ -2636,8 +2348,7 @@
                         <div class="col-lg-3">
                             <div class="arrivals_single clearfix">
                                 <div class="d-flex flex-column align-items-center justify-content-center">
-                                    <div class="arrivals_single_image"><img src="{{url('site')}}/images/new_single.png"
-                                            alt="">
+                                    <div class="arrivals_single_image"><img src="{{url('site')}}/images/new_single.png" alt="">
                                     </div>
                                     <div class="arrivals_single_content">
                                         <div class="arrivals_single_category"><a href="#">Smartphones</a></div>
@@ -2694,8 +2405,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_1.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2717,8 +2427,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_2.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2740,8 +2449,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_3.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2763,8 +2471,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_4.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2786,8 +2493,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_5.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2809,8 +2515,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_6.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2832,8 +2537,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_1.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2855,8 +2559,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_2.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2878,8 +2581,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_3.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2901,8 +2603,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_4.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2924,8 +2625,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_5.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2947,8 +2647,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_6.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -2979,8 +2678,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_1.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3002,8 +2700,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_2.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3025,8 +2722,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_3.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3048,8 +2744,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_4.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3071,8 +2766,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_5.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3094,8 +2788,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_6.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3117,8 +2810,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_1.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3140,8 +2832,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_2.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3163,8 +2854,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_3.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3186,8 +2876,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_4.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3209,8 +2898,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_5.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3232,8 +2920,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_6.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3264,8 +2951,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_1.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3287,8 +2973,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_2.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3310,8 +2995,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_3.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3333,8 +3017,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_4.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3356,8 +3039,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_5.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3379,8 +3061,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_6.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3402,8 +3083,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_1.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3425,8 +3105,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_2.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3448,8 +3127,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_3.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3471,8 +3149,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_4.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3494,8 +3171,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item discount">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_5.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">
@@ -3517,8 +3193,7 @@
 
                             <!-- Best Sellers Item -->
                             <div class="bestsellers_item">
-                                <div
-                                    class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+                                <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="{{url('site')}}/images/best_6.png" alt="">
                                     </div>
                                     <div class="bestsellers_content">

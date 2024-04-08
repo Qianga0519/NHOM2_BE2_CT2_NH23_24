@@ -1,6 +1,5 @@
 <div class="shop_page_nav d-flex flex-row">
     <div class="show">
-  
         <p class="small text-muted">
             {!! __('Showing') !!}
             <span class="fw-semibold">{{ $paginator->firstItem() }}</span>

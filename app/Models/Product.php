@@ -36,6 +36,10 @@ class Product extends Model
     {
         return $this->HasMany(Banner::class);
     }
+    public function review(): HasMany
+    {
+        return $this->HasMany(Review::class);
+    }
     public function productFeature()
     {
         return $this->orderBy('created_at', 'DESC')->where('feature', '=', 1);
@@ -43,5 +47,13 @@ class Product extends Model
     public function productSale()
     {
         return  $this->orderBy('created_at', 'DESC')->where('sale_amount', '>', 0);
+    }
+
+    public function scopeSearch($querry)
+    {
+        if ($key = request()->key) {
+            $querry = $querry->where('name', 'like', '%' . $key . '%');
+        }
+        return $querry;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Banner;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -65,7 +66,9 @@ class HomeController extends Controller
     public function product($id)
     {
         $product = Product::find($id);
-        // dd($product->productImage->toArray());
+        // $user = User::find(2);
+        // dd($user->avatar->url);
+        // dd($product->review->user);
         return view('clients.product', compact('product'));
     }
     public function regular()
@@ -76,12 +79,11 @@ class HomeController extends Controller
     {
         $cates = Category::where('slug', $slug)->first();
         $products = $cates->products()->paginate(15);
-
         return view('clients.shop', compact('cates', 'products'));
     }
     public function shop()
     {
-        $products =  Product::orderBy('created_at', 'DESC')->paginate(15);
+        $products =  Product::orderBy('created_at', 'DESC')->search()->paginate(15);
         return view('clients.shop', compact('products'));
     }
 }

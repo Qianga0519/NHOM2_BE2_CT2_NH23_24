@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RuleCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,6 +16,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        // $category = Category::orderBy('created_at', 'DESC')->paginate(5);
+        $category = Category::orderBy('created_at', 'DESC')->search()->paginate(5);
+        return view('admin.category.index', ['category' => $category]);
     }
 
     /**
@@ -24,6 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('admin.category.create');
     }
 
     /**
@@ -32,9 +38,10 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RuleCategory $request)
     {
         //
+        dd($request);
     }
 
     /**

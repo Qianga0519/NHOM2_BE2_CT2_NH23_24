@@ -21,4 +21,12 @@ class Category extends Model
     {
         return $this->findOrFail($id)->products();
     }
+
+    public function scopeSearch($querry)
+    {
+        if ($key = request()->key) {
+            $querry = $querry->where('name', 'like', '%' . $key . '%');
+        }
+        return $querry;
+    }
 }

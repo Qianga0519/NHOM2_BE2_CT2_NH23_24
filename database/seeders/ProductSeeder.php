@@ -8,6 +8,7 @@ use App\Models\ProductImage;
 use App\Models\Color;
 use App\Models\Banner;
 use App\Models\BannerImage;
+use App\Models\Review;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -189,6 +190,19 @@ class ProductSeeder extends Seeder
                 'name' => $value[0],
                 'url' => $value[1],
                 'banner_id' => $value[2]
+            ]);
+        }
+        $reviews = [
+            ['San pham dep, sang trong!', 5, 2, 1],
+            ['San pham gon nhe, chup anh dep!', 4, 1, 1],
+            ['So great!', 4, 2, 18]
+        ];
+        foreach ($reviews as $value) {
+            Review::factory()->create([
+                'content' =>  $value[0],
+                'rate' =>   $value[1],
+                'user_id' =>  $value[2],
+                'product_id' => $value[3],
             ]);
         }
     }

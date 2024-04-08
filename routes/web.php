@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,7 +48,7 @@ Route::prefix('')->group(function () {
 Route::group(['prefix' => '4admin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::resources([
-        // 'user' => UsersController::class, //CURD USER
+        'category' => CategoryController::class, //CURD USER
         // 'role' => RoleController::class,
     ]);
 });

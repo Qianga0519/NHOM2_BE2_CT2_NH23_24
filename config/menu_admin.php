@@ -6,27 +6,27 @@ return [
         'route' => 'admin.dashboard'
     ],
     [
-        'name' => 'Dashboard 1',
-        'icon' => 'fal fa-tachometer-alt',
-        'route' => 'admin.dashboard',
-        'items' => [
-            [
-                'name' => 'Dashboard 1.1',
-                'icon' => 'fal fa-tachometer-alt',
-                'route' => 'admin.dashboard'
-            ],
-            [
-                'name' => 'Dashboard 1.2',
-                'icon' => 'fal fa-tachometer-alt',
-                'route' => 'admin.dashboard'
-            ],
-        ],
+        'name' => 'Home',
+        'icon' => 'fas fa-home',
+        'route' => 'home'
     ],
     [
-        'name' => 'Dashboard 2',
-        'icon' => 'fal fa-tachometer-alt',
-        'route' => 'admin.dashboard'
+        'name' => 'Category manager',
+        'route' => 'category.index',
+        'icon' => 'fa-solid fa-layer-group',
+        'items' => [
+            [
+                'name' => 'All Category',
+                'route' => 'category.index',
+            ],
+            [
+                'name' => 'Add Category',
+                'route' => 'category.create'
+
+            ]
+        ]
     ],
+
 
 
 ];

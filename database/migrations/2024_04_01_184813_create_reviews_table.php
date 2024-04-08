@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('rate');
             $table->text('content');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

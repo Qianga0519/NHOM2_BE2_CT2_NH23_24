@@ -6,10 +6,10 @@ $routes = config('page_route');
 <html lang="en">
 
 <head>
-    <title>OneTech</title>
+    <title>Smart Shop</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="OneTech shop project">
+    <meta name="description" content="Smart shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset('site/styles/bootstrap4/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css"
@@ -95,8 +95,8 @@ $routes = config('page_route');
                             <div class="header_search">
                                 <div class="header_search_content">
                                     <div class="header_search_form_container">
-                                        <form action="#" class="header_search_form clearfix">
-                                            <input type="search" required="required" class="header_search_input"
+                                        <form action="{{route('shop')}}" class="header_search_form clearfix">
+                                            <input type="search" name="key" required="required" class="header_search_input"
                                                 placeholder="Search for products...">
                                             <div class="custom_dropdown">
                                                 <div class="custom_dropdown_list">
