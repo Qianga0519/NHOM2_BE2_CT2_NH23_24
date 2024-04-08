@@ -44,7 +44,7 @@ class DataBaseSeeder extends Seeder
         $manufactures = [
             ['Samsung', 'samsung.png'], ['Xiaomi', 'xiaomi.png'], ['Google', 'google.png'], ['OPPO', 'oppo.png'],
             ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Iphone', 'iphone.png'], ['Vivo', 'vivo.png'],
-            ['HONOR', 'honor.png']
+            ['HONOR', 'honor.png'],['Sony',"sony.png"],
         ];
         foreach ($manufactures as $key => $value) {
             ManufactureImage::factory()->create([
