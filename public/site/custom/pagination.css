@@ -1,0 +1,14 @@
+.show{
+    width: 200px;
+    position: absolute;
+    height: 30px;
+    left: calc(50% - 100px);
+    bottom: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagi-style{
+    position: absolute;top: calc(50% - 17.5px);left: calc(50% - 61.5px);
+}

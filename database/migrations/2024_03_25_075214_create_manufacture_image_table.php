@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('manufacture_image', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('manufacture_id');
-            $table->string('image_url');
+            $table->string('name');
+            $table->string('url');
+            $table->unsignedBigInteger('manufacture_id');
+            $table->foreign('manufacture_id')->references('id')->on('manufacture');
             $table->timestamps();
         });
     }
