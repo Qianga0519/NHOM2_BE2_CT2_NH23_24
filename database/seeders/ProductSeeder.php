@@ -8,8 +8,8 @@ use App\Models\ProductImage;
 use App\Models\Color;
 use App\Models\Banner;
 use App\Models\BannerImage;
-use App\Models\Review;
 use Illuminate\Database\Seeder;
+use App\Models\Review;
 
 class ProductSeeder extends Seeder
 {
@@ -99,21 +99,8 @@ class ProductSeeder extends Seeder
                 'Samsung Galaxy S24+ 5G', 'Samsung đã cho ra mắt Samsung Galaxy S24+ 5G 256GB, chiếc điện thoại đẳng cấp của họ tại sự kiện hàng năm diễn ra vào ngày 18/01 tại Mỹ. Điểm độc đáo của sản phẩm nằm ở chip mới của Samsung, đi kèm với sự phát triển trong việc bổ sung nhiều tính năng
                  thông minh có tích hợp AI và tăng cường khả năng chụp ảnh ở phần camera.',
                 23490000, rand(0, 1), rand(0, 20), 200000, 1, 1
-            ],
-            //------------------------CAMERAS PRODUCT-------------------------------------------------------
-            // name - des - price - feature - qty - sale_amout - cate - manu
-            [
-                'Sony A7 Mark III (Body)', 'Máy ảnh Sony A7 Mark III có cảm biến full-frame với cấu trúc chống rung 5 trục bên trong thân máy và thiết kế hợp kim Magie chống chịu thời tiết. Nhưng kích thước chỉ 127 x 96 x 74 mm, khối lượng 650g tương đương với một máy ảnh cảm biến APS-C. Màn hình LCD 3 inch nghiêng-lật cảm ứng đa điểm hỗ trợ lấy nét trực tiếp, zoom sâu kiểm tra chi tiết.',
-                37000000, rand(0, 1), rand(0, 20), 200000, 8, 8
-            ],
-            [
-                'Sony A7 Mark IV (Body)', 'Sony A7M4 chính hãng có thể trông giống như một bản sao của người tiền nhiệm của nó. Nhưng có một số nâng cấp khá tiện lợi tinh tế khiến nó trở thành một chiếc máy ảnh thú vị hơn nhiều. Ở trên cùng, bạn sẽ tìm thấy một kính ngắm điện tử (EVF) được cải tiến, với độ phân giải 3,68 triệu điểm và tốc độ làm mới 120 khung hình/giây. Đây là nâng cấp cần thiết và hoạt động đặc biệt tốt khi bạn đang cố gắng theo dõi đối tượng chuyển động.',
-                47000000, rand(0, 1), rand(0, 20), 300000, 8, 8
-            ],
-            [
-                'Sony A7R Mark V (Body)', 'Máy ảnh Sony A7R Mark V là chiếc máy ảnh thế hệ thứ 5 trong dòng máy mirrorless Full-frame độ phân giải cao của hãng. Máy ảnh có cùng độ phân giải 61MP như A7R IV, nhưng có bộ xử lý Bionz XR mới mạnh hơn. Được trang bị bộ xử lý AI tiên tiến, mở rộng khả năng nhận diện chủ thể để tận dụng tối đa hiệu suất máy ảnh.',
-                87000000, rand(0, 1), rand(0, 20), 500000, 8, 8
-            ],
+            ]
+
         ];
 
         
