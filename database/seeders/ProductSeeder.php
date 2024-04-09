@@ -8,8 +8,8 @@ use App\Models\ProductImage;
 use App\Models\Color;
 use App\Models\Banner;
 use App\Models\BannerImage;
-use App\Models\Review;
 use Illuminate\Database\Seeder;
+use App\Models\Review;
 
 class ProductSeeder extends Seeder
 {

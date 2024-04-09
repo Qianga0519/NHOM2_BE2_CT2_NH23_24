@@ -48,7 +48,8 @@ Route::prefix('')->group(function () {
 Route::group(['prefix' => '4admin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::resources([
-        'category' => CategoryController::class, //CURD USER
-        // 'role' => RoleController::class,
+        'category' => CategoryController::class, //CURD Category
+        'product' => CategoryController::class, //CURD Poduct
+
     ]);
 });

@@ -26,6 +26,22 @@ return [
             ]
         ]
     ],
+    [
+        'name' => 'Product manager',
+        'route' => 'product.index',
+        'icon' => 'fa-solid fa-layer-group',
+        'items' => [
+            [
+                'name' => 'All Product',
+                'route' => 'product.index',
+            ],
+            [
+                'name' => 'Add Product',
+                'route' => 'product.create'
+
+            ]
+        ]
+    ],
 
 
 
