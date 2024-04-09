@@ -113,8 +113,6 @@ class DataBaseSeeder extends Seeder
             'status' => 0,
 
         ]);
-
-
         OrderItem::factory()->create([
             'qty' => 2,
             'price' => 100000,
