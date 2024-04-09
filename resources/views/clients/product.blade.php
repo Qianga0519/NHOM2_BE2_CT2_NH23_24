@@ -9,7 +9,8 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/product_responsive.css">
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/product_styles.css">
-<link rel="stylesheet" href="{{asset('site')}}/product_custom.css">
+<link rel="stylesheet" href="{{asset('site/custom/product_custom.css')}}">
+
 @endsection
 @section('main')
 <!-- Single Product -->
