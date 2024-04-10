@@ -44,7 +44,7 @@ class DataBaseSeeder extends Seeder
         $manufactures = [
             ['Samsung', 'samsung.png'], ['Xiaomi', 'xiaomi.png'], ['Google', 'google.png'], ['OPPO', 'oppo.png'],
             ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Iphone', 'iphone.png'], ['Vivo', 'vivo.png'],
-            ['HONOR', 'honor.png'],['Sony',"sony.png"],
+            ['HONOR', 'honor.png'], ['Sony', "sony.png"],
         ];
         foreach ($manufactures as $key => $value) {
             ManufactureImage::factory()->create([
@@ -73,20 +73,19 @@ class DataBaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => 'admin123',
+            'email' => 'thanhquangtran11@gmail.com',
+            'password' => bcrypt('admin123'),
             'role_id' => 1,
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'fullname' => 'Tran Thanh Admin',
-            'phone' => '0900101012',
-            'city' => 'HCM',
+            'fullname' => 'Tran Thanh Quang',
+            'phone' => '0900101012'
 
         ]);
         User::factory()->create([
             'name' => 'user',
             'email' => 'user@example.com',
-            'password' => 'user123',
+            'password' => bcrypt('user123'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'fullname' => 'Tran Thanh User',

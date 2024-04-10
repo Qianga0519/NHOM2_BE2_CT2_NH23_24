@@ -29,7 +29,7 @@ class User extends Authenticatable
         'fullname',
         'phone',
         'city',
-        'distrist',
+        'district',
         'ward',
         'address',
         'gender',

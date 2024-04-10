@@ -321,15 +321,10 @@ $menus = config('menu_admin');
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('admin')}}/dist/js/pages/dashboard.js"></script>
     @yield('js')
-
     <script>
         let breadcrumb_active = document.querySelector('.breadcrumb li:last-child');
         breadcrumb_active.classList.add('active');
         breadcrumb_active.style.textDecoration = 'underline'
-        // breadcrumb_active.addEventListener('click',function(){
-        //  alert('123')
-        // })
-
     </script>
 
 </body>
