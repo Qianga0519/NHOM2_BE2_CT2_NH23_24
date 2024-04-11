@@ -3,6 +3,11 @@ php .\artisan make:controller  BannerController --resource
 php .\artisan make:model Banner
 php .\artisan make:factory BannerFactory --model=Banner
 
+
+
+
+php .\artisan make:factory CartFactory --model=Cart
+
 php .\artisan db:seed --class=RoleSeeder
 
 php .\artisan make:migration create_color_table

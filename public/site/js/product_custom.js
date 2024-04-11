@@ -358,7 +358,7 @@ $(document).ready(function()
 
 	function initColor()
 	{
-		if($('.product_color').length)
+		if($('.product_colors').length)
 		{
 			var selectedCol = $('#selected_color');
 			var colorItems = $('.color_list li .color_mark');

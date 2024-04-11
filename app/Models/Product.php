@@ -36,7 +36,7 @@ class Product extends Model
     {
         return $this->HasMany(Banner::class);
     }
-    public function review(): HasMany
+    public function reviews(): HasMany
     {
         return $this->HasMany(Review::class);
     }
@@ -48,6 +48,7 @@ class Product extends Model
     {
         return  $this->orderBy('created_at', 'DESC')->where('sale_amount', '>', 0);
     }
+
 
     public function scopeSearch($querry)
     {

@@ -45,11 +45,13 @@ $routes = config('page_route');
                             <div class="top_bar_contact_item">
                                 <div class="top_bar_icon"><img src="{{url('site')}}/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
                             </div>
+                             {{-- MESSAGE DO NOT ADMIN  --}}
                             @if(Session::has('message'))
                             <div id="not_access_admin">
                                 {{ Session::get('message') }}
                             </div>
                             @endif
+                           
                             <div class="top_bar_content ml-auto">
 
                                 <div class="top_bar_menu">
@@ -175,11 +177,11 @@ $routes = config('page_route');
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
                                             <img src="{{url('site')}}/images/cart.png" alt="">
-                                            <div class="cart_count"><span>10</span></div>
+                                            <div class="cart_count"><span>0</span></div>
                                         </div>
                                         <div class="cart_content">
                                             <div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
-                                            <div class="cart_price">$85</div>
+                                            <div class="cart_price">$0</div>
                                         </div>
                                     </div>
                                 </div>

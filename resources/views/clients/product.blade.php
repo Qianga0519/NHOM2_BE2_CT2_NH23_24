@@ -1,10 +1,6 @@
 @extends('layout.site')
 @section('js')
 <script src="{{url('site')}}/js/product_custom.js"></script>
-<script>
-
-
-</script>
 @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/product_responsive.css">
@@ -21,10 +17,9 @@
             <div class="col-lg-2 order-lg-1 order-2">
                 <ul class="image_list">
                     @foreach($product->productImage as $index => $value)
-                        @if($index >= 0 && $index <=2)  
-                        <li data-image="{{asset('images/' . $value->url)}}"><img src="{{asset('images/' . $value->url)}}" alt=""></li>
-                    @endif
-                    @endforeach
+                    @if($index >= 0 && $index <=2) <li data-image="{{asset('images/' . $value->url)}}"><img src="{{asset('images/' . $value->url)}}" alt=""></li>
+                        @endif
+                        @endforeach
                 </ul>
             </div>
             <!-- Selected Image -->
@@ -57,7 +52,7 @@
                                     <li>
                                         <span>Color: </span>
                                         <div class="color_mark_container">
-                                            <div id="selected_color" class="color_mark"></div>
+                                            <div id="selected_color" style="border: 0.2px solid;" class="color_mark"></div>
                                         </div>
                                         <div class="color_dropdown_button"><i class="fas fa-chevron-down"></i></div>
                                         <ul class="color_list">
@@ -73,8 +68,12 @@
                             <div class="product_price">{{number_format($product['price'] - $product['sale_amount']) }}
                                 VND</div>
                             <div class="button_container">
+                                @if(Auth::check())
                                 <button type="button" class="button cart_button">Add to Cart</button>
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                @else
+                                <button type="button" class="button cart_button"><a href="{{route('login')}}">Login to add products to cart</a></button>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -87,8 +86,8 @@
             <div class="review">
                 <h3>Reviews</h3>
             </div>
-            @if(isset($product->review->first()->id))
-            @foreach ($product->review as $value)
+            @if(isset($product->reviews->first()->id))
+            @foreach ($product->reviews as $value)
             <div class="reviewItem">
                 <hr>
                 <div class="top">
@@ -112,6 +111,38 @@
             <span>There are no reviews yet </span>
             @endif
 
+           
+               
+                
+                <div class="reviewItem">
+                <hr>
+                <form action="{{}}" method="post">
+                    <div class="top">
+                        @if( Auth::check())
+                        <div class="clientImage">
+                            <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
+                            <span>{{Auth::user()->name}}</span>
+                        </div>
+                        @else
+                        <div class="clientImage">
+                            <img src="{{asset('images/user.png')}}" alt="">                          
+                        </div>
+                        @endif
+                    </div>
+                    <label for="rating">Review</label>
+                    <select id="rating" name="rating" required>
+                        <option value="0">Select ★</option>
+                        <option value="5">5 ★</option>
+                        <option value="4">4 ★</option>
+                        <option value="3">3 ★</option>
+                        <option value="2">2 ★</option>
+                        <option value="1">1 ★</option>
+                    </select><br><br>
+
+                    <label for="comment">Comment</label><br>
+                    <textarea id="comment" name="content" rows="4" cols="50" ></textarea><br><br>
+                    <button type="submit" class="btn_review">Send</button>
+                </form> </div>                              
         </div>
     </div>
 </div>

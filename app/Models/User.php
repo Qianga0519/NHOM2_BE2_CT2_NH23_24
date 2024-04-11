@@ -59,4 +59,8 @@ class User extends Authenticatable
     {
         return $this->HasOne(Avatar::class);
     }
+    public function cart(): HasOne
+    {
+        return $this->HasOne(Cart::class);
+    }
 }

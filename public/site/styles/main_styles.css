@@ -1624,7 +1624,7 @@ select option
 }
 .featured_slider
 {
-	width: 100%;
+	width: 110%;
 }
 .featured_slider .slick-list
 {
@@ -1663,7 +1663,7 @@ select option
 .product_image
 {
 	/* width: 100%; */
-	width: 75%;
+	width: 70%;
 	height: 115px;
 }
 .product_image img
@@ -1721,6 +1721,7 @@ select option
 }
 .product_color
 {
+	
 	visibility: hidden;
 	opacity: 0;
 	margin-top: 19px;
@@ -1768,6 +1769,7 @@ select option
     outline: none;
     cursor: pointer;
     font-size: 8px;
+	border: 0.2px solid;
 }
 .product_color input:checked::after
 {
@@ -1780,9 +1782,11 @@ select option
 	-ms-transform: translate(-50%, -50%);
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	font-family: 'FontAwesome';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 800; /* Trọng số font của biểu tượng */
+    font-size: 12px; /* Kích thước của biểu tượng */
 	content: '\f00c';
-	color: #FFFFFF;
+	color: #0e8ce4;
 }
 .product_cart_button
 {

@@ -12,6 +12,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Category;
 use App\Models\Avatar;
+use App\Models\Cart;
 use Illuminate\Support\Str;
 
 class DataBaseSeeder extends Seeder
@@ -128,6 +129,20 @@ class DataBaseSeeder extends Seeder
             'order_id' => 1,
             'product_id' => 2,
             'color_id' => 3
+        ]);
+        Cart::factory()->create([
+            'qty' => 3,
+            'price' => 120000,
+            'product_id' => 1,
+            'user_id' => 2,
+            'color_id' => 1
+        ]);
+        Cart::factory()->create([
+            'qty' => 1,
+            'price' => 40000,
+            'product_id' => 2,
+            'user_id' => 2,
+            'color_id' => 2
         ]);
     }
 }

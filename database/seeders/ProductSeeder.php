@@ -116,7 +116,7 @@ class ProductSeeder extends Seeder
             ],
         ];
 
-        
+
         foreach ($products as $key => $value) {
             Product::factory()->create([
                 'name' => $value[0],
@@ -131,7 +131,7 @@ class ProductSeeder extends Seeder
                 'product_id' =>  $key + 1,
             ]);
             ProductColor::factory()->create([
-                'color_id' => rand(1, 9),
+                'color_id' => rand(1, 3),
                 'product_id' =>  rand(1, 18),
             ]);
         }

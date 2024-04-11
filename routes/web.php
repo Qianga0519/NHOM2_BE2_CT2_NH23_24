@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Models\Category;
@@ -48,6 +49,13 @@ Route::prefix('/')->group(function () {
 });
 
 
+Route::group(['prefix' => 'cart', 'middleware' => 'check.login'], function () {
+    Route::get('/', [CartController::class, 'index'])->name('cart');
+    Route::get('/add/{product}', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/delete/{product}', [CartController::class, 'delete'])->name('cart.delete');
+    Route::get('/update/{product}', [CartController::class, 'update'])->name('cart.update');
+    Route::get('/clear', [CartController::class, 'clear'])->name('cart.clear');
+});
 // Route::group(['prefix' => ''], function () {
 //     Route::resource('/', HomeController::class);
 // });
