@@ -116,7 +116,7 @@
                 
                 <div class="reviewItem">
                 <hr>
-                <form action="{{}}" method="post">
+                <form action="" method="post">
                     <div class="top">
                         @if( Auth::check())
                         <div class="clientImage">

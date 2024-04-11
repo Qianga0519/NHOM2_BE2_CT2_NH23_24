@@ -20,10 +20,10 @@ $routes = config('page_route');
     <link rel="stylesheet" type="text/css" href="{{asset('site/styles/main_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('site/styles/responsive.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('site/custom/site_cutom.css')}}">
-    
-    
+
+
     @yield('css')
-   
+
 </head>
 <body>
 
@@ -45,13 +45,13 @@ $routes = config('page_route');
                             <div class="top_bar_contact_item">
                                 <div class="top_bar_icon"><img src="{{url('site')}}/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
                             </div>
-                             {{-- MESSAGE DO NOT ADMIN  --}}
+                            {{-- MESSAGE DO NOT ADMIN  --}}
                             @if(Session::has('message'))
                             <div id="not_access_admin">
                                 {{ Session::get('message') }}
                             </div>
                             @endif
-                           
+
                             <div class="top_bar_content ml-auto">
 
                                 <div class="top_bar_menu">
@@ -175,22 +175,33 @@ $routes = config('page_route');
                                 <!-- Cart -->
                                 <div class="cart">
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                                        @if(Auth::check())
                                         <div class="cart_icon">
                                             <img src="{{url('site')}}/images/cart.png" alt="">
-                                            <div class="cart_count"><span>0</span></div>
+                                            <div class="cart_count"><span>{{Auth::user()->cart()->count()}}</span></div>
                                         </div>
+                                        <?php
+                                       $productAllCart =  Auth::user()->cart()->with('product')->get();
+                                       $total = 0;
+                                       foreach ($productAllCart as  $value) {
+                                       $total += $value['price'] *$value['qty'];
+                                       };
+                                        ?>
+
                                         <div class="cart_content">
                                             <div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
-                                            <div class="cart_price">$0</div>
+                                            <div class="cart_price">{{number_format($total)}}</div>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+           
             <!-- Main Navigation -->
 
             <nav class="main_nav">
