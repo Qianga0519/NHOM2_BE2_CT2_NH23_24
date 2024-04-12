@@ -139,8 +139,8 @@ $routes = config('page_route');
                                 <div class="header_search_content">
                                     <div class="header_search_form_container">
                                         <form action="{{route('shop')}}" class="header_search_form clearfix">
-                                            <input type="search" name="key" required="required" class="header_search_input" placeholder="Search for products...">
-                                            <div class="custom_dropdown">
+                                            <input type="search" name="key" required="required" style="width= 100%" class="header_search_input" placeholder="Search for products...">
+                                            <div class="custom_dropdown" style="display: none">
                                                 <div class="custom_dropdown_list">
                                                     <span class="custom_dropdown_placeholder clc">All Categories</span>
                                                     <i class="fas fa-chevron-down"></i>

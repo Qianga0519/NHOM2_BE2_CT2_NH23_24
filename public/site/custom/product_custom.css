@@ -49,3 +49,23 @@ article {
 article {
     margin-top: 5px
 }
+
+.color_mark {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+   color: black;
+    cursor: pointer;
+    border: 0.2px solid;
+}
+#selected_color{
+    border: 0.2px solid;
+
+}

@@ -1,6 +1,11 @@
 @extends('layout.site')
 @section('js')
 <script src="{{url('site')}}/js/product_custom.js"></script>
+<script>
+
+
+
+</script>
 @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/product_responsive.css">
@@ -36,31 +41,35 @@
                         <p>{{$product['description']}}</p>
                     </div>
                     <div class="order_info d-flex flex-row">
-                        <form action="#">
+                        <form action="{{route('cart.add',[$product])}}">
                             <div class="clearfix" style="z-index: 1000;">
                                 <!-- Product Quantity -->
                                 <div class="product_quantity clearfix">
                                     <span>Quantity: </span>
-                                    <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+                                    <input id="quantity_input" name="qty" type="text" pattern="[0-9]*" value="1">
                                     <div class="quantity_buttons">
                                         <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
                                         <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
                                     </div>
                                 </div>
                                 <!-- Product Color -->
+
                                 <ul class="product_colors">
                                     <li>
                                         <span>Color: </span>
                                         <div class="color_mark_container">
                                             <div id="selected_color" style="border: 0.2px solid;" class="color_mark"></div>
                                         </div>
-                                        <div class="color_dropdown_button"><i class="fas fa-chevron-down"></i></div>
                                         <ul class="color_list">
+
+                                            @if ($product->colors)
                                             @foreach ( $product->colors as $value )
                                             <li>
-                                                <div class="color_mark" style="background: {{$value->hex}};"></div>
+                                                <input class="color_mark" type="radio" value="{{$value->id}}" name="product_color" style="background:{{$value->hex}}; ">
                                             </li>
                                             @endforeach
+                                            @endif
+
                                         </ul>
                                     </li>
                                 </ul>
@@ -68,8 +77,9 @@
                             <div class="product_price">{{number_format($product['price'] - $product['sale_amount']) }}
                                 VND</div>
                             <div class="button_container">
+
                                 @if(Auth::check())
-                                <button type="button" class="button cart_button">Add to Cart</button>
+                                <button type="submit" class="button cart_button">Add to Cart</button>
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
                                 @else
                                 <button type="button" class="button cart_button"><a href="{{route('login')}}">Login to add products to cart</a></button>
@@ -110,11 +120,7 @@
             @else
             <span>There are no reviews yet </span>
             @endif
-
-           
-               
-                
-                <div class="reviewItem">
+            <div class="reviewItem">
                 <hr>
                 <form action="" method="post">
                     <div class="top">
@@ -125,7 +131,7 @@
                         </div>
                         @else
                         <div class="clientImage">
-                            <img src="{{asset('images/user.png')}}" alt="">                          
+                            <img src="{{asset('images/user.png')}}" alt="">
                         </div>
                         @endif
                     </div>
@@ -140,9 +146,10 @@
                     </select><br><br>
 
                     <label for="comment">Comment</label><br>
-                    <textarea id="comment" name="content" rows="4" cols="50" ></textarea><br><br>
+                    <textarea id="comment" name="content" rows="4" cols="50"></textarea><br><br>
                     <button type="submit" class="btn_review">Send</button>
-                </form> </div>                              
+                </form>
+            </div>
         </div>
     </div>
 </div>

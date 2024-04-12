@@ -44,7 +44,7 @@
                 <td class="text-right">
                     <a href="{{route('category.show',[$value['id']])}}" class="btn btn-danger"><i class="fas fa-solid fa-eye"></i></a>
                     <a href="{{route('category.edit',[$value['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                    <a href="{{route('category.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash">fasdfs</i></a>
+                    <a href="{{route('category.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

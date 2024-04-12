@@ -24,12 +24,11 @@ class CartController extends Controller
         // dd($cart_user->first()->color->hex);
         return view('clients.cart', compact('cart_user'));
     }
-    public function delete(Product $product)
+
+    public function update($id, Request $request)
     {
-    }
-    public function update(Product $product, Request $request)
-    {
-        //
+        $cart = Cart::find($id);
+        dd($request->qtity);
     }
     public function add(Product $product, Request $request)
     {
@@ -45,24 +44,55 @@ class CartController extends Controller
             'qty' => $qty,
             'color_id' => $color_id,
         ];
-        // dd($data);
         $product_exist = Cart::where(['user_id' => $user_id, 'product_id' => $product_id, 'color_id' => $color_id])->first();
+        // dd($data);
+        // if (request()->is('home')) {
+        //     if ($product_exist) {
+        //         $product_exist->qty += $qty;
+        //         $product_exist->price = $price;
+        //         $product_exist->save();
+        //         return redirect()->route('home')->with('add_to_cart_update', 'Update successfully!');
+        //     } else {
+        //         if (Cart::create($data)) {
+        //             return redirect()->route('home')->with('add_to_cart_1', 'Added!');
+        //         }
+        //     }
+        //     return redirect()->route('home')->with('add_to_cart_0', 'Add fail!');
+        // } else {
+
+        //     if ($product_exist) {
+        //         $product_exist->qty += $qty;
+        //         $product_exist->price = $price;
+        //         $product_exist->save();
+        //         return redirect()->route('product', $product_id)->with('add_to_cart_update', 'Update successfully!');
+        //     } else {
+        //         if (Cart::create($data)) {
+        //             return redirect()->route('product', $product_id)->with('add_to_cart_1', 'Added!');
+        //         }
+        //     }
+        //     return redirect()->route('product', $product_id)->with('add_to_cart_0', 'Add fail!');
+        // }
         if ($product_exist) {
             $product_exist->qty += $qty;
             $product_exist->price = $price;
             $product_exist->save();
-            return redirect()->route('home')->with('add_to_cart_update', 'Update successfully!');
+            return redirect()->back()->with('add_to_cart_update', 'Updated!');
         } else {
-
             if (Cart::create($data)) {
-                return redirect()->route('home')->with('add_to_cart_1', 'Added!');
+                return redirect()->back()->with('add_to_cart_1', 'Added!');
             }
         }
-        return redirect()->route('home')->with('add_to_cart_0', 'Add fail!');
+        return redirect()->back()->with('add_to_cart_0', 'Add fail!');
+    }
+    public function delete($id)
+    {
+        Cart::destroy($id);
+        return redirect()->back()->with('delete_cart_1', 'Deleted');
     }
     public function clear()
     {
-        //
-
+        $user_id = Auth::user()->id;
+        Cart::where(['user_id' => $user_id])->delete();
+        return redirect()->back()->with('delete_cart_all_1', 'Cleared');
     }
 }
