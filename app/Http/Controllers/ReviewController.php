@@ -12,16 +12,18 @@ class ReviewController extends Controller
     public function create(Request $request, $id)
     {
         $rate = $request->rate;
-        $user_id = Auth::user()->id;
+
         $product_id = $id;
+
         $content = $request->content;
         if ($rate == null) {
             return redirect()->back()->with('choose_star', 'Please! Choose review star');
         }
-        $data = ['rate' => $rate, 'content' => $content, 'user_id' => $user_id, 'product_id' => $product_id];
+
         // dd($request->toArray(), $id);
         if (Auth::check()) {
-
+            $user_id = Auth::user()->id;
+            $data = ['rate' => $rate, 'content' => $content, 'user_id' => $user_id, 'product_id' => $product_id];
             if (Review::create($data)) {
                 return redirect()->back()->with('review_1', 'Added!');
             }
