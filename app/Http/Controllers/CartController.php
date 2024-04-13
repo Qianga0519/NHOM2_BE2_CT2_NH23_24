@@ -45,33 +45,7 @@ class CartController extends Controller
             'color_id' => $color_id,
         ];
         $product_exist = Cart::where(['user_id' => $user_id, 'product_id' => $product_id, 'color_id' => $color_id])->first();
-        // dd($data);
-        // if (request()->is('home')) {
-        //     if ($product_exist) {
-        //         $product_exist->qty += $qty;
-        //         $product_exist->price = $price;
-        //         $product_exist->save();
-        //         return redirect()->route('home')->with('add_to_cart_update', 'Update successfully!');
-        //     } else {
-        //         if (Cart::create($data)) {
-        //             return redirect()->route('home')->with('add_to_cart_1', 'Added!');
-        //         }
-        //     }
-        //     return redirect()->route('home')->with('add_to_cart_0', 'Add fail!');
-        // } else {
 
-        //     if ($product_exist) {
-        //         $product_exist->qty += $qty;
-        //         $product_exist->price = $price;
-        //         $product_exist->save();
-        //         return redirect()->route('product', $product_id)->with('add_to_cart_update', 'Update successfully!');
-        //     } else {
-        //         if (Cart::create($data)) {
-        //             return redirect()->route('product', $product_id)->with('add_to_cart_1', 'Added!');
-        //         }
-        //     }
-        //     return redirect()->route('product', $product_id)->with('add_to_cart_0', 'Add fail!');
-        // }
         if ($product_exist) {
             $product_exist->qty += $qty;
             $product_exist->price = $price;

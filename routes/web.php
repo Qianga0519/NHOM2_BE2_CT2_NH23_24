@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewController;
 use App\Models\Category;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -47,7 +48,11 @@ Route::prefix('/')->group(function () {
     Route::get('category/{slug}', [HomeController::class, 'view'])->name('view');
     Route::get('product/{id}', [HomeController::class, 'product'])->name('product');
 });
-
+Route::prefix('/reiew')->group(function () {
+    Route::get('create/{id}', [ReviewController::class, 'create'])->name('review.create');
+    Route::get('update/{id}', [ReviewController::class, 'update'])->name('review.update');
+    Route::get('delete/{id}', [ReviewController::class, 'delete'])->name('review.delete');
+});
 
 Route::group(['prefix' => 'cart', 'middleware' => 'check.login'], function () {
     Route::get('/', [CartController::class, 'index'])->name('cart');

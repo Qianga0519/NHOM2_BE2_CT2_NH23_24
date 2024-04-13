@@ -11,7 +11,10 @@
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/product_responsive.css">
 <link rel="stylesheet" type="text/css" href="{{url('site')}}/styles/product_styles.css">
 <link rel="stylesheet" href="{{asset('site/custom/product_custom.css')}}">
+<style>
 
+
+</style>
 @endsection
 @section('main')
 <!-- Single Product -->
@@ -96,33 +99,10 @@
             <div class="review">
                 <h3>Reviews</h3>
             </div>
-            @if(isset($product->reviews->first()->id))
-            @foreach ($product->reviews as $value)
-            <div class="reviewItem">
-                <hr>
-                <div class="top">
-                    <div class="clientImage">
-                        <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
-                        <span>{{$value->user->name}}</span>
-                    </div>
-                    <ul>
-                        @for ($i = 0 ; $i < $value->rate ; $i++ )
-                            <li><i class="fas fa-star"></i></li>
-                            @endfor
-                    </ul>
-                </div>
-                <article>
-                    <p class="review">{{$value->content}}</p>
-                    <p>{{$value->created_at->format('d - m - Y')}}</p>
-                </article>
-            </div>
-            @endforeach
-            @else
-            <span>There are no reviews yet </span>
-            @endif
-            <div class="reviewItem">
-                <hr>
-                <form action="" method="post">
+            @if($product->reviews()->where('user_id', Auth::id())->exists())
+            {{-- not have review --}}
+            <div class="reviewItem_cmt">
+                <form action="{{route('review.update', $product['id'])}}">
                     <div class="top">
                         @if( Auth::check())
                         <div class="clientImage">
@@ -135,22 +115,136 @@
                         </div>
                         @endif
                     </div>
-                    <label for="rating">Review</label>
-                    <select id="rating" name="rating" required>
-                        <option value="0">Select ★</option>
-                        <option value="5">5 ★</option>
-                        <option value="4">4 ★</option>
-                        <option value="3">3 ★</option>
-                        <option value="2">2 ★</option>
-                        <option value="1">1 ★</option>
-                    </select><br><br>
+                    <div class="bot">
+                        <div class="side_rate_top">
+                            <label for="rating">Review <span> @if(session('choose_star'))
+                                    {{ session('choose_star') }}
+                                    @endif</span></label>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" @if($product->reviews()->where('user_id', Auth::id())->first()->rate == 5) checked @endif
+                                />
+                                <label for="star5" title="text"> 5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" @if($product->reviews()->where('user_id', Auth::id())->first()->rate == 4) checked @endif
+                                />
+                                <label for="star4" title="text">4 stars</label>
 
-                    <label for="comment">Comment</label><br>
-                    <textarea id="comment" name="content" rows="4" cols="50"></textarea><br><br>
-                    <button type="submit" class="btn_review">Send</button>
+                                <input type="radio" id="star3" name="rate" value="3" @if($product->reviews()->where('user_id', Auth::id())->first()->rate == 3) checked @endif/>
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" @if($product->reviews()->where('user_id', Auth::id())->first()->rate ==2) checked @endif
+                                />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" @if($product->reviews()->where('user_id', Auth::id())->first()->rate == 1) checked @endif
+                                />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="side_rate_bot">
+                            <label for="comment">Comment</label><br>
+                            <textarea required id="comment" name="content" rows="4" cols="50">{{$product->reviews->where('user_id', Auth::id())->first()->content}}
+                            </textarea><br><br>
+                            <button type="submit" class="btn_review">Update</button>
+                            
+                            <button><a href="{{route('review.delete', $product['id'])}}" class="btn_review">Delete</a></button>
+                        </div>
+                    </div>
                 </form>
             </div>
+            @else
+            {{-- have review  --}}
+            <div class="reviewItem_cmt">
+                <form action="{{route('review.create', $product['id'])}}">
+                    <div class="top">
+                        @if( Auth::check())
+                        <div class="clientImage">
+                            <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
+                            <span>{{Auth::user()->name}}</span>
+                        </div>
+                        @else
+                        <div class="clientImage">
+                            <img src="{{asset('images/user.png')}}" alt="">
+                        </div>
+                        @endif
+                    </div>
+                    <div class="bot">
+                        <div class="side_rate_top">
+                            <label for="rating">Review <span> @if(session('choose_star'))
+                                    {{ session('choose_star') }}
+                                    @endif</span></label>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="side_rate_bot">
+                            <label for="comment">Comment</label><br>
+                            <textarea required id="comment" name="content" rows="4" cols="50">{{old('content')}}</textarea><br><br>
+                            <button type="submit" class="btn_review">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @endif
+
+            {{-- @if(isset($product->reviews->first()->id))
+                @foreach ($product->reviews as $value)
+                    @if(Auth::user()->id == $value->user->id)
+                        <div class="reviewItem">
+                            <hr>
+                            <div class="top">
+                                <div class="clientImage">
+                                    <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
+            <span>{{$value->user->name}}</span>
         </div>
+        <ul>
+            @for ($i = 0 ; $i < $value->rate ; $i++ )
+                <li><i class="fas fa-star"></i></li>
+                @endfor
+        </ul>
     </div>
+    <article>
+        <p class="review">{{$value->content}}</p>
+        <p>{{$value->created_at->format('d - m - Y')}}</p>
+    </article>
+</div>
+@endif
+@endforeach
+@endif --}}
+@if(isset($product->reviews->first()->id))
+@foreach ($product->reviews as $value)
+@if(Auth::id() != $value->user->id)
+<div class="reviewItem">
+    <hr>
+    <div class="top">
+        <div class="clientImage">
+            <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
+            <span>{{$value->user->name}}</span>
+        </div>
+        <ul>
+            @for ($i = 0 ; $i < $value->rate ; $i++ )
+                <li><i class="fas fa-star"></i></li>
+                @endfor
+        </ul>
+    </div>
+    <article>
+        <p class="review">{{$value->content}}</p>
+        <p>{{$value->created_at->format('d - m - Y')}}</p>
+    </article>
+</div>
+@endif
+@endforeach
+@else
+<span>There are no reviews yet </span>
+@endif
+
+</div>
+</div>
 </div>
 @endsection

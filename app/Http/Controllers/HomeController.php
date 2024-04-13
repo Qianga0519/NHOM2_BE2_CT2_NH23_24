@@ -66,7 +66,7 @@ class HomeController extends Controller
     public function product($id)
     {
         $product = Product::find($id);
-
+        // dd($product->reviews->find(1));
         // $colors = $product->colors;
         // dd($colors->last()->hex);
         // $user = User::find(2);
