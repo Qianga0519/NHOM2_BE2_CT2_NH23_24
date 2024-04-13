@@ -5,21 +5,23 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/custom/create_category.css')}}">
 @endsection
+
+@section('messages')
+@if (session('update_cate_success'))
+<div class="alert alert-primary" role="alert">
+    {{ session('update_cate_success') }}
+</div>
+@endif
+@if (session('update_cate_fail'))
+<div class="alert alert-primary" role="alert">
+    {{ session('update_cate_fail') }}
+</div>
+@endif
+
+@endsection
 @section('content')
 <div class="container">
-
     <form action="{{route('category.update',[$category->id])}}" method="post">
-        @if (session('update_cate_success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('update_cate_success') }}
-        </div>
-        @endif
-        @if (session('update_cate_fail'))
-        <div class="alert alert-danger" role="alert">
-            {{ session('update_cate_fail') }}
-        </div>
-        @endif
-       
         @csrf @method('PUT')
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>

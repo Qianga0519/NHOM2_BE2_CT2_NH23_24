@@ -289,13 +289,21 @@
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
                                     <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                       
+
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            @if ($value->productImage->first())
-                                          <a href="{{route('product', ['id' => $value['id']])}}">  <img src="{{ asset('images/'. $value->productImage->first()->url) }}" alt=""></a>
-                                            @endif
+                                           
+                                            <a href="{{route('product', ['id' => $value['id']])}}"> 
+                                                @if ($value->productImage->first())
+                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
+                                                @else 
+                                                <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                                @endif
+                                            </a>
+                                               
+
+                                           
                                         </div>
-                                       
+
                                         <div class="product_content">
                                             <div class="product_price">{{number_format($value->price)}} VND</div>
                                             <div class="product_name">
@@ -339,8 +347,13 @@
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            <a href="{{route('product', ['id' => $value['id']])}}"><img src="{{asset('images/' . $value->productImage->first()->url)}}" alt=""></a>
-                                        </div>
+                                            <a href="{{route('product', ['id' => $value['id']])}}"> 
+                                                @if ($value->productImage->first())
+                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
+                                                @else 
+                                                <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                                @endif
+                                            </a>  </div>
                                         <div class="product_content">
                                             <div class="product_price discount">
                                                 {{number_format($discount)}}<span>{{number_format($value['price'])}}</span>
@@ -385,7 +398,14 @@
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            <a href="{{route('product', ['id' => $value['id']])}}">  <img src="{{asset('images/' . $value->productImage->first()->url)}}" alt=""></a>
+                                            <a href="{{route('product', ['id' => $value['id']])}}"> 
+                                                @if ($value->productImage->first())
+                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
+                                                @else 
+                                                <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                                @endif
+                                            </a>   
+                                        
                                         </div>
                                         <div class="product_content">
                                             <div class="product_price discount">

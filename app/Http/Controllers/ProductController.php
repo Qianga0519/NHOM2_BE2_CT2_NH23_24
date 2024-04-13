@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,6 +15,8 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $products = Product::orderBy('created_at', 'DESC')->search()->paginate(20);
+        return view('admin.product.index', ['products' => $products]);
     }
 
     /**
@@ -24,6 +27,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view('admin.product.create');
     }
 
     /**
@@ -35,6 +39,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        // if ($request->feature === 'on') {
+        //     dd('abbc');
+        // }
+        dd($request->toArray());
     }
 
     /**
@@ -57,6 +65,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::find($id);
+        return view('admin.product.edit', ['product' => $product]);
     }
 
     /**
@@ -79,6 +89,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        //note: when delete -> constraint( review, product_color, product_image)
         //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->back()->with('del_product_success', 'Delete successfully!');
     }
 }

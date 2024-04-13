@@ -36,6 +36,8 @@ $menus = config('menu_admin');
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('admin')}}/plugins/summernote/summernote-bs4.min.css">
     <link rel="stylesheet" href="{{asset('admin')}}/custom/pagination.css">
+    <link rel="stylesheet" href="{{asset('admin')}}/custom/custom_admin.css">
+    <link rel="stylesheet" href="{{asset('admin')}}/custom/messages.css">
     @yield('css')
 </head>
 
@@ -46,6 +48,8 @@ $menus = config('menu_admin');
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
+                
+                @yield('messages')
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
@@ -264,7 +268,7 @@ $menus = config('menu_admin');
             <!-- /.content-header -->
 
             <!-- Main content -->
-            
+
             @yield('content')
             <!-- /.content -->
         </div>
@@ -325,6 +329,7 @@ $menus = config('menu_admin');
         let breadcrumb_active = document.querySelector('.breadcrumb li:last-child');
         breadcrumb_active.classList.add('active');
         breadcrumb_active.style.textDecoration = 'underline'
+
     </script>
 
 </body>

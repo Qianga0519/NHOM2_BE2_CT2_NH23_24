@@ -65,14 +65,18 @@ class HomeController extends Controller
 
     public function product($id)
     {
-        $product = Product::find($id);
-        // dd($product->reviews->find(1));
-        // $colors = $product->colors;
-        // dd($colors->last()->hex);
-        // $user = User::find(2);
-        // dd($user->avatar->url);
-        // dd($product->review->user);
-        return view('clients.product', compact('product'));
+
+        if (!is_numeric($id) || $id <= 0) {
+            abort(404);
+        } else {
+            $product = Product::find($id);
+            if (!$product) {
+                abort(404);
+            } else {
+                return view('clients.product', compact('product'));
+            }
+        }
+        abort(404);
     }
     public function regular()
     {

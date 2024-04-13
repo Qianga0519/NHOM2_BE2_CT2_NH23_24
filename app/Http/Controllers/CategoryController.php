@@ -69,7 +69,7 @@ class CategoryController extends Controller
 
         // dd(Category::find(1)->products()->count());
         $category = Category::find($id);
-        dd($category->products->count);
+        // dd($category->products->count);
     }
 
     /**
@@ -117,7 +117,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         if ($category->products->count() > 0) {
-            return redirect()->route('category.index')->with('del_cate_error', 'Can\'t delete this category because product instock');
+            return redirect()->back()->with('del_cate_error', 'Can\'t delete this category because product instock');
         } else {
 
             $category->delete();

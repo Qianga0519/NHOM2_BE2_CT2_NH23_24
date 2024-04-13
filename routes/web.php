@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Models\Category;
 use Illuminate\Routing\Controllers\Middleware;
@@ -70,7 +71,7 @@ Route::group(['prefix' => '4admin', 'middleware' => 'checkAdmin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::resources([
         'category' => CategoryController::class, //CURD Category
-        'product' => CategoryController::class, //CURD Poduct
+        'product' => ProductController::class, //CURD Poduct
 
     ]);
 });
