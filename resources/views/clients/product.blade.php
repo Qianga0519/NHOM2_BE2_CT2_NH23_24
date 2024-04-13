@@ -100,7 +100,7 @@
                 <h3>Reviews</h3>
             </div>
             @if($product->reviews()->where('user_id', Auth::id())->exists())
-            {{-- not have review --}}
+            {{-- have review --}}
             <div class="reviewItem_cmt">
                 <form action="{{route('review.update', $product['id'])}}">
                     <div class="top">
@@ -150,7 +150,7 @@
                 </form>
             </div>
             @else
-            {{-- have review  --}}
+            {{--not have review  --}}
             <div class="reviewItem_cmt">
                 <form action="{{route('review.create', $product['id'])}}">
                     <div class="top">
