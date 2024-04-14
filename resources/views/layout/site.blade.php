@@ -77,10 +77,13 @@ $routes = config('page_route');
                                 </div>
                                 <div class="top_bar_user">
                                     @if(Auth::check())
-                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>
-                                    @else
-                                    <div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt=""></div>
+                                    @if(Auth::user()->avatar)
+                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>                                           
                                     @endif
+
+                                    @else<div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt=""></div>
+                                    @endif
+
 
 
 
@@ -201,7 +204,7 @@ $routes = config('page_route');
                     </div>
                 </div>
             </div>
-           
+
             <!-- Main Navigation -->
 
             <nav class="main_nav">

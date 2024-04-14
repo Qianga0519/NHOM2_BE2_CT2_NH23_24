@@ -108,9 +108,13 @@ class DataBaseSeeder extends Seeder
         ]);
         Avatar::factory()->create([
             'user_id' => 2,
-            'url' => 'user.png'
+            'url' => 'admin.png'
         ]);
 
+        Avatar::factory()->create([
+            'user_id' => 3,
+            'url' => 'user.png'
+        ]);
 
         Order::factory()->create([
             'user_id' => 2,

@@ -169,7 +169,14 @@
                 <div class="top">
                     @if( Auth::check())
                     <div class="clientImage">
+                        @if(Auth::user()->avatar)
+
                         <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
+                        @else
+                      
+                        <img src="{{asset('images/no-image.png')}}"  alt="">
+                        @endif
+                      
                         <span>{{Auth::user()->name}}</span>
                     </div>
                     @else
