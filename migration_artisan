@@ -14,6 +14,7 @@ php .\artisan make:migration create_color_table
 
 __Request
 php artisan make:request CreateUserRequest
+php artisan make:request RuleProduct
 
 __RUN__
 php .\artisan migrate:reset
