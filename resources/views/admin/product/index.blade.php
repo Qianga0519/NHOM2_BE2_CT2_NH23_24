@@ -81,7 +81,7 @@
         event.preventDefault();
         var _href = $(this).attr('href');
         $('form#form-delete').attr('action', _href)
-        if (confirm('ban co chac khong?')) {
+        if (confirm('Are you sure?')) {
             $('form#form-delete').submit();
         }
     })
