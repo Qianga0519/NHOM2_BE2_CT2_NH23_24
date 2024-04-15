@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
-            $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->bigInteger('post_id');
+           // $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
         });
     }
