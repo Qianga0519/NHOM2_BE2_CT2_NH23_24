@@ -76,7 +76,7 @@ class ProductController extends Controller
             $lastProduct = Product::orderBy('id', 'DESC')->first();
             ProductColor::create(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
             ProductImage::create(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
-            return redirect()->back()->with('add_product_1', 'Added!');
+            return redirect()->back()->with('add_product_1', 'Added1!');
         }
         return redirect()->back()->with('add_product_0', 'Add fail!');
     }
