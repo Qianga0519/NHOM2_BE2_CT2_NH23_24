@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('avatars', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id');
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

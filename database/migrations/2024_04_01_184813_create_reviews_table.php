@@ -17,10 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->float('rate');
             $table->text('content');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('user_id');
+            //$table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('product_id');
+            //$table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

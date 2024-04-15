@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('product_id');
+            //$table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

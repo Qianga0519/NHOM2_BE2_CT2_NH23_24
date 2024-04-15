@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
             $table->rememberToken();
-            $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->bigInteger('role_id');
+            //$table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();
         });
     }

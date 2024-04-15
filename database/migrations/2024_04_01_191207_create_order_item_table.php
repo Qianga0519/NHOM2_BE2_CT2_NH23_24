@@ -18,12 +18,12 @@ return new class extends Migration
             $table->integer('qty');
             $table->decimal('price', 10);
             $table->decimal('discount', 10)->default(0);
-            $table->unsignedBigInteger('color_id');
-            $table->foreign('color_id')->references('id')->on('product_color');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('color_id');
+            //$table->foreign('color_id')->references('id')->on('product_color');
+            $table->bigInteger('order_id');
+            //$table->foreign('order_id')->references('id')->on('orders');
+            $table->bigInteger('product_id');
+            //$table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

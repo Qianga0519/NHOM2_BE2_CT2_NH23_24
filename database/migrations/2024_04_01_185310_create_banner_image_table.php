@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
-            $table->unsignedBigInteger('banner_id');
-            $table->foreign('banner_id')->references('id')->on('banners');
+            $table->bigInteger('banner_id');
+            //$table->foreign('banner_id')->references('id')->on('banners');
             $table->timestamps();
         });
     }

@@ -21,8 +21,8 @@ return new class extends Migration
             $table->decimal('shipping', 10);
             $table->decimal('total', 10);
             $table->string('status'); //trang thai don hang
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id');
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

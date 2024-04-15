@@ -22,10 +22,10 @@ return new class extends Migration
             $table->integer('qty');
             $table->integer('sale_amount'); //da ban
             //foriegn-key
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->unsignedBigInteger('manufacture_id');
-            $table->foreign('manufacture_id')->references('id')->on('manufactures');
+            $table->bigInteger('category_id');
+            //$table->foreign('category_id')->references('id')->on('categories');
+            $table->bigInteger('manufacture_id');
+            //$table->foreign('manufacture_id')->references('id')->on('manufactures');
             $table->timestamps();
         });
     }

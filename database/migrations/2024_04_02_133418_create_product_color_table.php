@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('product_color', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('color_id');
-            $table->foreign('color_id')->references('id')->on('colors');
+            $table->bigInteger('product_id');
+            //$table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('color_id');
+            //$table->foreign('color_id')->references('id')->on('colors');
             $table->timestamps();
         });
     }
