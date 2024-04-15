@@ -29,7 +29,7 @@ class User extends Authenticatable
         'fullname',
         'phone',
         'city',
-        'distrist',
+        'district',
         'ward',
         'address',
         'gender',
@@ -58,5 +58,9 @@ class User extends Authenticatable
     public function avatar(): HasOne
     {
         return $this->HasOne(Avatar::class);
+    }
+    public function cart(): HasOne
+    {
+        return $this->HasOne(Cart::class);
     }
 }

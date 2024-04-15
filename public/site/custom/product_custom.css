@@ -27,7 +27,13 @@ article {
     margin: 5px;
     border: 0.1px solid;
 }
+.reviewItem{
+    /* margin-top: 75px; */
+}
+.reviewItem_cmt{
+    margin-bottom: 75px;
 
+}
 .clientImage span {
     font-weight: bold
 }
@@ -49,3 +55,142 @@ article {
 article {
     margin-top: 5px
 }
+
+.color_mark {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+   color: black;
+    cursor: pointer;
+    border: 0.2px solid;
+}
+#selected_color{
+    border: 0.2px solid;
+
+}
+#rating{
+    width: 70px;
+}
+.side_rate_top {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.side_rate_top>label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500px;
+
+
+}
+
+.side_rate_top span {
+    color: red;
+    animation: hide 1s 1s linear 1 forwards;
+
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.side_rate_top>.rate {
+    margin-top: 20px
+}
+
+.side_rate_top>label {
+    position: absolute;
+
+
+}
+
+.side_rate_bot {
+
+    left: 0;
+    top: 60px;
+
+}
+
+.side_rate_bot button{
+    background: #fff;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    border: 0.2px solid #888;
+    transition: 0.5s;
+}
+.side_rate_bot button{ 
+    color: black;
+    transition: 0.5s;
+}
+.side_rate_bot button a{ 
+  
+    color: black;
+    transition: 0.5s;
+}
+.side_rate_bot button:hover  {
+    background: #0e8ce4;
+    color: white;
+}
+.side_rate_bot button:hover a  {
+    color: white;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    display: none;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */

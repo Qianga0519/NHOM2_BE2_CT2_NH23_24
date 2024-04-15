@@ -33,6 +33,8 @@ class HomeController extends Controller
         $products_sale =  $this->prod->productSale()->take(16)->get();
         // $lastProduct =  $this->products->sortBy('created_at')->first();
         $lastProduct =  $this->products->find(12);
+        $products_rate = Product::withCount('reviews')->orderByDesc('reviews_count')->take(16)->get();
+
         // dd($lastProduct->banner->first()->image->url);
         // $lastBanner = $this->banners->sortBy('created_at')->first();
         // $products_color =  Product::take(16)->get(); 
@@ -43,7 +45,8 @@ class HomeController extends Controller
         return view('clients.home', [
             'products' => $products,
             'products_sale' => $products_sale,
-            'lastProduct' => $lastProduct
+            'lastProduct' => $lastProduct,
+            'products_rate' => $products_rate
         ]);
     }
 
@@ -59,17 +62,21 @@ class HomeController extends Controller
     {
         return view('clients.contact');
     }
-    public function cart()
-    {
-        return view('clients.cart');
-    }
+
     public function product($id)
     {
-        $product = Product::find($id);
-        // $user = User::find(2);
-        // dd($user->avatar->url);
-        // dd($product->review->user);
-        return view('clients.product', compact('product'));
+
+        if (!is_numeric($id) || $id <= 0) {
+            abort(404);
+        } else {
+            $product = Product::find($id);
+            if (!$product) {
+                abort(404);
+            } else {
+                return view('clients.product', compact('product'));
+            }
+        }
+        abort(404);
     }
     public function regular()
     {

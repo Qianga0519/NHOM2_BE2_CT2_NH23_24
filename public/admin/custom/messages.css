@@ -1,0 +1,32 @@
+
+
+.alert {
+    animation: drop .4s cubic-bezier(.14, .6, .62, .96) 1 forwards, hide 1s 1s linear 1 forwards;
+    position: fixed;
+    top: 0;
+    width: 300px;
+    text-align: center;
+    left: calc(50% - 150px);
+    z-index: 10;
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes drop {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 30px;
+    }
+}

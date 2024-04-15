@@ -22,9 +22,9 @@ return new class extends Migration
             $table->integer('status')->default('1');
             //detail
             $table->string('fullname')->nullable();
-            $table->string('phone')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->string('city')->nullable();
-            $table->string('distrist')->nullable();
+            $table->string('district')->nullable();
             $table->string('ward')->nullable();
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
