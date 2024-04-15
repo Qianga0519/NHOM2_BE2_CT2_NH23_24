@@ -11,7 +11,7 @@ class Review extends Model
 {
     use HasFactory;
     protected $table = 'reviews';
-    protected $filltable = ['rate', 'content', 'user_id', 'product_id'];
+    protected $fillable = ['rate', 'content', 'user_id', 'product_id'];
     public function user(): BelongsTo
     {
         return $this->BelongsTo(User::class);

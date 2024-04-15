@@ -120,6 +120,7 @@
                                 <div class="product_name">
                                     <div><a href="{{route('product', ['id' => $value['id']])}}">{{$value['name']}}</a></div>
                                 </div>
+                                 @if(Auth::check())
                                 <div class="product_extras">
                                     <div class="product_color">
                                         @if ($value->colors)
@@ -128,8 +129,11 @@
                                         @endforeach
                                         @endif
                                     </div>
+
                                     <button class="product_cart_button">Add to Cart</button>
-                                </div>
+
+
+                                </div> @endif
                             </div>
                             <div class="product_fav"><i class="fas fa-heart"></i></div>
                             <ul class="product_marks">
@@ -142,7 +146,16 @@
                         <div class="product_item is_new">
                             <div class="product_border"></div>
                             <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                <img src="{{asset('images/'.$value->productImage->first()->url)}}" alt="">
+                          
+                                <a href="{{route('product', ['id' => $value['id']])}}"> 
+                                    @if ($value->productImage->first())
+                                    <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
+                                    @else 
+                                    <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                    @endif
+                                </a>
+                          
+                              
                             </div>
                             <div class="product_content">
                                 <div class="product_price">{{number_format($value['price'])}} VND</div>

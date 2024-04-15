@@ -407,6 +407,7 @@ section
 {
 	color: #0e8ce4;
 }
+
 .standard_dropdown li a i
 {
 	display: none;
@@ -2119,4 +2120,17 @@ transform: none;
 .logos_list li:last-child
 {
 	margin-right: 0px;
+}
+/* .color_list li input::after{
+	content: '';
+	display: block;
+	width: 20px;
+	height: 20px ;
+	border-radius: 50%;
+   
+} */
+.box_color{
+	/* width: 100px; */
+	height: 20px ;
+	border: none;
 }
