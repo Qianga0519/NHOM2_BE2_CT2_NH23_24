@@ -12,12 +12,19 @@ article {
 .review h3 {
     border-top: solid;
     border-bottom: solid;
-    width: 100px;
-    line-height: 40px
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: #0e8ce4;
+}
+#comment{
+    width: 100%;
 }
 
 .reviewSection hr {
-    border-top: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid #0e8ce4;;
+    width: 100%;
+  
 }
 
 .clientImage img {
@@ -27,13 +34,16 @@ article {
     margin: 5px;
     border: 0.1px solid;
 }
-.reviewItem{
+
+.reviewItem {
     /* margin-top: 75px; */
 }
-.reviewItem_cmt{
+
+.reviewItem_cmt {
     margin-bottom: 75px;
 
 }
+
 .clientImage span {
     font-weight: bold
 }
@@ -67,17 +77,20 @@ article {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-   color: black;
+    color: black;
     cursor: pointer;
     border: 0.2px solid;
 }
-#selected_color{
+
+#selected_color {
     border: 0.2px solid;
 
 }
-#rating{
+
+#rating {
     width: 70px;
 }
+
 .side_rate_top {
     position: absolute;
     left: 0;
@@ -127,7 +140,7 @@ article {
 
 }
 
-.side_rate_bot button{
+.side_rate_bot button {
     background: #fff;
     width: 80px;
     height: 25px;
@@ -135,22 +148,27 @@ article {
     border: 0.2px solid #888;
     transition: 0.5s;
 }
-.side_rate_bot button{ 
+
+.side_rate_bot button {
     color: black;
     transition: 0.5s;
 }
-.side_rate_bot button a{ 
-  
+
+.side_rate_bot button a {
+
     color: black;
     transition: 0.5s;
 }
-.side_rate_bot button:hover  {
+
+.side_rate_bot button:hover {
     background: #0e8ce4;
     color: white;
 }
-.side_rate_bot button:hover a  {
+
+.side_rate_bot button:hover a {
     color: white;
 }
+
 .rate {
     float: left;
     height: 46px;
@@ -194,3 +212,17 @@ article {
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+
+.star {
+    font-size: 32px;
+    margin-left: 2px;
+    color: #ffc700;
+}
+.product_price{
+    color: #df3b3b;
+    
+}
+.price_no_sale{
+    text-decoration: line-through;
+}

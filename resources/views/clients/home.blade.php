@@ -5,6 +5,14 @@
 <script>
 </script>
 @endsection
+@section('css')
+<style>
+    .product_price span{
+    text-decoration: line-through;
+
+}
+</style>
+@endsection
 @section('main')
 <!-- Banner -->
 <div class="banner">
