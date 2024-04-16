@@ -170,61 +170,77 @@ $routes = config('page_route');
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"><img src="{{url('site')}}/images/heart.png" alt=""></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="{{route('wishlist')}}">Wishlist</a></div>
+                                        <div class="wishlist_text"><a href="{{route('wishlist')}}">Wishlist</a></div> @if (Auth::check())
+
                                         <div class="wishlist_count">{{Auth::user()->wishlist()->count()}}</div>
-                                    </div>
-                                </div>
+                                        @else
 
-                                <!-- Cart -->
-                                <div class="cart">
-                                    <div class="cart_container d-flex flex-row align-items-center justify-content-end">
-                                        @if(Auth::check())
-                                        <div class="cart_icon">
-                                            <img src="{{url('site')}}/images/cart.png" alt="">
-                                            <div class="cart_count"><span>{{Auth::user()->cart()->count()}}</span></div>
-                                        </div>
-                                        <?php
-                                       $productAllCart =  Auth::user()->cart()->with('product')->get();
-                                       $total = 0;
-                                       foreach ($productAllCart as  $value) {
-                                       $total += $value['price'] *$value['qty'];
-                                       };
-                                        ?>
-
-                                        <div class="cart_content">
-                                            <div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
-                                            <div class="cart_price">{{number_format($total)}}</div>
-                                        </div>
+                                        <div class="wishlist_count">0</div>
                                         @endif
                                     </div>
-                                </div>
+                                    </div>
+                                    <!-- Cart -->
+                                    <div class="cart">
+                                        <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                                            @if(Auth::check())
+                                            <div class="cart_icon">
+                                                <img src="{{url('site')}}/images/cart.png" alt="">
+                                                <div class="cart_count"><span>{{Auth::user()->cart()->count()}}</span></div>
+                                            </div>
+                                            <?php
+                                                $productAllCart =  Auth::user()->cart()->with('product')->get();
+                                                $total = 0;
+                                                foreach ($productAllCart as  $value) {
+                                                $total += $value['price'] *$value['qty'];
+                                                };
+                                             ?>
 
+                                            <div class="cart_content">
+                                                <div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
+                                                <div class="cart_price">{{number_format($total)}}</div>
+                                            </div>
+
+                                            
+                                            @else
+                                            <div class="cart_icon">
+                                                <img src="{{url('site')}}/images/cart.png" alt="">
+                                                <div class="cart_count"><span>0</span></div>
+                                            </div>
+                                        
+                                            <div class="cart_content">
+                                                <div class="cart_text"><a href="{{route('login')}}">Cart</a></div>
+                                                <div class="cart_price">0</div>
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Main Navigation -->
+                <!-- Main Navigation -->
 
-            <nav class="main_nav">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                <nav class="main_nav">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
 
-                            <div class="main_nav_content d-flex flex-row">
-                                <!-- Categories Menu -->
-                                <div class="cat_menu_container">
-                                    <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
-                                        <div class="cat_burger"><span></span><span></span><span></span></div>
-                                        <div class="cat_menu_text">categories</div>
-                                    </div>
-                                    <ul class="cat_menu">
-                                        @foreach($categories as $value)
-                                        <li><a href="{{route('view' , ['slug'=>$value->slug])}}">{{$value['name']}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
-                                        @endforeach
-                                    </ul>
-                                    {{-- <ul class="cat_menu">
+                                <div class="main_nav_content d-flex flex-row">
+                                    <!-- Categories Menu -->
+                                    <div class="cat_menu_container">
+                                        <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+                                            <div class="cat_burger"><span></span><span></span><span></span></div>
+                                            <div class="cat_menu_text">categories</div>
+                                        </div>
+                                        <ul class="cat_menu">
+                                            @foreach($categories as $value)
+                                            <li><a href="{{route('view' , ['slug'=>$value->slug])}}">{{$value['name']}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
+                                            @endforeach
+                                        </ul>
+                                        {{-- <ul class="cat_menu">
                                         <li><a href="#">Computers & Laptops <i
                                                     class="fas fa-chevron-right ml-auto"></i></a></li>
                                         <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
@@ -258,64 +274,64 @@ $routes = config('page_route');
                                         </li>
                                         <li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
                                     </ul> --}}
-                                </div>
+                                    </div>
 
-                                <!-- Main Nav Menu -->
+                                    <!-- Main Nav Menu -->
 
-                                <div class="main_nav_menu ml-auto">
-                                    <ul class="standard_dropdown main_nav_dropdown">
-                                        <li><a href="{{route('home')}}">Home<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="{{route('shop')}}">Shop<i class="fas fa-chevron-down"></i></a></li>
-                                        <li class="hassubs">
-                                            <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                @foreach($routes as $value)
-                                                <li>
-                                                    <a href="{{ route($value['route']) }}">
-                                                        {{ $value['name']}}<i class="fas fa-chevron-down"></i></a>
-                                                </li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{route('blog')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="{{route('contact')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
-                                    </ul>
-                                </div>
+                                    <div class="main_nav_menu ml-auto">
+                                        <ul class="standard_dropdown main_nav_dropdown">
+                                            <li><a href="{{route('home')}}">Home<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="{{route('shop')}}">Shop<i class="fas fa-chevron-down"></i></a></li>
+                                            <li class="hassubs">
+                                                <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
+                                                <ul>
+                                                    @foreach($routes as $value)
+                                                    <li>
+                                                        <a href="{{ route($value['route']) }}">
+                                                            {{ $value['name']}}<i class="fas fa-chevron-down"></i></a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                            <li><a href="{{route('blog')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="{{route('contact')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                        </ul>
+                                    </div>
 
-                                <!-- Menu Trigger -->
+                                    <!-- Menu Trigger -->
 
-                                <div class="menu_trigger_container ml-auto">
-                                    <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
-                                        <div class="menu_burger">
-                                            <div class="menu_trigger_text">menu</div>
-                                            <div class="cat_burger menu_burger_inner">
-                                                <span></span><span></span><span></span>
+                                    <div class="menu_trigger_container ml-auto">
+                                        <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+                                            <div class="menu_burger">
+                                                <div class="menu_trigger_text">menu</div>
+                                                <div class="cat_burger menu_burger_inner">
+                                                    <span></span><span></span><span></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
 
-            <!-- Menu -->
+                <!-- Menu -->
 
-            <div class="page_menu">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                <div class="page_menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
 
-                            <div class="page_menu_content">
+                                <div class="page_menu_content">
 
-                                <div class="page_menu_search">
-                                    <form action="#">
-                                        <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
-                                    </form>
-                                </div>
-                                {{-- <ul class="page_menu_nav">
+                                    <div class="page_menu_search">
+                                        <form action="#">
+                                            <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                                        </form>
+                                    </div>
+                                    {{-- <ul class="page_menu_nav">
                                     <li class="page_menu_item has-children">
                                         <a href="#">Language<i class="fa fa-angle-down"></i></a>
                                         <ul class="page_menu_selection">
@@ -379,20 +395,20 @@ $routes = config('page_route');
                                                 class="fa fa-angle-down"></i></a></li>
                                 </ul> --}}
 
-                                <div class="menu_contact">
-                                    <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/phone_white.png" alt=""></div>
-                                        +38 068 005 3570
-                                    </div>
-                                    <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+                                    <div class="menu_contact">
+                                        <div class="menu_contact_item">
+                                            <div class="menu_contact_icon"><img src="{{url('site')}}/images/phone_white.png" alt=""></div>
+                                            +38 068 005 3570
+                                        </div>
+                                        <div class="menu_contact_item">
+                                            <div class="menu_contact_icon"><img src="{{url('site')}}/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
         </header>
         @yield('main')

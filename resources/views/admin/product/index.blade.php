@@ -36,6 +36,7 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th scope="col">Sale</th>
+                <th scope="col">Feature</th>
                 <th scope="col">Created_at</th>
                 <th class="text-right" scope="col">Action</th>
             </tr>
@@ -54,6 +55,8 @@
                 <td>{{$value['qty']}}</td>
                 <td>{{number_format($value['price'])}}</td>
                 <td>{{number_format($value['sale_amount'])}}</td>
+                <td>{{ $value->feature() ? 1 : 0 }}</td>
+
                 <td>{{$value['created_at']->format('d - m - Y')}}</td>
                 <td class="text-right">
                     <a href="{{route('product.show',[$value['id']])}}" class="btn btn-danger"><i class="fas fa-solid fa-eye"></i></a>

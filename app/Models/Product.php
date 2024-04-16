@@ -33,6 +33,10 @@ class Product extends Model
     {
         return $this->BelongsTo(Category::class);
     }
+    public function manufacture(): BelongsTo
+    {
+        return $this->BelongsTo(Manufacture::class);
+    }
     public function banner(): HasMany
     {
         return $this->HasMany(Banner::class);
@@ -47,7 +51,12 @@ class Product extends Model
     }
     public function productFeature()
     {
-        return $this->orderBy('created_at', 'DESC')->where('feature', '=', 1);
+        return Product::where('feature', 1);
+    }
+    public function feature()
+    {
+        $feature = Product::where(['id' => $this->id, 'feature' => 1])->first();
+        return $feature ? true : false;
     }
     public function productSale()
     {
@@ -55,7 +64,6 @@ class Product extends Model
     }
     public function getFavorited()
     {
-
         if (Auth::check()) {
 
             $favor = Wishlist::where(['product_id' => $this->id, 'user_id' => Auth::user()->id])->first();

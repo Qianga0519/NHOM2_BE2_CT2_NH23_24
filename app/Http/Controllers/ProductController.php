@@ -51,9 +51,9 @@ class ProductController extends Controller
             $image_url = $file_name;
             $file->move(public_path('images'), $file_name);
         }
-        if (!$image_url) {
-            $image_url = 'no-image.png';
-        }
+        // if (!$image_url) {
+        //     $image_url = 'no-image.png';
+        // }
         $name = trim(strip_tags($request->name));
         $description = trim(strip_tags($request->description));
         $price = $request->price;
@@ -75,7 +75,9 @@ class ProductController extends Controller
         if ($product->save()) {
             $lastProduct = Product::orderBy('id', 'DESC')->first();
             ProductColor::create(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
-            ProductImage::create(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
+            if ($image_url) {
+                ProductImage::create(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
+            }
             return redirect()->back()->with('add_product_1', 'Added1!');
         }
         return redirect()->back()->with('add_product_0', 'Add fail!');
@@ -101,8 +103,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $colors = Color::all();
         $product = Product::find($id);
-        return view('admin.product.edit', ['product' => $product]);
+        return view('admin.product.edit', ['product' => $product], compact('colors'));
     }
 
     /**
@@ -112,9 +115,44 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RuleProduct $request, $id)
+
     {
-        //
+
+        $image_url = null;
+        if ($request->hasFile('image')) { // Sử dụng hasFile() thay vì has()
+            $file = $request->file('image'); // Sử dụng file() để lấy đối tượng file
+            $file_name = $file->getClientOriginalName();
+            $image_url = $file_name;
+            $file->move(public_path('images'), $file_name);
+        }
+
+
+        $name = trim(strip_tags($request->name));
+        $description = trim(strip_tags($request->description));
+        $price = $request->price;
+        $feature = ($request->feature === 'on') ? 1 : 0;
+        $qty  = $request->qty;
+        $sale_amount = $request->sale_amount ? $request->sale_amount : 0;
+        $category_id = $request->category_id;
+        $manufacture_id = $request->manufacture_id;
+        $color_id = $request->color_id;
+        $product = Product::find($id);
+        $product->description = $description;
+        $product->name = $name;
+        $product->price = $price;
+        $product->feature = $feature;
+        $product->sale_amount = $sale_amount;
+        $product->qty = $qty;
+        $product->category_id = $category_id;
+        $product->manufacture_id = $manufacture_id;
+        if ($product->update()) {
+            $lastProduct = Product::orderBy('id', 'DESC')->first();
+            ProductColor::updateOrCreate(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
+            ProductImage::updateOrCreate(['name' => $name, 'url' => $request->image, 'product_id' => $lastProduct['id']]);
+            return redirect()->back()->with('update_product_1', 'Updated!');
+        }
+        return redirect()->back()->with('update_product_0', 'update fail!');
     }
 
     /**

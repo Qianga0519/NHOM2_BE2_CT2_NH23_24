@@ -32,7 +32,7 @@ class DataBaseSeeder extends Seeder
             ]);
         };
         $manufactures = [
-            'Samsung', 'Xiaomi', 'Google', 'Meizu',  'Vsmart', 'Lenovo', 'Iphone'
+            'Samsung', 'Xiaomi', 'Google', 'Meizu',  'Vsmart', 'Lenovo', 'Iphone', 'Sony'
         ];
         foreach ($manufactures as $value) {
             Manufacture::factory()->create([
