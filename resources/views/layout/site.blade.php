@@ -78,7 +78,7 @@ $routes = config('page_route');
                                 <div class="top_bar_user">
                                     @if(Auth::check())
                                     @if(Auth::user()->avatar)
-                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>                                           
+                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>
                                     @endif
 
                                     @else<div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt=""></div>
@@ -170,8 +170,8 @@ $routes = config('page_route');
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"><img src="{{url('site')}}/images/heart.png" alt=""></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="#">Wishlist</a></div>
-                                        <div class="wishlist_count">115</div>
+                                        <div class="wishlist_text"><a href="{{route('wishlist')}}">Wishlist</a></div>
+                                        <div class="wishlist_count">{{Auth::user()->wishlist()->count()}}</div>
                                     </div>
                                 </div>
 
@@ -397,6 +397,4 @@ $routes = config('page_route');
         </header>
         @yield('main')
         <!-- Footer -->
-
-
         @extends('layout.footersite')

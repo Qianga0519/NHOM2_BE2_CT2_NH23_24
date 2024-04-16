@@ -2,15 +2,15 @@
 
 @section('js')
 <script src="{{asset('site')}}/custom/add_to_cart_home_no_reload.js"></script>
-<script>
-</script>
+
 @endsection
 @section('css')
 <style>
-    .product_price span{
-    text-decoration: line-through;
+    .product_price span {
+        text-decoration: line-through;
 
-}
+    }
+
 </style>
 @endsection
 @section('main')
@@ -31,7 +31,7 @@
                         {{$lastProduct['price'] - $lastProduct['sale_amount']}}
                     </div>
                     <div class="banner_product_name">{{$lastProduct['name']}}</div>
-                    <div class="button banner_button"><a href="#">Shop Now </a></div>
+                    <div class="button banner_button"><a href="{{route('shop')}}">Shop Now </a></div>
                 </div>
             </div>
             @else
@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="banner_product_name"></div>
-                    <div class="button banner_button"><a href="#">Shop Now </a></div>
+                    <div class="button banner_button"><a href="{{route('shop')}}">Shop Now </a></div>
                 </div>
             </div>
             @endif
@@ -299,19 +299,15 @@
                                     <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
 
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                           
-                                            <a href="{{route('product', ['id' => $value['id']])}}"> 
+
+                                            <a href="{{route('product', ['id' => $value['id']])}}">
                                                 @if ($value->productImage->first())
-                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
-                                                @else 
-                                                <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}" alt="{{$value->name}}">
+                                                @else
+                                                <img src="{{ asset('images/')}}" alt="{{$value->name}}">
                                                 @endif
                                             </a>
-                                               
-
-                                           
                                         </div>
-
                                         <div class="product_content">
                                             <div class="product_price">{{number_format($value->price)}} VND</div>
                                             <div class="product_name">
@@ -321,8 +317,8 @@
                                                 <div class="product_extras">
                                                     <div class="product_color">
                                                         @if ($value->colors)
-                                                        @foreach($value->colors as $value)
-                                                        <input type="radio" name="product_color" style="background:{{$value->hex}}" value="{{$value->id}}">
+                                                        @foreach($value->colors as $item_color)
+                                                        <input type="radio" name="product_color" style="background:{{$item_color->hex}}" value="{{$item_color->id}}">
                                                         @endforeach
                                                         @endif
                                                     </div>
@@ -330,7 +326,11 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                        {{-- <div onclick="add_del_wishlist()" class="product_fav @if($value->getFavorited()) active @endif"><i class="fas fa-heart"></i></div> --}}
+                                        <a class="product_fav @if($value->getFavorited()) active @endif" href="{{ route('wishlist.add_del', [$value]) }}">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        
                                         <ul class="product_marks">
                                             <li class="product_mark product_discount"></li>
                                             <li class="product_mark product_new">new</li>
@@ -355,13 +355,13 @@
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            <a href="{{route('product', ['id' => $value['id']])}}"> 
+                                            <a href="{{route('product', ['id' => $value['id']])}}">
                                                 @if ($value->productImage->first())
-                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
-                                                @else 
-                                                <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}" alt="{{$value->name}}">
+                                                @else
+                                                <img src="{{ asset('images/')}}" alt="{{$value->name}}">
                                                 @endif
-                                            </a>  </div>
+                                            </a> </div>
                                         <div class="product_content">
                                             <div class="product_price discount">
                                                 {{number_format($discount)}}<span>{{number_format($value['price'])}}</span>
@@ -374,8 +374,8 @@
                                                 <div class="product_extras">
                                                     <div class="product_color">
                                                         @if ($value->colors)
-                                                        @foreach($value->colors as $value)
-                                                        <input type="radio" name="product_color" style="background:{{$value->hex}}" value="{{$value->id}}">
+                                                        @foreach($value->colors as $item_color)
+                                                        <input type="radio" name="product_color" style="background:{{$item_color->hex}}" value="{{$item_color->id}}">
                                                         @endforeach
                                                         @endif
                                                     </div>
@@ -383,7 +383,9 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                        <a class="product_fav @if($value->getFavorited()) active @endif" href="{{ route('wishlist.add_del', [$value]) }}">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
                                         <ul class="product_marks">
                                             <li class="product_mark product_discount">{{ number_format($markup,1)}}%</li>
                                             <li class="product_mark product_new">new</li>
@@ -406,14 +408,14 @@
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            <a href="{{route('product', ['id' => $value['id']])}}"> 
+                                            <a href="{{route('product', ['id' => $value['id']])}}">
                                                 @if ($value->productImage->first())
-                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}"alt="{{$value->name}}"> 
-                                                @else 
-                                                <img src="{{ asset('images/')}}"alt="{{$value->name}}"> 
+                                                <img src="{{ asset('images/' . $value->productImage->first()->url)}}" alt="{{$value->name}}">
+                                                @else
+                                                <img src="{{ asset('images/')}}" alt="{{$value->name}}">
                                                 @endif
-                                            </a>   
-                                        
+                                            </a>
+
                                         </div>
                                         <div class="product_content">
                                             <div class="product_price discount">
@@ -436,7 +438,9 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                        <a class="product_fav @if($value->getFavorited()) active @endif" href="{{ route('wishlist.add_del', [$value]) }}">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
                                         <ul class="product_marks">
                                             @if($value['sale_amount'] > 0)
                                             <li class="product_mark product_discount">{{number_format($markup,1)}}%</li>

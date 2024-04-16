@@ -8,6 +8,7 @@ use App\Models\Banner;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use App\Models\Wishlist;
 
 class HomeController extends Controller
 {
@@ -17,6 +18,7 @@ class HomeController extends Controller
     protected $cate;
     protected $prod;
     protected $banner;
+
     // protected $route_page;
     public function __construct()
     {
@@ -25,6 +27,7 @@ class HomeController extends Controller
         $this->banners =  Banner::get();
         $this->cate = new Category();
         $this->prod = new Product();
+
         $this->banner = new Banner();
     }
     public function index()
@@ -34,7 +37,9 @@ class HomeController extends Controller
         // $lastProduct =  $this->products->sortBy('created_at')->first();
         $lastProduct =  $this->products->find(12);
         $products_rate = Product::withCount('reviews')->orderByDesc('reviews_count')->take(16)->get();
+        $wishlists = Wishlist::get();
 
+        // dd($abc->wishlist);
         // dd($lastProduct->banner->first()->image->url);
         // $lastBanner = $this->banners->sortBy('created_at')->first();
         // $products_color =  Product::take(16)->get(); 
@@ -46,7 +51,8 @@ class HomeController extends Controller
             'products' => $products,
             'products_sale' => $products_sale,
             'lastProduct' => $lastProduct,
-            'products_rate' => $products_rate
+            'products_rate' => $products_rate,
+            'wishlists' => $wishlists
         ]);
     }
 

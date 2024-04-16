@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WishlistController;
 use App\Models\Category;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -60,7 +61,13 @@ Route::group(['prefix' => 'cart', 'middleware' => 'check.login'], function () {
     Route::get('/add/{product}', [CartController::class, 'add'])->name('cart.add');
     Route::get('/delete/{product}', [CartController::class, 'delete'])->name('cart.delete');
     Route::get('/update/{product}', [CartController::class, 'update'])->name('cart.update');
-    Route::get('/clear', [CartController::class, 'clear'])->name('cart.clear');
+    Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
+});
+Route::group(['prefix' => 'wishlist', 'middleware' => 'check.login'], function () {
+    Route::get('/', [WishlistController::class, 'index'])->name('wishlist');
+    Route::get('/add_del/{product}', [WishlistController::class, 'add_del'])->name('wishlist.add_del');
+    Route::get('/update/{product}', [WishlistController::class, 'update'])->name('wishlist.update');
+    Route::get('/clear', [WishlistController::class, 'clear'])->name('wishlist.clear');
 });
 // Route::group(['prefix' => ''], function () {
 //     Route::resource('/', HomeController::class);

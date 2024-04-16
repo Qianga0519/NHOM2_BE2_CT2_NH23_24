@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
@@ -40,6 +41,10 @@ class Product extends Model
     {
         return $this->HasMany(Review::class);
     }
+    public function wishlist(): HasMany
+    {
+        return $this->HasMany(Wishlist::class);
+    }
     public function productFeature()
     {
         return $this->orderBy('created_at', 'DESC')->where('feature', '=', 1);
@@ -47,6 +52,18 @@ class Product extends Model
     public function productSale()
     {
         return  $this->orderBy('created_at', 'DESC')->where('sale_amount', '>', 0);
+    }
+    public function getFavorited()
+    {
+
+        if (Auth::check()) {
+
+            $favor = Wishlist::where(['product_id' => $this->id, 'user_id' => Auth::user()->id])->first();
+            return $favor ? true : false;
+        } else {
+
+            return false;
+        }
     }
 
 
