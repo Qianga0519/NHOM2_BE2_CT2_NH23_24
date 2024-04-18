@@ -53,7 +53,8 @@
                                                 </label>
                                             </td>
                                             <td>
-                                                <div class="img" style="background-image: url({{asset('images/'.$value->product->productImage->first()->url)}});"></div>
+                                            <a href="{{route('product', $value->product->id)}}">    <div class="img" style="background-image: url({{asset('images/'.$value->product->productImage->first()->url)}});"></div>
+                                                </a>
                                             </td>
                                             <td>
                                                 <div class="name">

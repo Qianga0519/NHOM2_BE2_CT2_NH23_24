@@ -4,6 +4,7 @@
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/custom/create_category.css')}}">
+
 @endsection
 @section('messages')
 @if (session('update_product_1'))
@@ -19,7 +20,7 @@
 @endsection
 @section('content')
 <div class="container">
-    <form action="{{route('product.update',[$product->id])}}" method="post">  
+    <form action="{{route('product.update',[$product->id])}}" method="post" enctype="multipart/form-data">  
         @csrf @method('PUT')
         <div class="row">
             <div class="col-10">

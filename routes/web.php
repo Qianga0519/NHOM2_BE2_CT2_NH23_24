@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Models\Category;
@@ -76,9 +77,11 @@ Route::group(['prefix' => 'wishlist', 'middleware' => 'check.login'], function (
 
 Route::group(['prefix' => '4admin', 'middleware' => 'checkAdmin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/product/feature/{id}', [ProductController::class, 'feature'])->name('product.feature');
     Route::resources([
         'category' => CategoryController::class, //CURD Category
         'product' => ProductController::class, //CURD Poduct
 
+        'product-image' => ProductImageController::class,
     ]);
 });

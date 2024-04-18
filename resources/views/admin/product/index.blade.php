@@ -3,7 +3,67 @@
 <h1 class="text-primary p-2 h3">ALL PRODUCT</h1>
 @endsection
 @section('css')
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
 
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+</style>
 @endsection
 @section('messages')
 @if (session('del_product_error'))
@@ -55,8 +115,15 @@
                 <td>{{$value['qty']}}</td>
                 <td>{{number_format($value['price'])}}</td>
                 <td>{{number_format($value['sale_amount'])}}</td>
-                <td>{{ $value->feature() ? 1 : 0 }}</td>
+                <td>
+                    {{-- @if( $value->feature())
 
+                    @else
+
+                    @endif --}}
+                    <a href="{{route('product.feature', [$value['id']])}}" type="button" class="btn {{ $value->feature() ? 'btn-primary' : 'btn-danger' }}">
+                        <i class="fa fa-power-off" aria-hidden="true"></i></a>
+                </td>
                 <td>{{$value['created_at']->format('d - m - Y')}}</td>
                 <td class="text-right">
                     <a href="{{route('product.show',[$value['id']])}}" class="btn btn-danger"><i class="fas fa-solid fa-eye"></i></a>
@@ -65,7 +132,6 @@
                 </td>
             </tr>
             @endforeach
-
         </tbody>
     </table>
 
@@ -76,6 +142,7 @@
 <form action="" method="POST" id=form-delete>
     @csrf @method('DELETE')
 </form>
+
 @endsection
 
 @section('js')

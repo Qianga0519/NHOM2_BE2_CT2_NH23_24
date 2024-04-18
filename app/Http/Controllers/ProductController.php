@@ -92,6 +92,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $product = Product::find($id);
+        return view('admin.product.show', compact('product'));
     }
 
     /**
@@ -116,18 +118,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(RuleProduct $request, $id)
-
     {
-
-        $image_url = null;
-        if ($request->hasFile('image')) { // Sử dụng hasFile() thay vì has()
-            $file = $request->file('image'); // Sử dụng file() để lấy đối tượng file
-            $file_name = $file->getClientOriginalName();
-            $image_url = $file_name;
-            $file->move(public_path('images'), $file_name);
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect()->back()->with('update_product_0', 'Product not found!');
         }
-
-
         $name = trim(strip_tags($request->name));
         $description = trim(strip_tags($request->description));
         $price = $request->price;
@@ -137,7 +132,7 @@ class ProductController extends Controller
         $category_id = $request->category_id;
         $manufacture_id = $request->manufacture_id;
         $color_id = $request->color_id;
-        $product = Product::find($id);
+
         $product->description = $description;
         $product->name = $name;
         $product->price = $price;
@@ -146,15 +141,43 @@ class ProductController extends Controller
         $product->qty = $qty;
         $product->category_id = $category_id;
         $product->manufacture_id = $manufacture_id;
-        if ($product->update()) {
-            $lastProduct = Product::orderBy('id', 'DESC')->first();
-            ProductColor::updateOrCreate(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
-            ProductImage::updateOrCreate(['name' => $name, 'url' => $request->image, 'product_id' => $lastProduct['id']]);
+
+        if ($product->save()) {
+            ProductColor::updateOrCreate(['color_id' => $color_id, 'product_id' => $product->id]);
+            // $lastProduct = Product::orderBy('id', 'DESC')->first();
+            // ProductColor::updateOrCreate(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
+            $image_url = null;
+            if ($request->has('image')) {
+                // dd('abc');
+                $file = $request->image;
+                $file_name = $file->getClientOriginalName();
+                $image_url = $file_name;
+                $file->move(public_path('images'), $file_name);
+                ProductImage::updateOrCreate(['product_id' => $product->id, 'name' => $name, 'url' => $file_name]);
+            }
+            // if ($request->has('image')) {
+            //     $file = $request->image;
+            //     $file_name = $file->getClientOriginalName();
+            //     $image_url = $file_name;
+            //     $file->move(public_path('images'), $file_name);
+            //     ProductImage::updateOrCreate(['product_id' => $product->id, 'name' => $name, 'url' => $file_name]);
+            // }
+            // ProductImage::updateOrCreate(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
             return redirect()->back()->with('update_product_1', 'Updated!');
         }
         return redirect()->back()->with('update_product_0', 'update fail!');
     }
-
+    public function feature($id)
+    {
+        $product = Product::find($id);
+        if ($product->feature) {
+            $product->feature = 0;
+        } else {
+            $product->feature = 1;
+        }
+        $product->update();
+        return back();
+    }
     /**
      * Remove the specified resource from storage.
      *
