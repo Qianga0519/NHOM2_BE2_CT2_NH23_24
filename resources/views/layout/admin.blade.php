@@ -338,7 +338,6 @@ $menus = config('menu_admin');
         let breadcrumb_active = document.querySelector('.breadcrumb li:last-child');
         breadcrumb_active.classList.add('active');
         breadcrumb_active.style.textDecoration = 'underline'
-
     </script>
 
 </body>

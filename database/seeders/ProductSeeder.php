@@ -29,30 +29,30 @@ class ProductSeeder extends Seeder
             ['Samsung Galaxy S23', 'Hiệu năng vượt trội với con chip hàng đầu Qualcomm - 
             Phục vụ tốt nhu cầu đa nhiệm ngày của người dùng.', 13750000, rand(0, 1), rand(0, 20), 150000, 1, 1],
             ['iPhone 15 128GB', 'iPhone 15 128GB được trang bị màn hình Dynamic Island kích thước 6.1 
-            inch với công nghệ hiển thị Super Retina XDR màn lại trải nghiệm hình ảnh vượt trội.', 19790000, rand(0, 1), rand(0, 20), 0, 1, 7],
+            inch với công nghệ hiển thị Super Retina XDR màn lại trải nghiệm hình ảnh vượt trội.', 19790000, rand(0, 1), rand(0, 20), 0, 1, 8],
             ['Xiaomi Redmi Note 13', 'Redmi Note 13 mang đến những tính năng
             và hiệu năng vượt trội so với các đối thủ cùng tầm
             giá. Trong bài đánh giá này, chúng ta sẽ cùng khám
             phá những điểm nổi bật của Redmi Note 13 và xem
             liệu nó có phải là lựa chọn tốt nhất trong phân khúc
-            giá rẻ hay không', 4990000, rand(0, 1), rand(0, 20), 15000, 1, 3],
+            giá rẻ hay không', 4990000, rand(0, 1), rand(0, 20), 15000, 1, 2],
             ['Xiaomi Redmi A2', 'Trong phân khúc điện thoại tầm trung, Xiaomi Redmi A2 2GB/32GB là một 
             trong những lựa chọn đáng cân nhắc nhất hiện nay. Với mức giá chỉ từ
             1.749.000 đồng, Redmi A2 vẫn mang đến cho người dùng thiết kế hiện đại,
             màn hình lớn, hiệu năng ổn định và camera chụp ảnh sắc nét cùng nhiều
             tính năng nổi bật, đáp ứng tốt nhu cầu sử dụng. Bây giờ hãy cùng 
-            Điện thoại Giá Kho khám phá dòng điện thoại này nhé!', 1649000, rand(0, 1), rand(0, 20), 0, 1, 3],
+            Điện thoại Giá Kho khám phá dòng điện thoại này nhé!', 1649000, rand(0, 1), rand(0, 20), 0, 1, 2],
             ['iPhone 15 Plus', 'Phone 15 256GB được cải tiến vượt bậc về cấu hình nhờ được trang bị con 
             chip A16 Bionic 2 lõi hiệu năng cho tốc độ nhanh chóng và tiết kiệm điện hơn
             . Camera với cảm biến chính 48MP cho chất lượng ảnh sắc nét đáng kinh
             ngạc. Máy sử dụng viên pin dung lượng lớn và hỗ trợ sạc nhanh 20W tiện
             lợi. Đặc biệt, Dynamic Island trên iPhone 14 Pro và Promax nay đã được
-            trang bị trên iPhone 256GB bản tiêu chuẩn', 23490000, rand(0, 1), rand(0, 20), 0, 1, 7],
+            trang bị trên iPhone 256GB bản tiêu chuẩn', 23490000, rand(0, 1), rand(0, 20), 0, 1, 8],
             [
                 'Vivo Y35', 'vivo Y35 là một chiếc điện thoại tầm trung đáng chú ý được ra mắt vào tháng 10/2022,
             máy nổi bật nhờ sở hữu thiết kế đẹp, khả năng sạc nhanh cùng cấu hình ổn trong phân khúc,
             ngoài ra camera với độ phân giải lên đến 50 MP cũng là điểm cộng dành cho chiếc máy này.',
-                4500000, rand(0, 1), rand(0, 20), 0, 1, 8
+                4500000, rand(0, 1), rand(0, 20), 0, 1, 9
             ], [
                 'Google Pixel 3', 'Google Pixel 3 thuộc thế hệ thứ 3 trong dòng Pixel được thiết kế bởi chính Google
              và thực sự đây là một chiếc smartphone Android đáng sở hữu nhất thời điểm hiện tại.', 2290000, rand(0, 1),
@@ -70,20 +70,20 @@ class ProductSeeder extends Seeder
             năm 2023. Với nhiều tính năng mới và cải tiến, iPhone 15 Pro Max chắc chắn sẽ là một lựa chọn tuyệt vời
              cho những người dùng đang tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết
               kế sang trọng.
-            ', 34250000, rand(0, 1), rand(0, 20), 0, 1, 7
+            ', 34250000, rand(0, 1), rand(0, 20), 0, 1, 8
             ],
             [
                 'iphone 15 Pro', 'iPhone 15 Pro Max là một chiếc điện thoại thông minh cao cấp được mong đợi nhất 
             năm 2023. Với nhiều tính năng mới và cải tiến, iPhone 15 Pro Max chắc chắn sẽ là một lựa chọn tuyệt vời
              cho những người dùng đang tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết
               kế sang trọng.
-            ', 26490000, rand(0, 1), rand(0, 20), 0, 1, 7
+            ', 26490000, rand(0, 1), rand(0, 20), 0, 1, 8
             ],
 
             ['Xiaomi 14 5G', 'Xiaomi 14 được ra mắt với tâm hướng mang đến những trải nghiệm mới mẻ và chất lượng. Như một lá cờ đầu trong ngành công nghệ, điện thoại không chỉ có thiết kế đẹp mà còn ấn tượng về màn hình, cấu hình mạnh mẽ, máy ảnh chất lượng và pin có thời gian sử dụng 
-            lâu dài.', 22490000, rand(0, 1), rand(0, 20), 250000, 1, 3],
+            lâu dài.', 22490000, rand(0, 1), rand(0, 20), 250000, 1, 2],
             ['  Xiaomi Redmi Note 13 Pro', 'Sự bùng nổ của công nghệ di động trong những năm gần đây đã mang đến cho người dùng vô số lựa chọn smartphone đa dạng. Trong phân khúc tầm trung, Xiaomi Redmi Note 13 Pro 128GB nổi lên như một ứng cử viên sáng giá với những ưu điểm vượt trội về 
-            thiết kế, hiệu năng nhờ chip Helio G99-Ultra, camera 200 MP và kết hợp sạc nhanh 67 W.', 6890000, rand(0, 1), rand(0, 20), 0, 1, 3],
+            thiết kế, hiệu năng nhờ chip Helio G99-Ultra, camera 200 MP và kết hợp sạc nhanh 67 W.', 6890000, rand(0, 1), rand(0, 20), 0, 1, 2],
             ['realme Note 50', 'realme Note 50 64GB tiếp tục thu hút sự chú ý nhờ vào mức giá nổi bật và hấp dẫn của mình. Mặc dù nằm trong phân khúc giá thấp, sản phẩm này vẫn mang đến nhiều công nghệ ấn tượng, tạo nên sự đáng chú ý khi trang bị màn hình lớn 6.74 inch, pin 5000 mAh và đạt 
             chuẩn IP54.', 2490000, rand(0, 1), rand(0, 20), 0, 1, 6],
             ['realme C67', 'Nhằm mang đến cho người dùng thêm nhiều lựa chọn ở phân khúc giá rẻ thì realme đã cho ra mắt realme C67, một sản phẩm nổi bật với thiết kế sang trọng, camera chụp ảnh đẹp cùng pin lớn có sạc nhanh, hứa hẹn đem đến nhiều trải nghiệm tốt cho
@@ -104,15 +104,15 @@ class ProductSeeder extends Seeder
             // name - des - price - feature - qty - sale_amout - cate - manu
             [
                 'Sony A7 Mark III (Body)', 'Máy ảnh Sony A7 Mark III có cảm biến full-frame với cấu trúc chống rung 5 trục bên trong thân máy và thiết kế hợp kim Magie chống chịu thời tiết. Nhưng kích thước chỉ 127 x 96 x 74 mm, khối lượng 650g tương đương với một máy ảnh cảm biến APS-C. Màn hình LCD 3 inch nghiêng-lật cảm ứng đa điểm hỗ trợ lấy nét trực tiếp, zoom sâu kiểm tra chi tiết.',
-                37000000, rand(0, 1), rand(0, 20), 200000, 8, 8
+                37000000, rand(0, 1), rand(0, 20), 200000, 8, 11
             ],
             [
                 'Sony A7 Mark IV (Body)', 'Sony A7M4 chính hãng có thể trông giống như một bản sao của người tiền nhiệm của nó. Nhưng có một số nâng cấp khá tiện lợi tinh tế khiến nó trở thành một chiếc máy ảnh thú vị hơn nhiều. Ở trên cùng, bạn sẽ tìm thấy một kính ngắm điện tử (EVF) được cải tiến, với độ phân giải 3,68 triệu điểm và tốc độ làm mới 120 khung hình/giây. Đây là nâng cấp cần thiết và hoạt động đặc biệt tốt khi bạn đang cố gắng theo dõi đối tượng chuyển động.',
-                47000000, rand(0, 1), rand(0, 20), 300000, 8, 8
+                47000000, rand(0, 1), rand(0, 20), 300000, 8, 11
             ],
             [
                 'Sony A7R Mark V (Body)', 'Máy ảnh Sony A7R Mark V là chiếc máy ảnh thế hệ thứ 5 trong dòng máy mirrorless Full-frame độ phân giải cao của hãng. Máy ảnh có cùng độ phân giải 61MP như A7R IV, nhưng có bộ xử lý Bionz XR mới mạnh hơn. Được trang bị bộ xử lý AI tiên tiến, mở rộng khả năng nhận diện chủ thể để tận dụng tối đa hiệu suất máy ảnh.',
-                87000000, rand(0, 1), rand(0, 20), 500000, 8, 8
+                87000000, rand(0, 1), rand(0, 20), 500000, 8, 11
             ],
         ];
 

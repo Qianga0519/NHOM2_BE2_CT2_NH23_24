@@ -19,8 +19,7 @@
 
                         <!-- Recently Viewed Item -->
                         <div class="owl-item">
-                            <div
-                                class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image"><img src="{{url('site')}}/images/view_1.jpg" alt=""></div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">$225<span>$300</span></div>
@@ -35,8 +34,7 @@
 
                         <!-- Recently Viewed Item -->
                         <div class="owl-item">
-                            <div
-                                class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image"><img src="{{url('site')}}/images/view_2.jpg" alt=""></div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">$379</div>
@@ -51,8 +49,7 @@
 
                         <!-- Recently Viewed Item -->
                         <div class="owl-item">
-                            <div
-                                class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image"><img src="{{url('site')}}/images/view_3.jpg" alt=""></div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">$225</div>
@@ -67,8 +64,7 @@
 
                         <!-- Recently Viewed Item -->
                         <div class="owl-item">
-                            <div
-                                class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image"><img src="{{url('site')}}/images/view_4.jpg" alt=""></div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">$379</div>
@@ -83,8 +79,7 @@
 
                         <!-- Recently Viewed Item -->
                         <div class="owl-item">
-                            <div
-                                class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image"><img src="{{url('site')}}/images/view_5.jpg" alt=""></div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">$225<span>$300</span></div>
@@ -99,8 +94,7 @@
 
                         <!-- Recently Viewed Item -->
                         <div class="owl-item">
-                            <div
-                                class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image"><img src="{{url('site')}}/images/view_6.jpg" alt=""></div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">$375</div>
@@ -126,44 +120,16 @@
                 <div class="brands_slider_container">
 
                     <!-- Brands Slider -->
-
                     <div class="owl-carousel owl-theme brands_slider">
 
+                        @foreach ($manufacture as $value)
                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_1.jpg" alt=""></div>
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="{{asset('images/' . $value->manuImage->url)}}" alt=""></div>
                         </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_2.jpg" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_3.jpg" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_4.jpg" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_5.jpg" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_6.jpg" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_7.jpg" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img
-                                    src="{{url('site')}}/images/brands_8.jpg" alt=""></div>
-                        </div>
+                        @endforeach
+
 
                     </div>
-
                     <!-- Brands Slider Navigation -->
                     <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
                     <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
@@ -176,12 +142,11 @@
 
 <!-- Newsletter -->
 
-   <div class="newsletter">
+<div class="newsletter">
     <div class="container">
         <div class="row">
             <div class="col">
-                <div
-                    class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
+                <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
                     <div class="newsletter_title_container">
                         <div class="newsletter_icon"><img src="{{url('site')}}/images/send.png" alt=""></div>
                         <div class="newsletter_title">Sign up for Newsletter</div>
@@ -191,8 +156,7 @@
                     </div>
                     <div class="newsletter_content clearfix">
                         <form action="#" class="newsletter_form">
-                            <input type="email" class="newsletter_input" required="required"
-                                placeholder="Enter your email address">
+                            <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
                             <button class="newsletter_button">Subscribe</button>
                         </form>
                         <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
@@ -286,15 +250,13 @@
         <div class="row">
             <div class="col">
 
-                <div
-                    class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
                     <div class="copyright_content">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="fa fa-heart"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+
+                        </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="logos ml-sm-auto">

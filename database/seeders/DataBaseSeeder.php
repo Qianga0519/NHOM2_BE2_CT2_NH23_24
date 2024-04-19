@@ -31,21 +31,15 @@ class DataBaseSeeder extends Seeder
                 'role_name' => $value,
             ]);
         };
+        // $manufactures = [
+        //     'Samsung', 'Xiaomi', 'Google', 'Oppo', 'Vsmart', 'Vsmart', 'Realme', 'Lenovo', 'Apple', 'Sony'
+        // ];
+
+
         $manufactures = [
-            'Samsung', 'Xiaomi', 'Google', 'Meizu',  'Vsmart', 'Lenovo', 'Iphone', 'Sony'
-        ];
-        foreach ($manufactures as $value) {
-            Manufacture::factory()->create([
-                'name' => $value,
-                'country' =>  Str::random(10)
-            ]);
-        }
-        // ['Meizu', 'meizu.png']
-        // ['Lenovo', 'lenovo.png']
-        $manufactures = [
-            ['Samsung', 'samsung.png'], ['Xiaomi', 'xiaomi.png'], ['Google', 'google.png'], ['OPPO', 'oppo.png'],
-            ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Iphone', 'iphone.png'], ['Vivo', 'vivo.png'],
-            ['HONOR', 'honor.png'], ['Sony', "sony.png"],
+            ['Samsung', 'samsung.jpg'], ['Xiaomi', 'xiaomi.jpg'], ['Google', 'google.jpg'], ['OPPO', 'oppo.png'],
+            ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Meizu', 'meizu.jpg'], ['Apple', 'apple.jpg'], ['Vivo', 'vivo.jpg'],
+            ['HONOR', 'honor.png'], ['Sony', "sony.jpg"], ['Lenovo', 'lenovo.png']
         ];
         foreach ($manufactures as $key => $value) {
             ManufactureImage::factory()->create([
@@ -53,7 +47,12 @@ class DataBaseSeeder extends Seeder
                 'url' =>   $value[1],
                 'manufacture_id' => $key + 1
             ]);
+            Manufacture::factory()->create([
+                'name' => $value[0],
+                'country' =>  Str::random(10)
+            ]);
         }
+
         $categories = [
             ['Smart Phone', 'smartphone'],
             ['Laptop', 'laptop'],

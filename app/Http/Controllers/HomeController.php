@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\Wishlist;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,6 @@ class HomeController extends Controller
         $this->banners =  Banner::get();
         $this->cate = new Category();
         $this->prod = new Product();
-
         $this->banner = new Banner();
     }
     public function index()
@@ -38,6 +38,13 @@ class HomeController extends Controller
         $lastProduct =  $this->products->find(12);
         $products_rate = Product::withCount('reviews')->orderByDesc('reviews_count')->take(16)->get();
         $wishlists = Wishlist::get();
+        $products_deal_of_week = $this->prod->productSale()
+            ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->orderBy('created_at', 'DESC')
+            ->get();
+        $currentDate = Carbon::now();
+        $endOfWeek = $currentDate->copy()->endOfWeek();
+        $deal_end_week = $endOfWeek;
 
         // dd($abc->wishlist);
         // dd($lastProduct->banner->first()->image->url);
@@ -52,7 +59,9 @@ class HomeController extends Controller
             'products_sale' => $products_sale,
             'lastProduct' => $lastProduct,
             'products_rate' => $products_rate,
-            'wishlists' => $wishlists
+            'wishlists' => $wishlists,
+            'pdofw' => $products_deal_of_week,
+            'deal_end_week' => $deal_end_week,
         ]);
     }
 

@@ -51,6 +51,11 @@ $routes = config('page_route');
                                 {{ Session::get('message') }}
                             </div>
                             @endif
+                            @if(session()->has('login_success'))
+                            <div id="not_access_admin">
+                                {{ session('login_success') }}
+                            </div>
+                            @endif
 
                             <div class="top_bar_content ml-auto">
 
@@ -83,12 +88,6 @@ $routes = config('page_route');
 
                                     @else<div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt=""></div>
                                     @endif
-
-
-
-
-
-
                                     @if (Route::has('login'))
                                     @auth
                                     <a href="{{ url('/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::user()->name }}</a>

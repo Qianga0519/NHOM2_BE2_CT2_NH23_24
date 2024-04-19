@@ -38,6 +38,7 @@ class ProductImageController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -80,7 +81,8 @@ class ProductImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        // abort(404);
+        abort(404);
     }
 
     /**
@@ -93,6 +95,11 @@ class ProductImageController extends Controller
     public function update(Request $request, $id)
     {
 
+
+
+        if (!$id) {
+            abort(404);
+        }
         $pro_image = ProductImage::find($id);
         $name = $request->pro_image_name;
         $image_url = null;
