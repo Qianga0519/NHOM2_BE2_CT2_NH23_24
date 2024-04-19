@@ -37,18 +37,19 @@ class DataBaseSeeder extends Seeder
 
 
         $manufactures = [
-            ['Samsung', 'samsung.jpg'], ['Xiaomi', 'xiaomi.jpg'], ['Google', 'google.jpg'], ['OPPO', 'oppo.png'],
-            ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Meizu', 'meizu.jpg'], ['Apple', 'apple.jpg'], ['Vivo', 'vivo.jpg'],
-            ['HONOR', 'honor.png'], ['Sony', "sony.jpg"], ['Lenovo', 'lenovo.png']
+            ['Samsung', 'samsung', 'samsung.jpg'], ['Xiaomi', 'xiaomi', 'xiaomi.jpg'], ['Google', 'google', 'google.jpg'], ['OPPO', 'oppo', 'oppo.png'],
+            ['Vsmart', 'vsmart', 'vsmart.png'], ['realme', 'realme', 'realme.png'], ['Meizu', 'meizu', 'meizu.jpg'], ['Apple', 'apple', 'apple.jpg'], ['Vivo', 'vivo', 'vivo.jpg'],
+            ['HONOR', 'honor', 'honor.png'], ['Sony', 'sony', "sony.jpg"], ['Lenovo', 'lenovo', 'lenovo.png']
         ];
         foreach ($manufactures as $key => $value) {
             ManufactureImage::factory()->create([
                 'name' => $value[0],
-                'url' =>   $value[1],
+                'url' =>   $value[2],
                 'manufacture_id' => $key + 1
             ]);
             Manufacture::factory()->create([
                 'name' => $value[0],
+                'slug' => $value[1],
                 'country' =>  Str::random(10)
             ]);
         }

@@ -16,6 +16,8 @@
         <h2 class="home_title">
             @if(isset($cates->name))
             {{$cates->name}}
+            @elseif(isset($manus->name))
+            {{$manus->name}}
             @else
             SMART SHOP
             @endif
@@ -33,15 +35,12 @@
                     <div class="sidebar_section">
                         <div class="sidebar_title">Categories</div>
                         <ul class="sidebar_categories">
-                            <li><a href="#">Computers & Laptops</a></li>
-                            <li><a href="#">Cameras & Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Smartphones & Tablets</a></li>
-                            <li><a href="#">TV & Audio</a></li>
-                            <li><a href="#">Gadgets</a></li>
-                            <li><a href="#">Car Electronics</a></li>
-                            <li><a href="#">Video Games & Consoles</a></li>
-                            <li><a href="#">Accessories</a></li>
+
+                            @foreach($categories as $value)
+
+                            <li><a href="{{route('view' , ['slug'=>$value->slug])}}">{{$value['name']}}</a></li>
+                            @endforeach
+
                         </ul>
                     </div>
                     <div class="sidebar_section filter_by_section">
@@ -68,8 +67,10 @@
                     <div class="sidebar_section">
                         <div class="sidebar_subtitle brands_subtitle">Brands</div>
                         <ul class="brands_list">
+                            @foreach ($manufacture as $value)
+                            <li class="brand"><a href="{{route('view_1', ['slug'=>$value->slug])}}">{{$value->name}}</a></li>
+                            @endforeach
 
-                            <li class="brand"><a href="#">Xiaomi</a></li>
                         </ul>
                     </div>
                 </div>

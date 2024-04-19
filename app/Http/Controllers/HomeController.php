@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Banner;
+use App\Models\Manufacture;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -102,6 +103,12 @@ class HomeController extends Controller
         $cates = Category::where('slug', $slug)->first();
         $products = $cates->products()->paginate(15);
         return view('clients.shop', compact('cates', 'products'));
+    }
+    public function view_1($slug)
+    {
+        $manus = Manufacture::where('slug', $slug)->first();
+        $products = $manus->products()->paginate(15);
+        return view('clients.shop', compact('manus', 'products'));
     }
     public function shop()
     {

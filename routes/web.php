@@ -49,6 +49,7 @@ Route::prefix('/')->group(function () {
     Route::get('contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('regular', [HomeController::class, 'regular'])->name('regular');
     Route::get('category/{slug}', [HomeController::class, 'view'])->name('view');
+    Route::get('manufacture/{slug}', [HomeController::class, 'view_1'])->name('view_1');
     Route::get('product/{id}', [HomeController::class, 'product'])->name('product');
 });
 Route::prefix('/reiew')->group(function () {
