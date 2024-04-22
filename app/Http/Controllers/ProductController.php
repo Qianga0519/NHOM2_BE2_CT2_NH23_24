@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ProductController extends Controller
 {
@@ -51,9 +52,6 @@ class ProductController extends Controller
             $image_url = $file_name;
             $file->move(public_path('images'), $file_name);
         }
-        // if (!$image_url) {
-        //     $image_url = 'no-image.png';
-        // }
         $name = trim(strip_tags($request->name));
         $description = trim(strip_tags($request->description));
         $price = $request->price;
@@ -63,6 +61,7 @@ class ProductController extends Controller
         $category_id = $request->category_id;
         $manufacture_id = $request->manufacture_id;
         $color_id = $request->color_id;
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
         $product = new Product();
         $product->description = $description;
         $product->name = $name;
@@ -72,13 +71,15 @@ class ProductController extends Controller
         $product->qty = $qty;
         $product->category_id = $category_id;
         $product->manufacture_id = $manufacture_id;
+        $product->created_at = $currentDate;
+        $product->updated_at = $currentDate;
         if ($product->save()) {
             $lastProduct = Product::orderBy('id', 'DESC')->first();
             ProductColor::create(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
             if ($image_url) {
                 ProductImage::create(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
             }
-            return redirect()->back()->with('add_product_1', 'Added1!');
+            return redirect()->route('product.index')->with('add_product_1', 'Added!');
         }
         return redirect()->back()->with('add_product_0', 'Add fail!');
     }
@@ -163,7 +164,7 @@ class ProductController extends Controller
             //     ProductImage::updateOrCreate(['product_id' => $product->id, 'name' => $name, 'url' => $file_name]);
             // }
             // ProductImage::updateOrCreate(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
-            return redirect()->back()->with('update_product_1', 'Updated!');
+            return redirect()->route('product.index')->with('update_product_1', 'Updated!');
         }
         return redirect()->back()->with('update_product_0', 'update fail!');
     }

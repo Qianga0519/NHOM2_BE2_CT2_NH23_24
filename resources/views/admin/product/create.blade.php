@@ -9,16 +9,7 @@
 @section('js')
 @endsection
 @section('messages')
-@if (session('add_product_1'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_1') }}
-</div>
-@endif
-@if (session('add_product_0'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_0') }}
-</div>
-@endif
+
 @endsection
 @section('content')
 <div class="container">

@@ -133,12 +133,17 @@
                         <div class="owl-carousel owl-theme deals_slider">
                             @foreach ($pdofw as $item)
                             <!-- Deals Item -->
+
                             <div class="owl-item deals_item">
-                                <div class="deals_image"><img src="{{asset('images/' . $item->productImage->first()->url)}}" alt=""></div>
+                                <div class="deals_image">
+                                    <a href="{{route('product', ['id' => $item['id']])}}">
+                                        <img src="{{asset('images/' . $item->productImage->first()->url)}}" alt="">
+                                    </a>
+                                </div>
                                 <div class="deals_content">
                                     <div class="deals_info_line d-flex flex-row justify-content-start">
                                         <div class="deals_item_category"><a href="#"> {{$item->category->name}}</a></div>
-                                        <div class="deals_item_price_a ml-auto">{{number_format($item->price)}}</div>
+                                        <div class="deals_item_price_a ml-auto" style="text-decoration: line-through">{{number_format($item->price)}}</div>
                                     </div>
                                     <div class="deals_info_line d-flex flex-row justify-content-start">
                                         <div class="deals_item_name">{{$item->name}}</div>

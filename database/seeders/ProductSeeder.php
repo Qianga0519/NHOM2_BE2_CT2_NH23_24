@@ -10,6 +10,7 @@ use App\Models\Banner;
 use App\Models\BannerImage;
 use Illuminate\Database\Seeder;
 use App\Models\Review;
+use Illuminate\Support\Carbon;
 
 class ProductSeeder extends Seeder
 {
@@ -20,6 +21,8 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
+
         // xiaomi 3 - samsung 1 - iphone 7
         // name - des - price - feature - qty - sale_amout - cate - manu
         //__PRODUCT_SMARTPHONE__
@@ -125,6 +128,7 @@ class ProductSeeder extends Seeder
                 'qty' => $value[4], 'sale_amount' => $value[5],
                 'category_id' => $value[6],
                 'manufacture_id' => $value[7],
+                'created_at' => $currentDate
             ]);
             ProductColor::factory()->create([
                 'color_id' => rand(1, 3),

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Avatar;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +33,26 @@ class ProfileController extends Controller
         $request->user()->district = $request->district;
         $request->user()->ward = $request->ward;
         $request->user()->address = $request->address;
+        $request->user()->fullname = $request->fullname;
+        // dd($request->image);
         // $request->user()->city = $request->city;
         // dd($request->city, $request->district, $request->ward);
+        if ($request->has('image')) {
 
+            $file = $request->image;
+            $file_name = $file->getClientOriginalName();
+            $image_url = $file_name;
+            $file->move(public_path('images'), $file_name);
+            if ($image_url) {
+                $user_id = Auth::user()->id;
+                $avatar = Avatar::where('user_id', $user_id)->first();
+                // dd($avatar);
+                if ($avatar) {
+                    $avatar->delete();
+                    Avatar::create(['url' => $image_url, 'user_id' => $user_id]);
+                }
+            }
+        }
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }

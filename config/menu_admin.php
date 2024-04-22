@@ -41,7 +41,39 @@ return [
 
             ]
         ]
+    ], [
+        'name' => 'Manufacture',
+        'route' => 'manufacture.index',
+        'icon' => 'far fa-industry',
+        'items' => [
+            [
+                'name' => 'All manufacture',
+                'route' => 'manufacture.index',
+            ],
+            [
+                'name' => 'Add manufacture',
+                'route' => 'manufacture.create'
+
+            ]
+        ]
     ],
+    [
+        'name' => 'User & Role',
+        'route' => 'user.index',
+        'icon' => 'far fa-users',
+        'items' => [
+            [
+                'name' => 'Users',
+                'route' => 'user.index',
+            ],
+            [
+                'name' => 'Roles',
+                'route' => 'role.index'
+
+            ]
+        ]
+    ],
+
 
 
 

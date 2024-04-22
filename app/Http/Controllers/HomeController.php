@@ -39,22 +39,15 @@ class HomeController extends Controller
         $lastProduct =  $this->products->find(12);
         $products_rate = Product::withCount('reviews')->orderByDesc('reviews_count')->take(16)->get();
         $wishlists = Wishlist::get();
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
+        $endOfWeek = $currentDate->copy()->endOfWeek();
+        $startOfWeek = $currentDate->copy()->startOfWeek();
+        $deal_end_week = $endOfWeek;
         $products_deal_of_week = $this->prod->productSale()
-            ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->whereBetween('created_at', [$startOfWeek, $endOfWeek])
             ->orderBy('created_at', 'DESC')
             ->get();
-        $currentDate = Carbon::now();
-        $endOfWeek = $currentDate->copy()->endOfWeek();
-        $deal_end_week = $endOfWeek;
-
-        // dd($abc->wishlist);
-        // dd($lastProduct->banner->first()->image->url);
-        // $lastBanner = $this->banners->sortBy('created_at')->first();
-        // $products_color =  Product::take(16)->get(); 
-        // $product =  Product::find(1);
-        // dd($product->productImage->toArray());
-        // dd($this->products->take(5)->toArray());
-        // dd($this->products->first()->productImage->first()->url);
+        // dd($currentDate, $endOfWeek);
         return view('clients.home', [
             'products' => $products,
             'products_sale' => $products_sale,

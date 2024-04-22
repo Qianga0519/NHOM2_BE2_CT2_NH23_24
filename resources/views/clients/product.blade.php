@@ -154,11 +154,10 @@
                     </div>
                     <div class="side_rate_bot">
                         <label for="comment">Comment</label><br>
-                        <textarea required id="comment" name="content" rows="4" cols="50">{{$product->reviews->where('user_id', Auth::id())->first()->content}}
+                        <textarea required id="comment" name="content" rows="5" cols="50">{{$product->reviews->where('user_id', Auth::id())->first()->content}}
                         </textarea><br><br>
                         <button type="submit" class="btn_review">Update</button>
-
-                        <button><a href="{{route('review.delete', $product['id'])}}" class="btn_review">Delete</a></button>
+                        <button class="delete_btn"><a href="{{route('review.delete', $product['id'])}}" class="btn_review">Delete</a></button>
                     </div>
                 </div>
             </form>
@@ -171,13 +170,10 @@
                     @if( Auth::check())
                     <div class="clientImage">
                         @if(Auth::user()->avatar)
-
                         <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
                         @else
-
                         <img src="{{asset('images/no-image.png')}}" alt="">
                         @endif
-
                         <span>{{Auth::user()->name}}</span>
                     </div>
                     @else
@@ -205,7 +201,7 @@
                     </div>
                     <div class="side_rate_bot">
                         <label for="comment">Comment</label><br>
-                        <textarea required id="comment" name="content" rows="4" cols="50">{{old('content')}}</textarea><br><br>
+                        <textarea required id="comment" name="content" rows="5" cols="50">{{old('content')}}</textarea><br><br>
                         <button type="submit" class="btn_review">Send</button>
                     </div>
                 </div>
@@ -214,9 +210,9 @@
         @endif
         @if(isset($product->reviews->first()->id))
         @foreach ($product->reviews as $value)
-        @if(Auth::id() != $value->user->id)
+        @if(Auth::id() != $value->user->id) 
         <div class="reviewItem">
-            <hr>
+          
             <div class="top">
                 <div class="clientImage">
                     <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
@@ -224,8 +220,6 @@
                 </div>
                 <ul>
                     @for ($i = 0 ; $i < $value->rate ; $i++ )
-
-
 
                         <label class="star" for="star1" title="text">★</label>
                         @endfor

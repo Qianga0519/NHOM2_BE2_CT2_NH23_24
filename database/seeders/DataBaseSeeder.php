@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\Avatar;
 use App\Models\Cart;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class DataBaseSeeder extends Seeder
 {
@@ -24,6 +25,7 @@ class DataBaseSeeder extends Seeder
      */
     public function run()
     {
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
         //
         $roles = ['admin', 'user'];
         foreach ($roles as $value) {

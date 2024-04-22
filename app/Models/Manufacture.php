@@ -21,4 +21,11 @@ class Manufacture extends Model
     {
         return $this->HasMany(Product::class);
     }
+    public function scopeSearch($querry)
+    {
+        if ($key = request()->key) {
+            $querry = $querry->where('name', 'like', '%' . $key . '%');
+        }
+        return $querry;
+    }
 }
