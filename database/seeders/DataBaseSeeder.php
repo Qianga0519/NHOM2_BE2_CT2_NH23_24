@@ -13,6 +13,8 @@ use App\Models\OrderItem;
 use App\Models\Category;
 use App\Models\Avatar;
 use App\Models\Cart;
+use App\Models\Post;
+use App\Models\PostImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 
@@ -159,5 +161,26 @@ class DataBaseSeeder extends Seeder
             'user_id' => 2,
             'color_id' => 2
         ]);
+        Post::factory()->create([
+            'user_id' => 2,
+        ]);
+        Post::factory()->create([
+            'user_id' => 1,
+        ]);
+        Post::factory()->create([
+            'user_id' => 1,
+        ]);
+        Post::factory()->create([
+            'user_id' => 2,
+        ]);
+        $img = [
+            'realme-c67.jpg', 'oppo-reno-11.jpg', 'samsung-galaxy-s24.jpg', 'samsung-galaxy-s24-plus.jpg'
+        ];
+        foreach ($img as $key => $item) {
+            PostImage::factory()->create([
+                'url' => $item,
+                'post_id' => $key + 1,
+            ]);
+        }
     }
 }

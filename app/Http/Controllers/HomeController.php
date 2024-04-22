@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\Wishlist;
 use Illuminate\Support\Carbon;
+use App\Models\Contact;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -20,6 +22,7 @@ class HomeController extends Controller
     protected $cate;
     protected $prod;
     protected $banner;
+    protected $post;
 
     // protected $route_page;
     public function __construct()
@@ -30,6 +33,7 @@ class HomeController extends Controller
         $this->cate = new Category();
         $this->prod = new Product();
         $this->banner = new Banner();
+        $this->post = new Post();
     }
     public function index()
     {
@@ -61,15 +65,27 @@ class HomeController extends Controller
 
     public function blog()
     {
-        return view('clients.blog');
+        $posts =  $this->post->paginate(3);
+        return view('clients.blog', compact('posts'));
     }
-    public function singleBlog()
+    public function singleBlog($id)
     {
-        return view('clients.blog_single');
+        $post =  Post::find($id);
+       
+        return view('clients.blog_single', compact('post'));
     }
     public function contact()
     {
         return view('clients.contact');
+    }
+    public function store(Request $request)
+    {
+        $name =  preg_replace('/\s+/', ' ', $request->name);
+        $email =  preg_replace('/\s+/', ' ', $request->email);
+        $subject =  preg_replace('/\s+/', ' ', $request->subject);
+        $message =  preg_replace('/\s+/', ' ', $request->message);
+        Contact::create(['name' => $name, 'email' => $email, 'message' => $message, 'subject' => $subject]);
+        return redirect()->back()->with('contact_1', "Sended!");
     }
 
     public function product($id)

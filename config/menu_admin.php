@@ -58,6 +58,22 @@ return [
         ]
     ],
     [
+        'name' => 'Post',
+        'route' => 'post.index',
+        'icon' => 'far fa-industry',
+        'items' => [
+            [
+                'name' => 'All post',
+                'route' => 'post.index',
+            ],
+            [
+                'name' => 'Add post',
+                'route' => 'post.create'
+
+            ]
+        ]
+    ],
+    [
         'name' => 'User & Role',
         'route' => 'user.index',
         'icon' => 'far fa-users',
@@ -72,6 +88,12 @@ return [
 
             ]
         ]
+    ],
+    [
+        'name' => 'Contact',
+        'route' => 'contact.index',
+        'icon' => 'fas fa-envelope',
+
     ],
 
 

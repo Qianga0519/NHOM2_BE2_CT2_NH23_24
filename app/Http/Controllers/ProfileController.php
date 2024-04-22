@@ -21,7 +21,6 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-
     /**
      * Update the user's profile information.
      */
@@ -46,9 +45,10 @@ class ProfileController extends Controller
             if ($image_url) {
                 $user_id = Auth::user()->id;
                 $avatar = Avatar::where('user_id', $user_id)->first();
-                // dd($avatar);
                 if ($avatar) {
                     $avatar->delete();
+                    Avatar::create(['url' => $image_url, 'user_id' => $user_id]);
+                } else {
                     Avatar::create(['url' => $image_url, 'user_id' => $user_id]);
                 }
             }

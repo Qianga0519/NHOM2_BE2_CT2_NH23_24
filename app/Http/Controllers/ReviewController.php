@@ -38,7 +38,7 @@ class ReviewController extends Controller
         $user_id = Auth::user()->id;
         $product_id = $id;
         $content = $request->content;
-        $content_remove_space = preg_replace('/\s+/', ' ', $request->content);;
+        $content_remove_space = preg_replace('/\s+/', ' ', $request->content);
         $data = ['rate' => $rate, 'content' => $content, 'user_id' => $user_id, 'product_id' => $product_id];
         $review = Review::where('user_id', $user_id)->where('product_id', $product_id)->first();
         if ($review) {

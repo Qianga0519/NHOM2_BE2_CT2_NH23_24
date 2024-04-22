@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RuleCategory;
 use App\Http\Requests\RuleManufature;
 use App\Models\Manufacture;
+use App\Models\ManufactureImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ManufactureController extends Controller
 {
@@ -40,9 +42,34 @@ class ManufactureController extends Controller
      */
     public function store(RuleManufature $request)
     {
+        $image_url = null;
+        if ($request->has('image')) {
+            $file = $request->image;
+            $file_name = $file->getClientOriginalName();
+            $image_url = $file_name;
+            $file->move(public_path('images'), $file_name);
+        }
+        $name = trim(strip_tags($request->name));
+        $slug = trim(strip_tags($request->slug));
+        $country = trim(strip_tags($request->country));
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
+        $manu = new Manufacture();
+        $manu->country = $country;
+        $manu->slug = $slug;
+        $manu->name = $name;
+        $manu->created_at = $currentDate;
+        $manu->updated_at = $currentDate;
 
+        if ($manu->save()) {
+            $lastManu = Manufacture::orderBy('id', 'DESC')->first();
 
-        dd($request->toArray());
+            if ($image_url) {
+                ManufactureImage::create(['name' => $name, 'url' => $image_url, 'manufacture_id' => $lastManu['id']]);
+            }
+            return redirect()->route('manufacture.index')->with('add_manufacture_1', 'Added!');
+        }
+        return redirect()->back()->with('add_manufacture_0', 'Add fail!');
+        // dd($request->toArray());
     }
 
     /**
@@ -65,6 +92,8 @@ class ManufactureController extends Controller
     public function edit($id)
     {
         //
+        $manu = Manufacture::find($id);
+        return view('admin.manufacture.edit', compact('manu'));
     }
 
     /**

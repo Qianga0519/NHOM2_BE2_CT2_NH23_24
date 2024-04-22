@@ -11,24 +11,10 @@
 </style>
 @endsection
 @section('messages')
-@if (session('del_manu_1'))
-<div class="alert alert-success" role="alert">
-    {{ session('del_manu_1') }}
-</div>
-@endif
-@if (session('del_manu_0'))
+
+@if (session('del_contact_1'))
 <div class="alert alert-danger" role="alert">
-    {{ session('del_manu_0') }}
-</div>
-@endif
-@if (session('add_manufacture_1'))
-<div class="alert alert-success" role="alert">
-    {{ session('add_manufacture_1') }}
-</div>
-@endif
-@if (session('add_manufacture_0'))
-<div class="alert alert-danger" role="alert">
-    {{ session('add_manufacture_0') }}
+    {{ session('del_contact_1') }}
 </div>
 
 @endif
@@ -48,35 +34,28 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col"></th>
                 <th scope="col">Name</th>
-                <th scope="col">Country</th>
-                <th scope="col">Count</th>
+                <th scope="col">Email</th>
+                <th scope="col">Message</th>
+                <th scope="col">Subject</th>
                 <th scope="col">Created_at</th>
                 <th class="text-right" scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($manus as $value )
+            @foreach ($contacts as $value )
             <tr>
                 <td>{{$value['id']}}</td>
-                <td>
-                    @if($value->manuImage)
-                    <img src="{{asset('images/' . $value->manuImage->url)}}" alt="">
-                    @else
-                    <img src="" alt="{{$value->name}}">
-
-                    @endif
-                </td>
+               
                 <td>{{$value->name}}</td>
 
-                <td>{{$value->country}}</td>
-                <td>{{$value->products->count()}}</td>
+                <td>{{$value->email}}</td>
+                <td>{{$value->subject}}</td>
+                <td>{{$value->message}}</td>
                 <td>{{$value->created_at->format('d - m - Y')}}</td>
                 <td class="text-right">
-                    <a href="{{route('manufacture.edit',[$value['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                    <a href="{{route('manufacture.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></a>
+                    <a href="{{route('contact.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -84,7 +63,7 @@
     </table>
 
     <div class="paginate_ct">
-        {{$manus->appends(request()->all())->links('layout.custom.pagination') }}
+        {{$contacts->appends(request()->all())->links('layout.custom.pagination') }}
     </div>
 </div>
 <form action="" method="POST" id=form-delete>

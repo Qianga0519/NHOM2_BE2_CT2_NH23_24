@@ -124,7 +124,11 @@
 
                         @foreach ($manufacture as $value)
                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="{{asset('images/' . $value->manuImage->url)}}" alt=""></div>
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                @if($value->manuImage)
+                                <img src="{{asset('images/' . $value->manuImage->url)}}" alt="">
+                                @endif
+                            </div>
                         </div>
                         @endforeach
 

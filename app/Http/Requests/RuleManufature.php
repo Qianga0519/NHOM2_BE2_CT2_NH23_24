@@ -26,7 +26,9 @@ class RuleManufature extends FormRequest
         return [
             // 'name' => 'required|min:3|unique:categories|max:30',
             'name' => 'required|min:3|max:30',
+            'slug' => 'required|min:3|max:30',
             'country' => 'required|min:3|max:30',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }

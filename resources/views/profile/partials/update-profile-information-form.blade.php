@@ -14,11 +14,13 @@
     }
 
     .avatar>img {
-        width: 400px;
+        width: 100px;
         border-radius: 50%;
 
     }
-
+.avatar>p{
+    font-weight: bold;
+}
 </style>
 @endsection
 <section>
@@ -37,7 +39,12 @@
         @csrf
     </form>
     <div class="avatar">
-        <img src="{{asset('images/' . $user->avatar->url)}}" alt="">
+        @if ( $user->avatar)
+            <img src="{{asset('images/' . $user->avatar->url)}}" alt="">
+        @else
+            <p>Pls, update avatar</p>
+        @endif
+        
     </div>
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
