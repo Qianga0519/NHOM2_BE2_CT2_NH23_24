@@ -32,37 +32,6 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-
-
-
-        $note =  preg_replace('/\s+/', ' ', $request->note);
-        //
-        $user_id = Auth::user()->id;
-        $cart_user = Cart::where(['user_id' => $user_id])->get();
-        $total = 0;
-        foreach ($cart_user as $value) {
-            $total += ($value->qty * $value->price);
-        }
-
-        Order::create([
-            'note' => $note, 'shipping' => 50000, 'total' => $total, 'user_id' => $user_id
-        ]);
-        $orders = Order::orderByDesc('created_at')->where('user_id', $user_id)->first();
-        // qty	price	discount	color_id	order_id	product_id
-
-        foreach ($cart_user as $value) {
-
-            OrderItem::create(
-                [
-                    'qty' => $value->qty, 'price' => $value->price, 'discount' => 0,
-                    'order_id' =>  $orders->id, 'color_id' => $value->color->id,
-                    'product_id' => $value->product->id
-                ]
-            );
-        };
-        Cart::where(['user_id' => $user_id])->truncate();
-
-        return redirect()->route('cart')->with('order_1', 'Order success!');
     }
 
     /**
@@ -85,8 +54,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
-        abort(404);
+        $order = Order::find($id);
+        $orderItems = OrderItem::where('order_id', $id)->get();
+        return view('admin.order.show', compact('order', 'orderItems'));
     }
 
     /**

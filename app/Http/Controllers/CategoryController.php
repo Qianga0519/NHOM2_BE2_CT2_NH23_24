@@ -65,7 +65,7 @@ class CategoryController extends Controller
      */
     public function show($id,)
     {
-        //
+        abort(404);  //
 
         // dd(Category::find(1)->products()->count());
         $category = Category::find($id);

@@ -15,6 +15,8 @@ use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
+use App\Models\OrderItem;
 
 class HomeController extends Controller
 {
@@ -130,5 +132,47 @@ class HomeController extends Controller
 
 
         return view('clients.checkout', compact('cart_user'));
+    }
+    public function order(Request $request)
+    {
+        // dd($request->toArray());
+        if (Auth::check()) {
+
+            $note =  preg_replace('/\s+/', ' ', $request->note);
+            if ($note != null) {
+                $user_id = Auth::user()->id;
+                $cart_user = Cart::where(['user_id' => $user_id])->get();
+
+                if ($cart_user->count() > 0) {
+                    $total = 0;
+                    foreach ($cart_user as $value) {
+                        $total += ($value->qty * $value->price);
+                    }
+
+                    Order::create([
+                        'note' => $note, 'shipping' => 50000, 'total' => $total, 'user_id' => $user_id
+                    ]);
+                    $orders = Order::orderByDesc('created_at')->where('user_id', $user_id)->first();
+                    // qty	price	discount	color_id	order_id	product_id
+
+                    foreach ($cart_user as $value) {
+
+                        OrderItem::create(
+                            [
+                                'qty' => $value->qty, 'price' => $value->price, 'discount' => 0,
+                                'order_id' =>  $orders->id, 'color_id' => $value->color->id,
+                                'product_id' => $value->product->id
+                            ]
+                        );
+                    };
+                    Cart::where(['user_id' => $user_id])->truncate();
+
+                    return redirect()->route('cart')->with('order_1', 'Order success!');
+                }
+            } else {
+                return redirect()->back()->with('order_0', 'Order fail, pls come to checkout!');
+            }
+            return redirect()->route('cart')->with('order_0', 'Order fail, not product in cart!');
+        }
     }
 }

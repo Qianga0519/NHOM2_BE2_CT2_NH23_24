@@ -80,7 +80,7 @@ class ManufactureController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);  //
     }
 
     /**
@@ -105,7 +105,7 @@ class ManufactureController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort(404); //
     }
 
     /**

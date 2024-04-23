@@ -59,6 +59,11 @@ $routes = config('page_route');
                                 {{ Session::get('order_1') }}
                             </div>
                             @endif
+                            @if(Session::has('order_0'))
+                            <div id="not_access_admin">
+                                {{ Session::get('order_0') }}
+                            </div>
+                            @endif
                             @if(session()->has('login_success'))
                             <div id="not_access_admin">
                                 {{ session('login_success') }}

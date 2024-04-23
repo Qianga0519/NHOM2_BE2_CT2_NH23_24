@@ -17,11 +17,12 @@ class OrderItemFactory extends Factory
     public function definition()
     {
         return [
-            //
+
             'qty' => 'qty',
             'price' => 'price',
-            'discount' => 'discount',
+            'discount' => 0,
             'order_id' => 'order_id',
+            'color_id' => 'color_id',
             'product_id' => 'product_id',
         ];
     }

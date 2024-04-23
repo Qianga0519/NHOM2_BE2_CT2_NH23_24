@@ -79,7 +79,7 @@
                 <th scope="col">ID</th>
 
                 <th scope="col">Note</th>
-            
+
                 <th scope="col">Shipping</th>
                 <th scope="col">Total</th>
                 <th scope="col">Status</th>
@@ -103,8 +103,8 @@
                 </td> --}}
                 <td>{{$value['created_at']->format('d - m - Y')}}</td>
                 <td class="text-right">
-                    {{-- <a href="{{route('product.show',[$value['id']])}}" class="btn btn-danger"><i class="fas fa-solid fa-eye"></i></a>
-                    <a href="{{route('product.edit',[$value['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a> --}}
+                    <a href="{{route('order.show',[$value['id']])}}" class="btn btn-outline-secondary"><i class="fas fa-solid fa-eye"></i></a>
+                    {{-- <a href="{{route('product.edit',[$value['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a> --}}
                     <a href="{{route('order.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>

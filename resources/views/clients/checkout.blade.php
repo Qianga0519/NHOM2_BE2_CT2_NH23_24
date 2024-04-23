@@ -58,9 +58,9 @@
                     </table>
 
                     <!-- Order Total -->
-                    <form action="{{route('order.create')}}" method="">
+                    <form action="{{route('user.order')}}" method="">
                         <table>Note</table>
-                        <textarea name="note" style="width: 100%; padding: 10px"id="" cols="10" rows="5"></textarea>
+                        <textarea name="note" required style="width: 100%; padding: 10px"id="" cols="10" rows="5"></textarea>
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
                                 <?php 

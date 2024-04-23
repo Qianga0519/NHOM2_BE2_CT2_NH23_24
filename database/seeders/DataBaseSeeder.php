@@ -98,12 +98,22 @@ class DataBaseSeeder extends Seeder
         ]);
         User::factory()->create([
             'name' => 'user',
-            'email' => 'user@example.com',
+            'email' => 'user@gmail.com',
             'password' => bcrypt('user123'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'fullname' => 'Tran Thanh User',
             'phone' => '0900101011',
+            'city' => 'HCM',
+        ]);
+        User::factory()->create([
+            'name' => 'user',
+            'email' => 'user1@gmail.com',
+            'password' => bcrypt('user123'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            'fullname' => 'Tran Thanh User1',
+            'phone' => '0900101911',
             'city' => 'HCM',
         ]);
         Avatar::factory()->create([
@@ -117,6 +127,10 @@ class DataBaseSeeder extends Seeder
 
         Avatar::factory()->create([
             'user_id' => 3,
+            'url' => 'user.png'
+        ]);
+        Avatar::factory()->create([
+            'user_id' => 4,
             'url' => 'user.png'
         ]);
 
@@ -156,5 +170,43 @@ class DataBaseSeeder extends Seeder
                 'post_id' => $key + 1,
             ]);
         }
+
+        Order::factory()->create([
+            'user_id' => 3,
+            'total' => 2900000
+        ]);
+        OrderItem::factory()->create([
+            'qty' => 2,
+            'product_id' => 1,
+            'order_id' => 1,
+            'color_id' => 1,
+            'price' => 200000
+        ]);
+        OrderItem::factory()->create([
+            'qty' => 1,
+            'product_id' => 2,
+            'order_id' => 1,
+            'color_id' => 3,
+            'price' => 2500000
+
+        ]);
+        Order::factory()->create([
+            'user_id' => 4,
+            'total' => 22400000
+        ]);
+        OrderItem::factory()->create([
+            'qty' => 2,
+            'product_id' => 5,
+            'order_id' => 2,
+            'color_id' => 1,
+            'price' => 2500000
+        ]);
+        OrderItem::factory()->create([
+            'qty' => 1,
+            'product_id' => 2,
+            'order_id' => 7,
+            'color_id' => 2,
+            'price' => 17400000
+        ]);
     }
 }

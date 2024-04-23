@@ -16,7 +16,7 @@ class ProductImageController extends Controller
      */
     public function index()
     {
-        //
+        abort(404);     //
     }
 
     /**
@@ -26,7 +26,7 @@ class ProductImageController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);  //
 
     }
 
@@ -70,7 +70,7 @@ class ProductImageController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);      //
     }
 
     /**

@@ -56,6 +56,9 @@ Route::prefix('/reiew')->group(function () {
     Route::get('update/{id}', [ReviewController::class, 'update'])->name('review.update');
     Route::get('delete/{id}', [ReviewController::class, 'delete'])->name('review.delete');
 });
+Route::prefix('/order')->group(function () {
+    Route::get('', [HomeController::class, 'order'])->name('user.order')->middleware('check.login', 'checkNotAdmin');
+});
 
 Route::group(['prefix' => 'cart', 'middleware' => ['check.login', 'checkNotAdmin']], function () {
     Route::get('/', [CartController::class, 'index'])->name('cart');
@@ -71,6 +74,7 @@ Route::group(['prefix' => 'wishlist', 'middleware' => ['check.login', 'checkNotA
     Route::get('/update/{product}', [WishlistController::class, 'update'])->name('wishlist.update');
     Route::get('/clear', [WishlistController::class, 'clear'])->name('wishlist.clear');
 });
+
 // Route::group(['prefix' => '4admin'], function () {
 Route::group(['prefix' => '4admin', 'middleware' => 'checkAdmin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
