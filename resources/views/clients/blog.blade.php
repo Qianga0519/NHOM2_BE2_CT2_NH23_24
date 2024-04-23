@@ -23,6 +23,7 @@
 <!-- Blog -->
 
 <div class="blog">
+    
     <div class="container">
         <div class="row">
             <div class="col">
@@ -30,7 +31,7 @@
                     @foreach ($posts as $value)
                     <!-- Blog post -->
                     <div class="blog_post">
-                        <div class="blog_image" style="background-image:url({{asset('images/'. $value->postImage->url)}})"></div>
+                        <div class="blog_image" style="background-size: contain;background-image:url({{asset('images/'. $value->postImage->url)}})"></div>
                         <div class="blog_text">{{$value->title}}</div>
                         <div class="blog_button"><a href="{{route('blog_single', ['id' => $value['id']])}}">Continue Reading</a></div>
                     </div>

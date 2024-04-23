@@ -23,6 +23,7 @@
 <div class="single_post">
     <div class="container">
         <div class="row">
+           
             <div class="col-lg-8 offset-lg-2">
 				<img src="{{asset('images/'.$post->postImage->url)}}" alt="">
                 <div class="single_post_title">{{$post['title']}}</div>
@@ -33,13 +34,14 @@
                         <div class="quote_text">Quisque sagittis non ex eget vestibulum. Sed nec ultrices dui. Cras et sagittis erat. Maecenas pulvinar, turpis in dictum tincidunt, dolor nibh lacinia lacus.</div>
                         <div class="quote_name">Liam Neeson</div>
                     </div>
-
-                   
-				
 					<p>Praesent ac magna sed massa euismod congue vitae vitae risus. Nulla lorem augue, mollis non est et, eleifend elementum ante. Nunc id pharetra magna. Praesent vel orci ornare, blandit mi sed, aliquet nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p> --}}
                <p>{{$post->content}}</p>
 				</div>
             </div>
+        
+           
+         
+           
         </div>
     </div>
 </div>

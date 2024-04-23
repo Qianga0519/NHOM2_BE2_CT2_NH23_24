@@ -18,9 +18,7 @@ return new class extends Migration
             $table->integer('qty');
             $table->decimal('price', 10);
             $table->bigInteger('product_id');
-
             $table->bigInteger('user_id');
-
             $table->bigInteger('color_id');
             $table->timestamps();
         });

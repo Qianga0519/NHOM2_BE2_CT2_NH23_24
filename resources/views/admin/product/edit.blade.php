@@ -4,19 +4,6 @@
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/custom/create_category.css')}}">
-
-@endsection
-@section('messages')
-@if (session('update_product_1'))
-<div class="alert alert-success" role="alert">
-    {{ session('update_product_1') }}
-</div>
-@endif
-@if (session('update_product_0'))
-<div class="alert alert-danger" role="alert">
-    {{ session('update_product_0') }}
-</div>
-@endif
 @endsection
 @section('content')
 <div class="container">

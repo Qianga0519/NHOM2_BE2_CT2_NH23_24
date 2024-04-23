@@ -2,18 +2,7 @@
 @section('title')
 <h1 class="text-primary p-2 h3">ALL CATEGORY</h1>
 @endsection
-@section('messages')
-@if (session('del_cate_error'))
-<div class="alert alert-danger" role="alert">
-    {{ session('del_cate_error') }}
-</div>
-@endif
-@if (session('del_cate_success'))
-<div class="alert alert-danger" role="alert">
-    {{ session('del_cate_success') }}
-</div>
-@endif
-@endsection
+
 @section('content')
 <div class="container mt-3">
    

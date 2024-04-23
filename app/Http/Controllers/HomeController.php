@@ -23,8 +23,6 @@ class HomeController extends Controller
     protected $prod;
     protected $banner;
     protected $post;
-
-    // protected $route_page;
     public function __construct()
     {
         $this->products =  Product::get();
@@ -39,7 +37,6 @@ class HomeController extends Controller
     {
         $products =  $this->prod->productFeature()->take(16)->get();
         $products_sale =  $this->prod->productSale()->take(16)->get();
-        // $lastProduct =  $this->products->sortBy('created_at')->first();
         $lastProduct =  $this->products->find(12);
         $products_rate = Product::withCount('reviews')->orderByDesc('reviews_count')->take(16)->get();
         $wishlists = Wishlist::get();
@@ -51,7 +48,6 @@ class HomeController extends Controller
             ->whereBetween('created_at', [$startOfWeek, $endOfWeek])
             ->orderBy('created_at', 'DESC')
             ->get();
-        // dd($currentDate, $endOfWeek);
         return view('clients.home', [
             'products' => $products,
             'products_sale' => $products_sale,
@@ -71,8 +67,10 @@ class HomeController extends Controller
     public function singleBlog($id)
     {
         $post =  Post::find($id);
-       
-        return view('clients.blog_single', compact('post'));
+        if ($post) {
+            return view('clients.blog_single', compact('post'));
+        }
+        abort(404);
     }
     public function contact()
     {
@@ -87,7 +85,6 @@ class HomeController extends Controller
         Contact::create(['name' => $name, 'email' => $email, 'message' => $message, 'subject' => $subject]);
         return redirect()->back()->with('contact_1', "Sended!");
     }
-
     public function product($id)
     {
 

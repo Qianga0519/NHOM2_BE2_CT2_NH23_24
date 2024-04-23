@@ -8,9 +8,6 @@
 @endsection
 @section('js')
 @endsection
-@section('messages')
-
-@endsection
 @section('content')
 <div class="container">
 

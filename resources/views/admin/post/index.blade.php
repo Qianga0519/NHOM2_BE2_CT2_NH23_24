@@ -5,12 +5,11 @@
 @section('css')
 <style>
 
-
-
-
 </style>
 @endsection
+@section('messages')
 
+@endsection
 @section('content')
 <div class="container mt-3">
 
@@ -25,28 +24,36 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Message</th>
-                <th scope="col">Subject</th>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">User</th>
                 <th scope="col">Created_at</th>
                 <th class="text-right" scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($contacts as $value )
+            @foreach ($posts as $value )
             <tr>
                 <td>{{$value['id']}}</td>
-               
-                <td>{{$value->name}}</td>
+                <td>  
+                    @if($value->postImage)
+                    <img src="{{asset('images/' . $value->postImage->url)}}" alt="">
+                    @else
+                    <img src="" alt="{{$value->title}}">
 
-                <td>{{$value->email}}</td>
-                <td>{{$value->subject}}</td>
-                <td>{{$value->message}}</td>
+                    @endif
+                </td>
+                <td>{{$value->title}}</td>
+                <td>{{$value->content}}</td>
+
+                <td>{{$value->user->name}}</td>
+
                 <td>{{$value->created_at->format('d - m - Y')}}</td>
                 <td class="text-right">
-                    <a href="{{route('contact.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></a>
+                    <a href="{{route('post.edit',[$value['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('post.destroy',[$value['id']])}}" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -54,7 +61,7 @@
     </table>
 
     <div class="paginate_ct">
-        {{$contacts->appends(request()->all())->links('layout.custom.pagination') }}
+        {{$posts->appends(request()->all())->links('layout.custom.pagination') }}
     </div>
 </div>
 <form action="" method="POST" id=form-delete>

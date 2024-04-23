@@ -65,32 +65,8 @@
 
 </style>
 @endsection
-@section('messages')
-@if (session('del_product_error'))
-<div class="alert alert-danger" role="alert">
-    {{ session('del_product_error') }}
-</div>
-@endif
-@if (session('del_product_success'))
-<div class="alert alert-danger" role="alert">
-    {{ session('del_product_success') }}
-</div>
-@endif
-@if (session('add_product_1'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_1') }}
-</div>
-@endif
-@if (session('add_product_0'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_0') }}
-</div>
-@endif
-@endsection
 @section('content')
 <div class="container mt-3">
-
-
     <form action="" class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
             <input class="form-control" name="key" value="{{old('key')}}" placeholder="Search...">

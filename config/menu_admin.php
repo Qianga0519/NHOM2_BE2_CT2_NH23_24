@@ -60,7 +60,7 @@ return [
     [
         'name' => 'Post',
         'route' => 'post.index',
-        'icon' => 'far fa-industry',
+        'icon' => 'fas fa-file-alt',
         'items' => [
             [
                 'name' => 'All post',
@@ -95,6 +95,7 @@ return [
         'icon' => 'fas fa-envelope',
 
     ],
+
 
 
 

@@ -62,48 +62,10 @@
             $('form#form-delete').submit();
         }
     })
-
 </script>
-@endsection
-@section('messages')
-@if (session('del_product_image_1'))
-<div class="alert alert-primary" role="alert">
-    {{ session('del_product_image_1') }}
-</div>
-@endif
-
-@if (session('add_product_image_1'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_image_1') }}
-</div>
-@endif
-
-@if (session('add_product_image_0'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_image_0') }}
-</div>
-@endif
-
-@if (session('edit_product_image_0'))
-<div class="alert alert-primary" role="alert">
-    {{ session('edit_product_image_0') }}
-</div>
-@endif
-@if (session('edit_product_image_1'))
-<div class="alert alert-primary" role="alert">
-    {{ session('edit_product_image_1') }}
-</div>
-@endif
-@if (session('edit_product_null'))
-<div class="alert alert-primary" role="alert">
-    {{ session('edit_product_null') }}
-</div>
-@endif
 @endsection
 @section('content')
 <div class="container">
-
-
     <div class="mb-3">
         <label for="name" class="form-label">Name: <span>{{$product->name}}</span> </label>
     </div>
