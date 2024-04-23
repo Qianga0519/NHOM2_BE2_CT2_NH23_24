@@ -101,7 +101,7 @@
                     <a href="" type="button" class="btn">
                         <i class="fa fa-power-off" aria-hidden="true"></i></a>
                 </td> --}}
-                <td>{{$value['created_at']->format('d - m - Y')}}</td>
+                <td>{{$value['created_at']->format('d - m - Y | H:s')}}</td>
                 <td class="text-right">
                     <a href="{{route('order.show',[$value['id']])}}" class="btn btn-outline-secondary"><i class="fas fa-solid fa-eye"></i></a>
                     {{-- <a href="{{route('product.edit',[$value['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a> --}}

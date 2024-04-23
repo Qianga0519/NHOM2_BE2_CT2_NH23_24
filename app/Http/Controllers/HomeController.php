@@ -137,7 +137,7 @@ class HomeController extends Controller
     {
         // dd($request->toArray());
         if (Auth::check()) {
-
+            $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
             $note =  preg_replace('/\s+/', ' ', $request->note);
             if ($note != null) {
                 $user_id = Auth::user()->id;
@@ -150,7 +150,7 @@ class HomeController extends Controller
                     }
 
                     Order::create([
-                        'note' => $note, 'shipping' => 50000, 'total' => $total, 'user_id' => $user_id
+                        'order_date' => $currentDate, 'note' => $note, 'shipping' => 50000, 'total' => $total, 'user_id' => $user_id, 'created_at' =>  $currentDate, 'update_at' => $currentDate
                     ]);
                     $orders = Order::orderByDesc('created_at')->where('user_id', $user_id)->first();
                     // qty	price	discount	color_id	order_id	product_id
@@ -161,7 +161,7 @@ class HomeController extends Controller
                             [
                                 'qty' => $value->qty, 'price' => $value->price, 'discount' => 0,
                                 'order_id' =>  $orders->id, 'color_id' => $value->color->id,
-                                'product_id' => $value->product->id
+                                'product_id' => $value->product->id, 'created_at' =>  $currentDate, 'update_at' => $currentDate
                             ]
                         );
                     };

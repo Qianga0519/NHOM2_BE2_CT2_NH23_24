@@ -32,9 +32,10 @@
                         <thead>
                             <tr>
 
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
+                                <th scope="col" style="color: black">Product</th>
+                                <th scope="col" style="color: black">Color</th>
+                                <th scope="col" style="color: black">Quantity</th>
+                                <th scope="col" style="color: black">Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +43,9 @@
                             <tr>
                                 <td>
                                     {{$value->product->name}}
+                                </td>
+                                <td>
+                                    {{$value->color->color}}
                                 </td>
                                 <td>
                                     {{$value->qty}}

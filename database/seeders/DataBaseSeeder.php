@@ -203,8 +203,8 @@ class DataBaseSeeder extends Seeder
         ]);
         OrderItem::factory()->create([
             'qty' => 1,
-            'product_id' => 2,
-            'order_id' => 7,
+            'product_id' => 7,
+            'order_id' => 2,
             'color_id' => 2,
             'price' => 17400000
         ]);

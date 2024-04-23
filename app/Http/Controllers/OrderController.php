@@ -92,10 +92,9 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         $order = Order::find($id);
-
-
-        OrderItem::where('order_id', $id)->truncate();
+        OrderItem::where('order_id', $id)->delete();
         $order->delete();
         return redirect()->back()->with('del_order_1', 'Deleted!');
     }
