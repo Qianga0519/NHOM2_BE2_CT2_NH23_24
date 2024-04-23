@@ -13,6 +13,8 @@ use App\Models\Wishlist;
 use Illuminate\Support\Carbon;
 use App\Models\Contact;
 use App\Models\Post;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -37,7 +39,7 @@ class HomeController extends Controller
     {
         $products =  $this->prod->productFeature()->take(16)->get();
         $products_sale =  $this->prod->productSale()->take(16)->get();
-        $lastProduct =  $this->products->find(12);
+        $lastBanner =  Banner::orderByDesc('created_at')->first();
         $products_rate = Product::withCount('reviews')->orderByDesc('reviews_count')->take(16)->get();
         $wishlists = Wishlist::get();
         $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
@@ -51,7 +53,7 @@ class HomeController extends Controller
         return view('clients.home', [
             'products' => $products,
             'products_sale' => $products_sale,
-            'lastProduct' => $lastProduct,
+            'lastBanner' => $lastBanner,
             'products_rate' => $products_rate,
             'wishlists' => $wishlists,
             'pdofw' => $products_deal_of_week,
@@ -120,5 +122,13 @@ class HomeController extends Controller
     {
         $products =  Product::orderBy('created_at', 'DESC')->search()->paginate(15);
         return view('clients.shop', compact('products'));
+    }
+    public function checkout()
+    {
+        $user_id = Auth::user()->id;
+        $cart_user = Cart::where(['user_id' => $user_id])->get();
+
+
+        return view('clients.checkout', compact('cart_user'));
     }
 }

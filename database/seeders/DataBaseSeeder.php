@@ -120,33 +120,7 @@ class DataBaseSeeder extends Seeder
             'url' => 'user.png'
         ]);
 
-        Order::factory()->create([
-            'user_id' => 2,
-            'order_date' =>  now(),
-            'total' => 200000,
-            'note' => 'don hang user',
-            'qty' => 3,
-            'shipping' => 20000,
-            'status' => 0,
 
-        ]);
-        OrderItem::factory()->create([
-            'qty' => 2,
-            'price' => 100000,
-            'discount' => 0,
-            'order_id' => 1,
-            'product_id' => 1,
-            'color_id' => 1
-        ]);
-
-        OrderItem::factory()->create([
-            'qty' => 3,
-            'price' => 120000,
-            'discount' => 0,
-            'order_id' => 1,
-            'product_id' => 2,
-            'color_id' => 3
-        ]);
         Cart::factory()->create([
             'qty' => 3,
             'price' => 120000,

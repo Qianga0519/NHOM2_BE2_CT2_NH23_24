@@ -118,7 +118,7 @@
                     <div class="cart_buttons">
                         <button class="button cart_button_clear" onclick="clearCart()">Clear Cart</button>
                         {{-- <a href="{{route('cart.clear')}}" class="button cart_button_clear">CLEAR</a> --}}
-                        <button type="button" class="button cart_button_checkout">CHECKOUT</button>
+                        <button type="button" class="button cart_button_checkout"><a href="{{route('checkout')}}">Checkout</a></button>
                     </div>
                 </div>
             </div>

@@ -4,16 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
 
-        'total_price', 'status', 'user_id'
+        'note', 'shipping', 'total', 'status', 'user_id'
 
     ];
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->attributes['order_date'] = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh')->toDateTimeString();
+    }
     protected $attributes = [
-        'status' => '0'
+        'status' => '0',
+
     ];
 }

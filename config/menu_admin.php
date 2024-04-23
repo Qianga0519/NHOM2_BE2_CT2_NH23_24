@@ -95,9 +95,11 @@ return [
         'icon' => 'fas fa-envelope',
 
     ],
+    [
+        'name' => 'Order',
+        'route' => 'order.index',
+        'icon' => 'fas fa-boxes',
 
-
-
-
+    ],
 
 ];

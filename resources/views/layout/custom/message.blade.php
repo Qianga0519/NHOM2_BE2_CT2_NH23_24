@@ -139,3 +139,8 @@
     {{ session('edit_post_0') }}
 </div>
 @endif
+@if (session('del_order_1'))
+<div class="alert alert-primary" role="alert">
+    {{ session('del_order_1') }}
+</div>
+@endif

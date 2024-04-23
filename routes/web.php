@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Models\Category;
 use Illuminate\Routing\Controllers\Middleware;
@@ -48,6 +49,7 @@ Route::prefix('/')->group(function () {
     Route::get('category/{slug}', [HomeController::class, 'view'])->name('view');
     Route::get('manufacture/{slug}', [HomeController::class, 'view_1'])->name('view_1');
     Route::get('product/{id}', [HomeController::class, 'product'])->name('product');
+    Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout')->middleware('check.login');
 });
 Route::prefix('/reiew')->group(function () {
     Route::get('create/{id}', [ReviewController::class, 'create'])->name('review.create');
@@ -62,13 +64,14 @@ Route::group(['prefix' => 'cart', 'middleware' => ['check.login', 'checkNotAdmin
     Route::get('/update/{product}', [CartController::class, 'update'])->name('cart.update');
     Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 });
+
 Route::group(['prefix' => 'wishlist', 'middleware' => ['check.login', 'checkNotAdmin']], function () {
     Route::get('/', [WishlistController::class, 'index'])->name('wishlist');
     Route::get('/add_del/{product}', [WishlistController::class, 'add_del'])->name('wishlist.add_del');
     Route::get('/update/{product}', [WishlistController::class, 'update'])->name('wishlist.update');
     Route::get('/clear', [WishlistController::class, 'clear'])->name('wishlist.clear');
 });
-
+// Route::group(['prefix' => '4admin'], function () {
 Route::group(['prefix' => '4admin', 'middleware' => 'checkAdmin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/users', [AdminController::class, 'users'])->name('user.index');
@@ -82,5 +85,6 @@ Route::group(['prefix' => '4admin', 'middleware' => 'checkAdmin'], function () {
         'product-image' => ProductImageController::class,
         'manufacture' => ManufactureController::class,
         'post' => PostController::class,
+        'order' => OrderController::class,
     ]);
 });

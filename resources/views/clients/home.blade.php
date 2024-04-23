@@ -19,18 +19,19 @@
     <div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
     <div class="container fill_height">
         <div class="row fill_height">
-            @if(!isset($lastProduct))
+            @if($lastBanner)
             <div class="banner_product_image">
-                <img src="{{asset('images/' . $lastProduct->banner->first()->image->url)}}" alt="abc">
+                <img src="{{asset('images/' . $lastBanner->image->url)}}" alt="abc">
             </div>
+          
             <div class="col-lg-5 offset-lg-4 fill_height">
                 <div class="banner_content">
-                    <h1 class="banner_text">{{$lastProduct->banner->first()->name}}</h1>
+                    <h1 class="banner_text">{{$lastBanner->product->name}}</h1>
                     <div class="banner_price">
-                        <span>{{number_format($lastProduct['price'])}}</span>
-                        {{$lastProduct['price'] - $lastProduct['sale_amount']}}
+                        <span>{{number_format($lastBanner->product['price'])}}</span>
+                        {{$lastBanner->product['price'] - $lastBanner->product['sale_amount']}}
                     </div>
-                    <div class="banner_product_name">{{$lastProduct['name']}}</div>
+                    <div class="banner_product_name">{{$lastBanner->product['name']}}</div>
                     <div class="button banner_button"><a href="{{route('shop')}}">Shop Now </a></div>
                 </div>
             </div>
