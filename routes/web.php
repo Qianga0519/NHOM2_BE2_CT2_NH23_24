@@ -81,6 +81,7 @@ Route::group(['prefix' => '4admin', 'middleware' => 'checkAdmin'], function () {
     Route::get('/users', [AdminController::class, 'users'])->name('user.index');
     Route::get('/roles', [AdminController::class, 'roles'])->name('role.index');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::get('/review', [AdminController::class, 'review'])->name('review.index');
     Route::delete('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
     Route::get('/product/feature/{id}', [ProductController::class, 'feature'])->name('product.feature');
     Route::resources([

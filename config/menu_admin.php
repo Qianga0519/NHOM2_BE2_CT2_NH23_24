@@ -101,5 +101,11 @@ return [
         'icon' => 'fas fa-boxes',
 
     ],
+    [
+        'name' => 'Reviews',
+        'route' => 'review.index',
+        'icon' => 'far fa-star',
+
+    ],
 
 ];

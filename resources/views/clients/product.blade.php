@@ -188,6 +188,7 @@
                                 {{ session('choose_star') }}
                                 @endif</span></label>
                         <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" />
                             <label for="star5" title="text">5 stars</label>
                             <input type="radio" id="star4" name="rate" value="4" />
                             <label for="star4" title="text">4 stars</label>
@@ -210,9 +211,9 @@
         @endif
         @if(isset($product->reviews->first()->id))
         @foreach ($product->reviews as $value)
-        @if(Auth::id() != $value->user->id) 
+        @if(Auth::id() != $value->user->id)
         <div class="reviewItem">
-          
+
             <div class="top">
                 <div class="clientImage">
                     <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
