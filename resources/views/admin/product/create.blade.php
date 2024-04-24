@@ -1,24 +1,12 @@
 @extends('layout.admin')
 @section('title')
-<h1 class="text-primary p-2 h3">ADD CATEGORY</h1>
+<h1 class="text-primary p-2 h3">CREATE PRODUCT</h1>
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/custom/create_category.css')}}">
 <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
 @endsection
 @section('js')
-@endsection
-@section('messages')
-@if (session('add_product_1'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_1') }}
-</div>
-@endif
-@if (session('add_product_0'))
-<div class="alert alert-primary" role="alert">
-    {{ session('add_product_0') }}
-</div>
-@endif
 @endsection
 @section('content')
 <div class="container">
@@ -114,7 +102,7 @@
                     <div class="col">
                         <div class="mb-3">
                             <label for="feature" class="form-label">Feature</label>
-                            <input type="checkbox" class="form-control" id="feature" name="feature" max="999999999">
+                            <input type="checkbox" class="form-control" id="feature" name="feature">
                             @error('feature')
                             <div class="form-text">{{$message}}</div>
                             @enderror
@@ -123,8 +111,8 @@
                 </div>
             </div>
         </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            
+        <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 </div>
 @endsection

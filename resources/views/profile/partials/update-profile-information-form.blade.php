@@ -4,16 +4,27 @@
 @endsection
 @section('css')
 <style>
-    div input{
+    div input {
         display: none;
     }
-    div select{
-        border: 1px solid rgba(0,0,0,0.15); 
+
+    div select {
+        border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: 7px;
     }
+
+    .avatar>img {
+        width: 100px;
+        border-radius: 50%;
+
+    }
+.avatar>p{
+    font-weight: bold;
+}
 </style>
 @endsection
 <section>
+
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
@@ -27,11 +38,22 @@
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>
-
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <div class="avatar">
+        @if ( $user->avatar)
+            <img src="{{asset('images/' . $user->avatar->url)}}" alt="">
+        @else
+            <p>Pls, update avatar</p>
+        @endif
+        
+    </div>
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
+        <div>
+            <x-input-label for="avatar" />
+            <x-text-input id="avatar" name="image" type="file" class="mt-1 block w-full" autofocus />
 
+        </div>
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
@@ -72,7 +94,7 @@
         </div>
         <div>
             <x-input-label for="gender" :value="__('Gender')" />
-            <select  id="gender" name="gender" class="mt-1 block w-full border border-1">
+            <select id="gender" name="gender" class="mt-1 block w-full border border-1">
                 @switch(Auth::user()->gender )
                 @case(Auth::user()->gender == "male")
                 <option value="male" selected>Male</option>

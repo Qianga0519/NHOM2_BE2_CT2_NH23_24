@@ -88,7 +88,8 @@
                             </ul>
                         </div>
                         <div class="product_price">{{number_format($product['price'] - $product['sale_amount']) }}
-                            VND</div>
+                        </div>
+                        <p class="price_no_sale">{{number_format($product['price'])}}</p>
                         <div class="button_container">
 
                             @if(Auth::check())
@@ -153,11 +154,10 @@
                     </div>
                     <div class="side_rate_bot">
                         <label for="comment">Comment</label><br>
-                        <textarea required id="comment" name="content" rows="4" cols="50">{{$product->reviews->where('user_id', Auth::id())->first()->content}}
+                        <textarea required id="comment" name="content" rows="5" cols="50">{{$product->reviews->where('user_id', Auth::id())->first()->content}}
                         </textarea><br><br>
                         <button type="submit" class="btn_review">Update</button>
-
-                        <button><a href="{{route('review.delete', $product['id'])}}" class="btn_review">Delete</a></button>
+                        <button class="delete_btn"><a href="{{route('review.delete', $product['id'])}}" class="btn_review">Delete</a></button>
                     </div>
                 </div>
             </form>
@@ -170,13 +170,10 @@
                     @if( Auth::check())
                     <div class="clientImage">
                         @if(Auth::user()->avatar)
-
                         <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
                         @else
-                      
-                        <img src="{{asset('images/no-image.png')}}"  alt="">
+                        <img src="{{asset('images/no-image.png')}}" alt="">
                         @endif
-                      
                         <span>{{Auth::user()->name}}</span>
                     </div>
                     @else
@@ -191,7 +188,6 @@
                                 {{ session('choose_star') }}
                                 @endif</span></label>
                         <div class="rate">
-                            <input type="radio" id="star5" name="rate" value="5" />
                             <label for="star5" title="text">5 stars</label>
                             <input type="radio" id="star4" name="rate" value="4" />
                             <label for="star4" title="text">4 stars</label>
@@ -205,66 +201,42 @@
                     </div>
                     <div class="side_rate_bot">
                         <label for="comment">Comment</label><br>
-                        <textarea required id="comment" name="content" rows="4" cols="50">{{old('content')}}</textarea><br><br>
+                        <textarea required id="comment" name="content" rows="5" cols="50">{{old('content')}}</textarea><br><br>
                         <button type="submit" class="btn_review">Send</button>
                     </div>
                 </div>
             </form>
         </div>
         @endif
+        @if(isset($product->reviews->first()->id))
+        @foreach ($product->reviews as $value)
+        @if(Auth::id() != $value->user->id) 
+        <div class="reviewItem">
+          
+            <div class="top">
+                <div class="clientImage">
+                    <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
+                    <span>{{$value->user->name}}</span>
+                </div>
+                <ul>
+                    @for ($i = 0 ; $i < $value->rate ; $i++ )
 
-        {{-- @if(isset($product->reviews->first()->id))
-                @foreach ($product->reviews as $value)
-                    @if(Auth::user()->id == $value->user->id)
-                        <div class="reviewItem">
-                            <hr>
-                            <div class="top">
-                                <div class="clientImage">
-                                    <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
-        <span>{{$value->user->name}}</span>
-    </div>
-    <ul>
-        @for ($i = 0 ; $i < $value->rate ; $i++ )
-            <li><i class="fas fa-star"></i></li>
-            @endfor
-    </ul>
-</div>
-<article>
-    <p class="review">{{$value->content}}</p>
-    <p>{{$value->created_at->format('d - m - Y')}}</p>
-</article>
-</div>
-@endif
-@endforeach
-@endif --}}
-@if(isset($product->reviews->first()->id))
-@foreach ($product->reviews as $value)
-@if(Auth::id() != $value->user->id)
-<div class="reviewItem">
-    <hr>
-    <div class="top">
-        <div class="clientImage">
-            <img src="{{asset('images/'.$value->user->avatar->url)}}" alt="">
-            <span>{{$value->user->name}}</span>
+                        <label class="star" for="star1" title="text">★</label>
+                        @endfor
+                </ul>
+            </div>
+            <article>
+                <p class="review">{{$value->content}}</p>
+                <p>{{$value->created_at->format('d - m - Y')}}</p>
+            </article>
         </div>
-        <ul>
-            @for ($i = 0 ; $i < $value->rate ; $i++ )
-                <li><i class="fas fa-star"></i></li>
-                @endfor
-        </ul>
-    </div>
-    <article>
-        <p class="review">{{$value->content}}</p>
-        <p>{{$value->created_at->format('d - m - Y')}}</p>
-    </article>
-</div>
-@endif
-@endforeach
-@else
-<span>There are no reviews yet </span>
-@endif
+        @endif
+        @endforeach
+        @else
+        <span>There are no reviews yet </span>
+        @endif
 
-</div>
+    </div>
 </div>
 </div>
 @endsection

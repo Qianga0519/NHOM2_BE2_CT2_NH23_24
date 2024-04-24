@@ -13,7 +13,10 @@ use App\Models\OrderItem;
 use App\Models\Category;
 use App\Models\Avatar;
 use App\Models\Cart;
+use App\Models\Post;
+use App\Models\PostImage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class DataBaseSeeder extends Seeder
 {
@@ -24,6 +27,7 @@ class DataBaseSeeder extends Seeder
      */
     public function run()
     {
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
         //
         $roles = ['admin', 'user'];
         foreach ($roles as $value) {
@@ -31,29 +35,29 @@ class DataBaseSeeder extends Seeder
                 'role_name' => $value,
             ]);
         };
+        // $manufactures = [
+        //     'Samsung', 'Xiaomi', 'Google', 'Oppo', 'Vsmart', 'Vsmart', 'Realme', 'Lenovo', 'Apple', 'Sony'
+        // ];
+
+
         $manufactures = [
-            'Samsung', 'Xiaomi', 'Google', 'Meizu',  'Vsmart', 'Lenovo', 'Iphone'
-        ];
-        foreach ($manufactures as $value) {
-            Manufacture::factory()->create([
-                'name' => $value,
-                'country' =>  Str::random(10)
-            ]);
-        }
-        // ['Meizu', 'meizu.png']
-        // ['Lenovo', 'lenovo.png']
-        $manufactures = [
-            ['Samsung', 'samsung.png'], ['Xiaomi', 'xiaomi.png'], ['Google', 'google.png'], ['OPPO', 'oppo.png'],
-            ['Vsmart', 'vsmart.png'], ['realme', 'realme.png'], ['Iphone', 'iphone.png'], ['Vivo', 'vivo.png'],
-            ['HONOR', 'honor.png'], ['Sony', "sony.png"],
+            ['Samsung', 'samsung', 'samsung.jpg'], ['Xiaomi', 'xiaomi', 'xiaomi.jpg'], ['Google', 'google', 'google.jpg'], ['OPPO', 'oppo', 'oppo.png'],
+            ['Vsmart', 'vsmart', 'vsmart.png'], ['realme', 'realme', 'realme.png'], ['Meizu', 'meizu', 'meizu.jpg'], ['Apple', 'apple', 'apple.jpg'], ['Vivo', 'vivo', 'vivo.jpg'],
+            ['HONOR', 'honor', 'honor.png'], ['Sony', 'sony', "sony.jpg"], ['Lenovo', 'lenovo', 'lenovo.png']
         ];
         foreach ($manufactures as $key => $value) {
             ManufactureImage::factory()->create([
                 'name' => $value[0],
-                'url' =>   $value[1],
+                'url' =>   $value[2],
                 'manufacture_id' => $key + 1
             ]);
+            Manufacture::factory()->create([
+                'name' => $value[0],
+                'slug' => $value[1],
+                'country' =>  Str::random(10)
+            ]);
         }
+
         $categories = [
             ['Smart Phone', 'smartphone'],
             ['Laptop', 'laptop'],
@@ -157,5 +161,26 @@ class DataBaseSeeder extends Seeder
             'user_id' => 2,
             'color_id' => 2
         ]);
+        Post::factory()->create([
+            'user_id' => 2,
+        ]);
+        Post::factory()->create([
+            'user_id' => 1,
+        ]);
+        Post::factory()->create([
+            'user_id' => 1,
+        ]);
+        Post::factory()->create([
+            'user_id' => 2,
+        ]);
+        $img = [
+            'realme-c67.jpg', 'oppo-reno-11.jpg', 'samsung-galaxy-s24.jpg', 'samsung-galaxy-s24-plus.jpg'
+        ];
+        foreach ($img as $key => $item) {
+            PostImage::factory()->create([
+                'url' => $item,
+                'post_id' => $key + 1,
+            ]);
+        }
     }
 }

@@ -51,6 +51,16 @@ $routes = config('page_route');
                                 {{ Session::get('message') }}
                             </div>
                             @endif
+                            @if(session()->has('login_success'))
+                            <div id="not_access_admin">
+                                {{ session('login_success') }}
+                            </div>
+                            @endif
+                            @if(session()->has('contact_1'))
+                            <div id="not_access_admin">
+                                {{ session('contact_1') }}
+                            </div>
+                            @endif
 
                             <div class="top_bar_content ml-auto">
 
@@ -78,17 +88,13 @@ $routes = config('page_route');
                                 <div class="top_bar_user">
                                     @if(Auth::check())
                                     @if(Auth::user()->avatar)
-                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>                                           
+                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>
                                     @endif
 
-                                    @else<div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt=""></div>
+                                    @else
+                                    <div class="user_icon"><img src="{{url('site')}}/images/user.svg" alt="">
+                                    </div>
                                     @endif
-
-
-
-
-
-
                                     @if (Route::has('login'))
                                     @auth
                                     <a href="{{ url('/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::user()->name }}</a>
@@ -170,11 +176,15 @@ $routes = config('page_route');
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"><img src="{{url('site')}}/images/heart.png" alt=""></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="#">Wishlist</a></div>
-                                        <div class="wishlist_count">115</div>
+                                        <div class="wishlist_text"><a href="{{route('wishlist')}}">Wishlist</a></div> @if (Auth::check())
+
+                                        <div class="wishlist_count">{{Auth::user()->wishlist()->count()}}</div>
+                                        @else
+
+                                        <div class="wishlist_count">0</div>
+                                        @endif
                                     </div>
                                 </div>
-
                                 <!-- Cart -->
                                 <div class="cart">
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
@@ -184,16 +194,28 @@ $routes = config('page_route');
                                             <div class="cart_count"><span>{{Auth::user()->cart()->count()}}</span></div>
                                         </div>
                                         <?php
-                                       $productAllCart =  Auth::user()->cart()->with('product')->get();
-                                       $total = 0;
-                                       foreach ($productAllCart as  $value) {
-                                       $total += $value['price'] *$value['qty'];
-                                       };
-                                        ?>
+                                                $productAllCart =  Auth::user()->cart()->with('product')->get();
+                                                $total = 0;
+                                                foreach ($productAllCart as  $value) {
+                                                $total += $value['price'] *$value['qty'];
+                                                };
+                                             ?>
 
                                         <div class="cart_content">
                                             <div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
                                             <div class="cart_price">{{number_format($total)}}</div>
+                                        </div>
+
+
+                                        @else
+                                        <div class="cart_icon">
+                                            <img src="{{url('site')}}/images/cart.png" alt="">
+                                            <div class="cart_count"><span>0</span></div>
+                                        </div>
+
+                                        <div class="cart_content">
+                                            <div class="cart_text"><a href="{{route('login')}}">Cart</a></div>
+                                            <div class="cart_price">0</div>
                                         </div>
                                         @endif
                                     </div>
@@ -397,6 +419,4 @@ $routes = config('page_route');
         </header>
         @yield('main')
         <!-- Footer -->
-
-
         @extends('layout.footersite')
