@@ -105,7 +105,31 @@ class ManufactureController extends Controller
      */
     public function update(Request $request, $id)
     {
-        abort(404); //
+
+        $manu = Manufacture::find($id);
+        $manu_image = ManufactureImage::where('manufacture_id', $id)->first();
+        $country = preg_replace('/\s+/', ' ', $request->country);
+        $slug = preg_replace('/\s+/', ' ', $request->slug);
+        $name = preg_replace('/\s+/', ' ', $request->name);
+        $manu->name = $name;
+        $manu->slug = $slug;
+        $manu->country = $country;
+        if ($manu->save()) {
+            if ($request->has('image')) {
+                $file = $request->image;
+                $file_name = $file->getClientOriginalName();
+                $image_url = $file_name;
+                $file->move(public_path('images'), $file_name);
+                if ($manu_image) {
+                    $manu_image->delete();
+                    ManufactureImage::updateOrCreate(['manufacture_id' => $manu->id, 'name' => $name, 'url' => $file_name]);
+                } else {
+                    ManufactureImage::updateOrCreate(['manufacture_id' => $manu->id, 'name' => $name, 'url' => $file_name]);
+                }
+            }
+            return redirect()->route('manufacture.index')->with('update_manufacture_1', 'Updated!');
+        }
+        return redirect()->route('manufacture.index')->with('update_manufacture_0', 'Update fail!');
     }
 
     /**

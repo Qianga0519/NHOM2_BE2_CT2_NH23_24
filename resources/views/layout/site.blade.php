@@ -2,6 +2,8 @@
 $routes = config('page_route');
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +14,7 @@ $routes = config('page_route');
     <meta name="description" content="Smart shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset('site/styles/bootstrap4/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css"
-        href="{{asset('site/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('site/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('site/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('site/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('site/plugins/OwlCarousel2-2.2.1/animate.css')}}">
@@ -24,6 +25,38 @@ $routes = config('page_route');
 
 
     @yield('css')
+    <style>
+        .header_search_form_container {
+            position: relative;
+            /* transform: translateX(100px) */
+        }
+
+        .list-result-search {
+            top: 102%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .list-item-search {
+
+            background: white;
+            color: #0e8ce4;
+            position: relative;
+            border-radius: 5px;
+            display: flex;
+        }
+
+        .list-item-search:hover,
+        .list-item-search:hover a {
+            background: #0e8ce4;
+            color: white;
+
+
+
+        }
+
+    </style>
+
 
 </head>
 
@@ -45,8 +78,7 @@ $routes = config('page_route');
                                 068 005 3570
                             </div>
                             <div class="top_bar_contact_item">
-                                <div class="top_bar_icon"><img src="{{url('site')}}/images/mail.png" alt=""></div><a
-                                    href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+                                <div class="top_bar_icon"><img src="{{url('site')}}/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
                             </div>
                             {{-- MESSAGE DO NOT ADMIN --}}
                             @if(Session::has('message'))
@@ -86,8 +118,7 @@ $routes = config('page_route');
                                 <div class="top_bar_user">
                                     @if(Auth::check())
                                     @if(Auth::user()->avatar)
-                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}"
-                                            alt=""> </div>
+                                    <div class="user_icon"><img src="{{asset('images/'. Auth::user()->avatar->url)}}" alt=""> </div>
                                     @endif
 
                                     @else
@@ -96,16 +127,13 @@ $routes = config('page_route');
                                     @endif
                                     @if (Route::has('login'))
                                     @auth
-                                    <a href="{{ url('/profile') }}"
-                                        class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::user()->name
+                                    <a href="{{ url('/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::user()->name
                                         }}</a>
                                     @else
-                                    <a href="{{ route('login') }}"
-                                        class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
                                     @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                                     @endif
 
                                     @endauth
@@ -144,16 +172,24 @@ $routes = config('page_route');
                                 <div class="logo"><a href="{{route('home')}}">SmartS</a></div>
                             </div>
                         </div>
-
                         <!-- Search -->
                         <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
                             <div class="header_search">
                                 <div class="header_search_content">
                                     <div class="header_search_form_container">
                                         <form action="{{route('shop')}}" class="header_search_form clearfix">
-                                            <input type="search" name="key" required="required" style="width= 100%"
-                                                class="header_search_input" placeholder="Search for products...">
+                                            <input type="search" name="key" required="required" style="width= 100%" id="input-search" class="header_search_input" placeholder="Search for products...">
+                                            {{-- <ul class="list-result-search">
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                            </ul> --}}
                                             <div class="custom_dropdown" style="display: none">
+
                                                 <div class="custom_dropdown_list">
                                                     <span class="custom_dropdown_placeholder clc">All Categories</span>
                                                     <i class="fas fa-chevron-down"></i>
@@ -167,9 +203,7 @@ $routes = config('page_route');
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="header_search_button trans_300"
-                                                value="Submit"><img src="{{url('site')}}/images/search.png"
-                                                    alt=""></button>
+                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{url('site')}}/images/search.png" alt=""></button>
                                         </form>
                                     </div>
                                 </div>
@@ -244,15 +278,13 @@ $routes = config('page_route');
                             <div class="main_nav_content d-flex flex-row">
                                 <!-- Categories Menu -->
                                 <div class="cat_menu_container">
-                                    <div
-                                        class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+                                    <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                                         <div class="cat_burger"><span></span><span></span><span></span></div>
                                         <div class="cat_menu_text">categories</div>
                                     </div>
                                     <ul class="cat_menu">
                                         @foreach($categories as $value)
-                                        <li><a href="{{route('view' , ['slug'=>$value->slug])}}">{{$value['name']}}<i
-                                                    class="fas fa-chevron-right ml-auto"></i></a></li>
+                                        <li><a href="{{route('view' , ['slug'=>$value->slug])}}">{{$value['name']}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
                                         @endforeach
                                     </ul>
                                     {{-- <ul class="cat_menu">
@@ -309,8 +341,7 @@ $routes = config('page_route');
                                             </ul>
                                         </li>
                                         <li><a href="{{route('blog')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="{{route('contact')}}">Contact<i
-                                                    class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{route('contact')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -344,9 +375,9 @@ $routes = config('page_route');
 
                                 <div class="page_menu_search">
                                     <form action="#">
-                                        <input type="search" required="required" class="page_menu_search_input"
-                                            placeholder="Search for products...">
+                                        <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
                                     </form>
+
                                 </div>
                                 {{-- <ul class="page_menu_nav">
                                     <li class="page_menu_item has-children">
@@ -414,14 +445,11 @@ $routes = config('page_route');
 
                                 <div class="menu_contact">
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/phone_white.png"
-                                                alt=""></div>
+                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/phone_white.png" alt=""></div>
                                         +38 068 005 3570
                                     </div>
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/mail_white.png"
-                                                alt=""></div><a
-                                            href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">admin@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
