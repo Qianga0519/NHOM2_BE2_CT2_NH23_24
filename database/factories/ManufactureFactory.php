@@ -18,6 +18,7 @@ class ManufactureFactory extends Factory
     {
         return [
             'name' => 'name',
+            'slug' => 'slug',
             'country' => $this->faker->country,
         ];
     }

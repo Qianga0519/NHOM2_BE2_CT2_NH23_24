@@ -1305,12 +1305,12 @@ select option {
 	width: 10%;
 	height: 10%;
 	float: left;
-	
-	
+
+
 }
 
 .cart_item_image img {
-	
+
 	max-width: 100%;
 
 }
@@ -1319,7 +1319,7 @@ select option {
 	width: calc(100% - 120px);
 	float: left;
 	padding-top: 18px;
-	
+
 }
 
 .cart_item_name {
@@ -1328,16 +1328,19 @@ select option {
 	/* background: red; */
 	width: 30%;
 }
-.cart_item_color{
+
+.cart_item_color {
 	/* background: red; */
 	width: 12%;
 	margin-left: -3%;
 }
-.cart_item_quantity{
+
+.cart_item_quantity {
 	/* background: red; */
 	width: 12%;
 	margin-left: -5%;
 }
+
 .cart_item_title {
 	font-size: 14px;
 	font-weight: 400;
@@ -1715,4 +1718,12 @@ select option {
 
 .logos_list li:last-child {
 	margin-right: 0px;
+}
+
+.lb_color {
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	border-radius: 50%;
+	border: 0.2px solid;
 }

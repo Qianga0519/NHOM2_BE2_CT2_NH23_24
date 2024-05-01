@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ProductController extends Controller
 {
@@ -51,9 +52,6 @@ class ProductController extends Controller
             $image_url = $file_name;
             $file->move(public_path('images'), $file_name);
         }
-        if (!$image_url) {
-            $image_url = 'no-image.png';
-        }
         $name = trim(strip_tags($request->name));
         $description = trim(strip_tags($request->description));
         $price = $request->price;
@@ -63,6 +61,7 @@ class ProductController extends Controller
         $category_id = $request->category_id;
         $manufacture_id = $request->manufacture_id;
         $color_id = $request->color_id;
+        $currentDate = Carbon::now()->setTimezone('Asia/Ho_Chi_Minh');
         $product = new Product();
         $product->description = $description;
         $product->name = $name;
@@ -72,11 +71,15 @@ class ProductController extends Controller
         $product->qty = $qty;
         $product->category_id = $category_id;
         $product->manufacture_id = $manufacture_id;
+        $product->created_at = $currentDate;
+        $product->updated_at = $currentDate;
         if ($product->save()) {
             $lastProduct = Product::orderBy('id', 'DESC')->first();
             ProductColor::create(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
-            ProductImage::create(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
-            return redirect()->back()->with('add_product_1', 'Added1!');
+            if ($image_url) {
+                ProductImage::create(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
+            }
+            return redirect()->route('product.index')->with('add_product_1', 'Added!');
         }
         return redirect()->back()->with('add_product_0', 'Add fail!');
     }
@@ -90,6 +93,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $product = Product::find($id);
+        return view('admin.product.show', compact('product'));
     }
 
     /**
@@ -101,8 +106,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $colors = Color::all();
         $product = Product::find($id);
-        return view('admin.product.edit', ['product' => $product]);
+        return view('admin.product.edit', ['product' => $product], compact('colors'));
     }
 
     /**
@@ -112,11 +118,67 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RuleProduct $request, $id)
     {
-        //
-    }
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect()->back()->with('update_product_0', 'Product not found!');
+        }
+        $name = trim(strip_tags($request->name));
+        $description = trim(strip_tags($request->description));
+        $price = $request->price;
+        $feature = ($request->feature === 'on') ? 1 : 0;
+        $qty  = $request->qty;
+        $sale_amount = $request->sale_amount ? $request->sale_amount : 0;
+        $category_id = $request->category_id;
+        $manufacture_id = $request->manufacture_id;
+        $color_id = $request->color_id;
 
+        $product->description = $description;
+        $product->name = $name;
+        $product->price = $price;
+        $product->feature = $feature;
+        $product->sale_amount = $sale_amount;
+        $product->qty = $qty;
+        $product->category_id = $category_id;
+        $product->manufacture_id = $manufacture_id;
+
+        if ($product->save()) {
+            ProductColor::updateOrCreate(['color_id' => $color_id, 'product_id' => $product->id]);
+            // $lastProduct = Product::orderBy('id', 'DESC')->first();
+            // ProductColor::updateOrCreate(['color_id' => $color_id, 'product_id' => $lastProduct['id']]);
+            $image_url = null;
+            if ($request->has('image')) {
+                // dd('abc');
+                $file = $request->image;
+                $file_name = $file->getClientOriginalName();
+                $image_url = $file_name;
+                $file->move(public_path('images'), $file_name);
+                ProductImage::updateOrCreate(['product_id' => $product->id, 'name' => $name, 'url' => $file_name]);
+            }
+            // if ($request->has('image')) {
+            //     $file = $request->image;
+            //     $file_name = $file->getClientOriginalName();
+            //     $image_url = $file_name;
+            //     $file->move(public_path('images'), $file_name);
+            //     ProductImage::updateOrCreate(['product_id' => $product->id, 'name' => $name, 'url' => $file_name]);
+            // }
+            // ProductImage::updateOrCreate(['name' => $name, 'url' => $image_url, 'product_id' => $lastProduct['id']]);
+            return redirect()->route('product.index')->with('update_product_1', 'Updated!');
+        }
+        return redirect()->back()->with('update_product_0', 'update fail!');
+    }
+    public function feature($id)
+    {
+        $product = Product::find($id);
+        if ($product->feature) {
+            $product->feature = 0;
+        } else {
+            $product->feature = 1;
+        }
+        $product->update();
+        return back();
+    }
     /**
      * Remove the specified resource from storage.
      *

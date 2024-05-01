@@ -17,9 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->dateTime('order_date');
             $table->text('note');
-            $table->integer('qty');
+
             $table->decimal('shipping', 10);
-            $table->decimal('total', 10);
+            $table->decimal('total', 20);
             $table->string('status'); //trang thai don hang
             $table->bigInteger('user_id');
             //$table->foreign('user_id')->references('id')->on('users');

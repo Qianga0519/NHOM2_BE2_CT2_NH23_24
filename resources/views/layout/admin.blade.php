@@ -11,7 +11,7 @@ $menus = config('menu_admin');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Admin | SmartS</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -50,15 +50,16 @@ $menus = config('menu_admin');
             <ul class="navbar-nav">
                 
                 @yield('messages')
+                @include('layout.custom.message')
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="{{route('home')}}" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
+                {{-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
-                </li>
+                </li> --}}
             </ul>
 
             <!-- SEARCH FORM -->
@@ -187,10 +188,19 @@ $menus = config('menu_admin');
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{asset('admin')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        @if (Auth::check())
+                        <img src="{{asset('images/'. Auth::user()->avatar->url)}}" class="img-circle elevation-2" alt="User Image">
+                        @else
+                        <img src="{{asset('images/admin.png')}}" class="img-circle elevation-2" alt="User Image">
+                        @endif
+                        
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        @if (Auth::check())
+                        <a href="{{route('profile.edit')}}" class="d-block">Hello {{Auth::user()->name}}</a> 
+                        @else 
+                        <a href="{{route('profile.edit')}}" class="d-block">Hello Admin</a> 
+                        @endif
                     </div>
                 </div>
 
@@ -329,7 +339,6 @@ $menus = config('menu_admin');
         let breadcrumb_active = document.querySelector('.breadcrumb li:last-child');
         breadcrumb_active.classList.add('active');
         breadcrumb_active.style.textDecoration = 'underline'
-
     </script>
 
 </body>

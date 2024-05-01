@@ -23,6 +23,7 @@ class RuleProduct extends FormRequest
      */
     public function rules()
     {
+
         return [
             'name' => 'required|min:3|max:255',
             'description' => 'required|min:3',
@@ -32,7 +33,7 @@ class RuleProduct extends FormRequest
             'category_id' => 'required',
             'manufacture_id' => 'required',
             'color_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }

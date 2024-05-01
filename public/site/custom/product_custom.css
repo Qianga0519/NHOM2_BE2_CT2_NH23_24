@@ -4,7 +4,13 @@
 article {
     margin-left: 10px;
 }
+.review{
+    width: 98%;
 
+}
+.clientImage{
+    padding: 5px 0;
+}
 .reviewSection {
     margin-top: 20px;
 }
@@ -12,12 +18,25 @@ article {
 .review h3 {
     border-top: solid;
     border-bottom: solid;
-    width: 100px;
-    line-height: 40px
+    width: 102%;
+    line-height: 40px;
+    text-align: center;
+    color: #0e8ce4;
+}
+
+#comment {
+    position: absolute;
+
+    width: 100%;
+    margin-top: -10px;
+    border: .5px solid #0e8ce4;
 }
 
 .reviewSection hr {
-    border-top: 1px solid rgb(0, 0, 0);
+    border-top: .2px solid #0e8ce4;
+    ;
+    width: 100%;
+
 }
 
 .clientImage img {
@@ -27,13 +46,31 @@ article {
     margin: 5px;
     border: 0.1px solid;
 }
-.reviewItem{
+
+.reviewItem {
     /* margin-top: 75px; */
+    
+    margin: 10px 0;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    border: .5px solid #0e8ce4;
 }
-.reviewItem_cmt{
-    margin-bottom: 75px;
+
+.reviewItem_cmt {
+    /* margin-bottom: 75px; */
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    border: .5px solid #0e8ce4;
+    height: 300px;
 
 }
+
+form {}
+
 .clientImage span {
     font-weight: bold
 }
@@ -55,7 +92,10 @@ article {
 article {
     margin-top: 5px
 }
-
+article > p{
+    word-wrap: break-word;
+    width: 95%;
+}
 .color_mark {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -67,17 +107,32 @@ article {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-   color: black;
+    color: black;
     cursor: pointer;
     border: 0.2px solid;
 }
-#selected_color{
+
+#selected_color {
     border: 0.2px solid;
 
 }
-#rating{
+
+#rating {
     width: 70px;
 }
+
+.top {}
+
+.bot {
+
+    height: 180px;
+    width: 95%;
+
+    position: absolute;
+    bottom: 50px;
+    left: 2.5%;
+}
+
 .side_rate_top {
     position: absolute;
     left: 0;
@@ -111,46 +166,72 @@ article {
 }
 
 .side_rate_top>.rate {
-    margin-top: 20px
+    margin-top: 10px;
 }
 
 .side_rate_top>label {
+
+    text-decoration: underline;
     position: absolute;
 
 
 }
 
-.side_rate_bot {
+.bot {}
 
+.side_rate_bot {
     left: 0;
-    top: 60px;
+    top: 50px;
+
 
 }
 
-.side_rate_bot button{
+.side_rate_bot>label {
+
+    margin-bottom: 15px;
+    text-decoration: underline;
+
+}
+.side_rate_bot>textarea {
+
+    padding: 5px;
+
+}
+
+.side_rate_bot button {
+    position: absolute;
     background: #fff;
     width: 80px;
     height: 25px;
     border-radius: 5px;
     border: 0.2px solid #888;
     transition: 0.5s;
+    bottom:  -95px;
 }
-.side_rate_bot button{ 
+.side_rate_bot >.delete_btn{
+    left: 90px;
+}
+
+.side_rate_bot button {
     color: black;
     transition: 0.5s;
 }
-.side_rate_bot button a{ 
-  
+
+.side_rate_bot button a {
+
     color: black;
     transition: 0.5s;
 }
-.side_rate_bot button:hover  {
+
+.side_rate_bot button:hover {
     background: #0e8ce4;
     color: white;
 }
-.side_rate_bot button:hover a  {
+
+.side_rate_bot button:hover a {
     color: white;
 }
+
 .rate {
     float: left;
     height: 46px;
@@ -193,4 +274,18 @@ article {
     color: #c59b08;
 }
 
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+.star {
+    font-size: 32px;
+    margin-left: 2px;
+    color: #ffc700;
+}
+
+.product_price {
+    color: #df3b3b;
+
+}
+
+.price_no_sale {
+    text-decoration: line-through;
+}

@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,10 +30,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        // if (Auth::check()) {
-        //     return redirect()->back();
-        // }
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // Session::flash('login_success', 'Wellcome');
+        return redirect()->intended(RouteServiceProvider::HOME)->with('login_success', "Wellcome");
     }
 
     /**

@@ -63,4 +63,24 @@ class User extends Authenticatable
     {
         return $this->HasOne(Cart::class);
     }
+    public function role(): BelongsTo
+    {
+        return $this->BelongsTo(Role::class);
+    }
+    public function wishlist(): HasOne
+    {
+        return $this->HasOne(Wishlist::class);
+    }
+    public function scopeSearch($querry)
+    {
+        if ($key = request()->key) {
+            $querry = $querry->where('name', 'like', '%' . $key . '%')
+                ->orWhere('email', 'like', '%' . $key . '%')
+                ->orWhereHas('role', function ($query) use ($key) {
+                    $query->where('role_name', 'like', '%' . $key . '%');
+                });
+        }
+
+        return $querry;
+    }
 }

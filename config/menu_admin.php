@@ -41,8 +41,71 @@ return [
 
             ]
         ]
+    ], [
+        'name' => 'Manufacture',
+        'route' => 'manufacture.index',
+        'icon' => 'far fa-industry',
+        'items' => [
+            [
+                'name' => 'All manufacture',
+                'route' => 'manufacture.index',
+            ],
+            [
+                'name' => 'Add manufacture',
+                'route' => 'manufacture.create'
+
+            ]
+        ]
     ],
+    [
+        'name' => 'Post',
+        'route' => 'post.index',
+        'icon' => 'fas fa-file-alt',
+        'items' => [
+            [
+                'name' => 'All post',
+                'route' => 'post.index',
+            ],
+            [
+                'name' => 'Add post',
+                'route' => 'post.create'
 
+            ]
+        ]
+    ],
+    [
+        'name' => 'User & Role',
+        'route' => 'user.index',
+        'icon' => 'far fa-users',
+        'items' => [
+            [
+                'name' => 'Users',
+                'route' => 'user.index',
+            ],
+            [
+                'name' => 'Roles',
+                'route' => 'role.index'
 
+            ]
+        ]
+    ],
+    [
+        'name' => 'Contact',
+        'route' => 'contact.index',
+        'icon' => 'fas fa-envelope',
+
+    ],
+    [
+        'name' => 'Order',
+        'route' => 'order.index',
+        'icon' => 'fas fa-boxes',
+
+    ],
+    [
+        'name' => 'Reviews',
+        'route' => 'review.index',
+        'icon' => 'far fa-star',
+
+    ],
 
 ];

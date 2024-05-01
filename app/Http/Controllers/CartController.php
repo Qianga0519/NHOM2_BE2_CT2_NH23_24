@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Cart;
+
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
@@ -65,8 +66,11 @@ class CartController extends Controller
     }
     public function clear()
     {
+        // $user_id = Auth::user()->id;
+        // Cart::where(['user_id' => $user_id])->delete();
+        // return redirect()->back()->with('delete_cart_all_1', 'Cleared');
         $user_id = Auth::user()->id;
-        Cart::where(['user_id' => $user_id])->delete();
-        return redirect()->back()->with('delete_cart_all_1', 'Cleared');
+        Cart::where('user_id', $user_id)->delete();
+        return response()->json(['message' => 'Cleared']);
     }
 }
