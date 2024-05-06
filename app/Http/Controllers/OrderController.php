@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+use App\Models\OrderItem;
+use Carbon\CarbonTimeZone;
+use Illuminate\Support\Carbon;
 
-class BannerController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +20,9 @@ class BannerController extends Controller
     public function index()
     {
         //
-        abort(404);
+        // $orders = Order::orderByDesc('order_date')->search()->paginate(10);
+        $orders = Order::orderByDesc('order_date')->paginate(10);
+        return view('admin.order.index', compact('orders'));
     }
 
     /**
@@ -22,10 +30,8 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-        abort(404);
     }
 
     /**
@@ -48,8 +54,9 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        //
-        abort(404);
+        $order = Order::find($id);
+        $orderItems = OrderItem::where('order_id', $id)->get();
+        return view('admin.order.show', compact('order', 'orderItems'));
     }
 
     /**
@@ -85,7 +92,10 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
-        abort(404);
+        // dd($id);
+        $order = Order::find($id);
+        OrderItem::where('order_id', $id)->delete();
+        $order->delete();
+        return redirect()->back()->with('del_order_1', 'Deleted!');
     }
 }

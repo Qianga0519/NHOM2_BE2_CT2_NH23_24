@@ -2,6 +2,8 @@
 $routes = config('page_route');
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +25,41 @@ $routes = config('page_route');
 
 
     @yield('css')
+    <style>
+        .header_search_form_container {
+            position: relative;
+            /* transform: translateX(100px) */
+        }
+
+        .list-result-search {
+            top: 102%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .list-item-search {
+
+            background: white;
+            color: #0e8ce4;
+            position: relative;
+            border-radius: 5px;
+            display: flex;
+        }
+
+        .list-item-search:hover,
+        .list-item-search:hover a {
+            background: #0e8ce4;
+            color: white;
+
+
+
+        }
+
+    </style>
+
 
 </head>
+
 <body>
 
     <div class="super_container">
@@ -45,10 +80,20 @@ $routes = config('page_route');
                             <div class="top_bar_contact_item">
                                 <div class="top_bar_icon"><img src="{{url('site')}}/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
                             </div>
-                            {{-- MESSAGE DO NOT ADMIN  --}}
+                            {{-- MESSAGE DO NOT ADMIN --}}
                             @if(Session::has('message'))
                             <div id="not_access_admin">
                                 {{ Session::get('message') }}
+                            </div>
+                            @endif
+                            @if(Session::has('order_1'))
+                            <div id="not_access_admin">
+                                {{ Session::get('order_1') }}
+                            </div>
+                            @endif
+                            @if(Session::has('order_0'))
+                            <div id="not_access_admin">
+                                {{ Session::get('order_0') }}
                             </div>
                             @endif
                             @if(session()->has('login_success'))
@@ -67,22 +112,7 @@ $routes = config('page_route');
                                 <div class="top_bar_menu">
 
                                     <ul class="standard_dropdown top_bar_dropdown">
-                                        {{-- <li>
-                                            <a href="#">English<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li><a href="#">Italian</a></li>
-                                                <li><a href="#">Spanish</a></li>
-                                                <li><a href="#">Japanese</a></li>
-                                            </ul>
-                                        </li> --}}
-                                        {{-- <li>
-                                            <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li><a href="#">EUR Euro</a></li>
-                                                <li><a href="#">GBP British Pound</a></li>
-                                                <li><a href="#">JPY Japanese Yen</a></li>
-                                            </ul>
-                                        </li> --}}
+
                                     </ul>
                                 </div>
                                 <div class="top_bar_user">
@@ -97,7 +127,8 @@ $routes = config('page_route');
                                     @endif
                                     @if (Route::has('login'))
                                     @auth
-                                    <a href="{{ url('/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::user()->name }}</a>
+                                    <a href="{{ url('/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::user()->name
+                                        }}</a>
                                     @else
                                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -113,7 +144,7 @@ $routes = config('page_route');
                                             @csrf
 
                                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                            this.closest('form').submit();">
+                                                this.closest('form').submit();">
                                                 {{__('Logout')}}
                                             </x-dropdown-link>
                                         </form>
@@ -141,15 +172,24 @@ $routes = config('page_route');
                                 <div class="logo"><a href="{{route('home')}}">SmartS</a></div>
                             </div>
                         </div>
-
                         <!-- Search -->
                         <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
                             <div class="header_search">
                                 <div class="header_search_content">
                                     <div class="header_search_form_container">
                                         <form action="{{route('shop')}}" class="header_search_form clearfix">
-                                            <input type="search" name="key" required="required" style="width= 100%" class="header_search_input" placeholder="Search for products...">
+                                            <input type="search" name="key" required="required" style="width= 100%" id="input-search" class="header_search_input" placeholder="Search for products...">
+                                            {{-- <ul class="list-result-search">
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                                <a class="header_search_input list-result-item list-item-search" href="">abc</a>
+                                            </ul> --}}
                                             <div class="custom_dropdown" style="display: none">
+
                                                 <div class="custom_dropdown_list">
                                                     <span class="custom_dropdown_placeholder clc">All Categories</span>
                                                     <i class="fas fa-chevron-down"></i>
@@ -176,7 +216,8 @@ $routes = config('page_route');
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"><img src="{{url('site')}}/images/heart.png" alt=""></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="{{route('wishlist')}}">Wishlist</a></div> @if (Auth::check())
+                                        <div class="wishlist_text"><a href="{{route('wishlist')}}">Wishlist</a></div>
+                                        @if (Auth::check())
 
                                         <div class="wishlist_count">{{Auth::user()->wishlist()->count()}}</div>
                                         @else
@@ -336,6 +377,7 @@ $routes = config('page_route');
                                     <form action="#">
                                         <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
                                     </form>
+
                                 </div>
                                 {{-- <ul class="page_menu_nav">
                                     <li class="page_menu_item has-children">
@@ -407,7 +449,7 @@ $routes = config('page_route');
                                         +38 068 005 3570
                                     </div>
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+                                        <div class="menu_contact_icon"><img src="{{url('site')}}/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">admin@gmail.com</a>
                                     </div>
                                 </div>
                             </div>

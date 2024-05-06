@@ -293,6 +293,8 @@
 <script src="{{url('site')}}/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="{{url('site')}}/js/shop_custom.js">
 </script>
+<script src="{{url('site')}}/custom/search.js">
+</script>
 @yield('js')
 </body>
 

@@ -15,7 +15,7 @@ class ReviewController extends Controller
 
         $product_id = $id;
 
-        $content = preg_replace('/\s+/', ' ', $request->content);;
+        $content = preg_replace('/\s+/', ' ', $request->content);
 
 
         if ($rate == null) {

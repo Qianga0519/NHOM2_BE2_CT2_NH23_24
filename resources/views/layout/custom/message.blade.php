@@ -139,3 +139,20 @@
     {{ session('edit_post_0') }}
 </div>
 @endif
+@if (session('del_order_1'))
+<div class="alert alert-primary" role="alert">
+    {{ session('del_order_1') }}
+</div>
+@endif
+@if (session('update_manufacture_0'))
+<div class="alert alert-danger" role="alert">
+    {{ session('update_manufacture_0') }}
+</div>
+@endif
+@if (session('update_manufacture_1'))
+<div class="alert alert-primary" role="alert">
+    {{ session('update_manufacture_1') }}
+</div>
+@endif
+
+
