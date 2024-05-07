@@ -94,8 +94,7 @@
                                         </li>
                                         <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>name
                                         </li>
-                                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "price" }'>
-                                            price</li>
+                                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "price" }'>price</li>
                                     </ul>
                                 </li>
                             </ul>

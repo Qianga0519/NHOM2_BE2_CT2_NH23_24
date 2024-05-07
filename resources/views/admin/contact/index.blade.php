@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-<h1 class="text-primary p-2 h3">ALL MANUFACTURE</h1>
+<h1 class="text-primary p-2 h3">CONTACT</h1>
 @endsection
 @section('css')
 <style>
