@@ -20,8 +20,8 @@ class OrderController extends Controller
     public function index()
     {
         //
-        // $orders = Order::orderByDesc('order_date')->search()->paginate(10);
-        $orders = Order::orderByDesc('order_date')->paginate(10);
+        $orders = Order::orderByDesc('order_date')->search()->paginate(10);
+        // $orders = Order::orderByDesc('order_date')->paginate(10);
         return view('admin.order.index', compact('orders'));
     }
 

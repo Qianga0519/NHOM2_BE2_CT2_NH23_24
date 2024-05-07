@@ -28,4 +28,11 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function scopeSearch($querry)
+    {
+        if ($key = request()->key) {
+            $querry = $querry->where('id', 'like', '%' . $key . '%');
+        }
+        return $querry;
+    }
 }
