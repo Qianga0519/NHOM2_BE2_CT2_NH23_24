@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->bigInteger('user_id');
-
             $table->timestamps();
         });
     }

@@ -19,11 +19,8 @@ return new class extends Migration
             $table->decimal('price', 10);
             $table->decimal('discount', 10)->default(0);
             $table->bigInteger('color_id');
-
             $table->bigInteger('order_id');
-
             $table->bigInteger('product_id');
-          
             $table->timestamps();
         });
     }

@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('sale_amount'); //da ban
             //foriegn-key
             $table->bigInteger('category_id');
-
             $table->bigInteger('manufacture_id');
 
             $table->timestamps();

@@ -30,7 +30,6 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->rememberToken();
             $table->bigInteger('role_id');
-
             $table->timestamps();
         });
     }

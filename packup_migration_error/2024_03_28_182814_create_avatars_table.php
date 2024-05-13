@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('id');
             $table->string('url');
             $table->bigInteger('user_id');
-
             $table->timestamps();
         });
     }
