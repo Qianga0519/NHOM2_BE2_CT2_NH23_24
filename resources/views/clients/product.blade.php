@@ -120,7 +120,12 @@
                 <div class="top">
                     @if( Auth::check())
                     <div class="clientImage">
-                        <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
+                        @if(Auth::user()->avatar)
+                             <img src="{{asset('images/'. Auth::user()->avatar->url )}}" alt="">
+                        @else
+                        <img src="{{asset('images/user.png')}}" alt="">
+                        @endif
+                       
                         <span>{{Auth::user()->name}}</span>
                     </div>
                     @else

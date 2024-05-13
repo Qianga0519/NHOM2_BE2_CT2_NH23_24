@@ -22,7 +22,7 @@ class ReviewController extends Controller
             return redirect()->back()->with('choose_star', 'Please! Choose review star');
         }
 
-        // dd($request->toArray(), $id);
+
         if (Auth::check()) {
             $user_id = Auth::user()->id;
             $data = ['rate' => $rate, 'content' => $content, 'user_id' => $user_id, 'product_id' => $product_id];
